@@ -1,8 +1,8 @@
 
 export default function Order() {
     return (
-        <>
-            Order Stuff. . .
-        </>
+        <section className="order testimonials">
+            <h1>Order Stuff. . .</h1>
+        </section>
     );
 };

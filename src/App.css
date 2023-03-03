@@ -45,7 +45,12 @@ header {
 .nav-bar .nav-item {
   margin: 0 1vw;
   justify-content: space-between;
-  
+}
+
+.booking-form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
 }
 
 button {

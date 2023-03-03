@@ -1,8 +1,8 @@
 
 export default function Menu() {
     return (
-        <>
-            Check out the Menu. . . 
-        </>
+        <section className="menu testimonials">
+            <h1>Check out the Menu. . .</h1> 
+        </section>
     );
 };
