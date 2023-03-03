@@ -35,8 +35,17 @@ header {
   padding: 20px 0;
 }
 
-header ul li {
-  padding-left: 1vw;
+.nav-bar {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-bar .nav-item {
+  margin: 0 1vw;
+  justify-content: space-between;
+  
 }
 
 button {
@@ -298,6 +307,15 @@ footer {
   width: 9vw;
 }
 
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+}
+.footer-nav .nav-item {
+  display: flex;
+  justify-content: center;
+  margin: 2px 15px;
+}
 footer > nav > ul, p {
   display: flex;
   flex-direction: column;
@@ -314,19 +332,12 @@ footer > nav > p {
   font-weight: bold;
 }
 
-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav li {
-  display: inline;
+nav li, .nav-bar, .footer-nav {
+  display: inline-flex;
   font-family: Markazi Text, KARLA REGULAR;
   font-weight: bold;
   font-size:larger;
   text-decoration: none;
-  margin: 2px 15px;
 }
 
 a {
@@ -334,7 +345,12 @@ a {
   color: #333333;
 }
 /**/
-a:hover {
+.nav-item:hover {
+  background: brown;
+  color: #EDEFEE;
+}
+
+button:hover {
   background: brown;
   color: #EDEFEE;
 }
@@ -346,18 +362,23 @@ a:hover {
       text-align: center;
   }
 
-  .nav-bar {
+  .nav-bar  {
+      width: 100%;
       border: solid 2px #495E57;
+      display: flex;
       overflow: hidden;
       overflow-x: scroll;
+  }
+
+  .nav-bar .nav-item {
+    margin: auto 3vw;
   }
 
   .logo {
       margin: 0 3px 0 5px;
   }
 
-  footer nav {
-      margin: 3vh 0;
+  footer nav .nav-item, footer nav li {
       font-size: 16pt;
       background-color:#EDEFEE;
   }
@@ -473,7 +494,8 @@ a:hover {
       margin: 0 2px;
   }
 
-  footer > nav > ul, p {
-      margin: 0 5px;
+  footer > nav > p {
+    margin-top: 3vh;
+    font-size: 16pt;
   }
 }

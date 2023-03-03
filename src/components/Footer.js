@@ -11,30 +11,26 @@ export default function Footer() {
                 alt="Little Lemon's Logo"
                 />
             </div>
-            <nav>
+            <nav className="footer-nav">
                 <p>Doormat Navigation</p>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/menu">Menu</Link>
-                <Link to="/booking">Reservations</Link>
-                <Link to="/order">Order Online</Link>
-                <Link to="/signIn">Login</Link>
+                <Link to="/" className="nav-item">Home</Link>
+                <Link to="/about" className="nav-item">About</Link>
+                <Link to="/menu" className="nav-item">Menu</Link>
+                <Link to="/booking" className="nav-item">Reservations</Link>
+                <Link to="/order" className="nav-item">Order Online</Link>
+                <Link to="/signIn" className="nav-item">Login</Link>
             </nav>
-            <nav>
+            <nav className="footer-nav">
                 <p>Contact</p>
-                <ul>
-                    <li><a href="address.html">Address</a></li>
-                    <li><a href="number.html">Phone Number</a></li>
-                    <li><a href="email.html">Email</a></li>
-                </ul>
+                <Link to="/contact" className="nav-item">Address</Link>
+                <Link to="/contact" className="nav-item">Phone Number</Link>
+                <Link to="/contact" className="nav-item">Email</Link>
             </nav>
-            <nav>
+            <nav className="footer-nav">
                 <p>Social Media Links</p>
-                <ul>
-                    <li><a href="https://twitter.com">Twitter</a></li>
-                    <li><a href="https://www.facebook.com">Facebook</a></li>
-                    <li><a href="https://www.instagram.com">Instagram</a></li>
-                </ul>
+                <Link to="https://twitter.com" className="nav-item">Twitter</Link>
+                <Link to="https://www.facebook.com" className="nav-item">Facebook</Link>
+                <Link to="https://www.instagram.com" className="nav-item">Instagram</Link>
             </nav>
         </footer>
     );
