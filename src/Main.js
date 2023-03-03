@@ -4,6 +4,7 @@ import AboutUs from "./AboutUs";
 import Menu from "./Menu";
 import Order from "./Order";
 import SignIn from "./SignIn";
+import ContactUs from "./ContactUs";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -19,6 +20,7 @@ export default function Main() {
                 <Route path="/menu" element={<Menu />}/>
                 <Route path="/order" element={<Order />}/>
                 <Route path="/sign_in" element={<SignIn />}/>
+                <Route path="/contact" element={<ContactUs />}/>
             </Routes>
         </>
     );
