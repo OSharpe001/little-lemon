@@ -9,10 +9,16 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import React, { useReducer/*, useEffect*/ } from "react";
-// import { fetchAPI/*, submitAPI*/ } from './api.js'
+import { fetchAPI/*, submitAPI*/ } from './api.js'
 
 export default function Main() {
-    // console.log("FETCHAPI RESULTS: ", fetchAPI(new Date("04/24/2022")))
+
+    const today = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number).join('/');
+    const todayTimes = fetchAPI(new Date(today))
+    //console.log("MAIN.JS, TODAY: ", today)
+    // console.log("FETCHAPI RESULTS (todayTimes): ", todayTimes);
+    // const times= fetchAPI(new Date("04/24/2023"));
+    // console.log("FETCHAPI RESULTS (times): ", times)
 
     const initialTimes = [
         "17:00",
@@ -23,13 +29,16 @@ export default function Main() {
         "22:00"
     ];
 
-    const initializeTimes= () => initialTimes;
+
+    // console.log("RESDATE: ", resDate)
+    const initializeTimes= () => todayTimes;
+    //const initializeTimes= (resDate) => fetchAPI(resDate);
 
     const updateTimes = (availableTimes, action) => {
-        console.log("updateTimes action:", action.type)
+        // console.log("updateTimes action:", action.type)
         if (action.type === "select") {
-            console.log("STATE AND ACTION OF UPDATE TIMES", availableTimes, action);
-            console.log("E.TARGET.VALUE FROM MAIN PAGE", availableTimes.choice);
+            // console.log("STATE AND ACTION OF UPDATE TIMES", availableTimes, action);
+            // console.log("E.TARGET.VALUE FROM MAIN PAGE", availableTimes.choice);
             const newList=[...availableTimes, {available:!availableTimes.available}]
             return newList/*{available : !state.available}*/;
         }
