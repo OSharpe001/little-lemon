@@ -1,11 +1,12 @@
 //{props.availableTimes.filter((info)=> info.available===true).map((info) => <option onClick={(e) => props.dispatch({type: "select", choice: e.target.value})} key={info.time}>{info.time}</option>)}
 import React, { useState, /*useEffect*/ } from "react";
+import { fetchAPI, submitAPI } from './api.js'
 
 export default function BookingForm(props) {
 
     //console.log("PROPS.DISPATCH", props.dispatch)
     //console.log("PROPS FROM BOOKING FORM", props)
-    //console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
+    console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
     
     const [resDate, setResDate] = useState("");
     const [resTime, setResTime]= useState("17:00");
