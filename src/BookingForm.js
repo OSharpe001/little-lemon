@@ -1,13 +1,12 @@
-//{props.availableTimes.filter((info)=> info.available===true).map((info) => <option onClick={(e) => props.dispatch({type: "select", choice: e.target.value})} key={info.time}>{info.time}</option>)}
 import React, { useState, /*useEffect*/ } from "react";
-import { fetchAPI, submitAPI } from './api.js'
+// import { fetchAPI, submitAPI } from './api.js'
 
 export default function BookingForm(props) {
 
-    //console.log("PROPS.DISPATCH", props.dispatch)
-    //console.log("PROPS FROM BOOKING FORM", props)
-    console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
-    
+    // console.log("PROPS.DISPATCH", props.dispatch)
+    console.log("PROPS FROM BOOKING FORM", props)
+    //console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
+
     const [resDate, setResDate] = useState("");
     const [resTime, setResTime]= useState("17:00");
     const [guests, setGuests] = useState("0");
@@ -28,42 +27,42 @@ export default function BookingForm(props) {
     };
 
     return (
-            <form 
-            className="booking-form declare" 
+            <form
+            className="booking-form declare"
             onSubmit={handleSubmit}
             >
                 <label htmlFor="res-date">Choose date</label>
-                <input 
-                type="date" 
-                id="res-date" 
+                <input
+                type="date"
+                id="res-date"
                 name="res-date"
-                value={resDate} 
+                value={resDate}
                 onChange={e => setResDate(e.target.value)}
                 />
                 <label htmlFor="res-time">Choose time</label>
-                <select 
+                <select
                 id="res-time"
                 name="res-time"
-                value={resTime} 
+                value={resTime}
                 onChange={e => setResTime(e.target.value)}
                 >
-                    {props.availableTimes().filter((info)=> info.available===true).map((info) => <option onClick={(e) => props.dispatch({type: "select", choice: e.target.value})} key={info.time}>{info.time}</option>)}
+                    {props.availableTimes().map((time) => <option onClick={() => props.dispatch({type: "select"})} key={time}>{time}</option>)}
                 </select>
                 <label htmlFor="guests">Number of guests</label>
-                <input 
-                type="number" 
-                placeholder="1" 
-                min="1" max="10" 
+                <input
+                type="number"
+                placeholder="1"
+                min="1" max="10"
                 id="guests"
                 name="guests"
-                value={guests} 
+                value={guests}
                 onChange={e => setGuests(e.target.value)}
                 />
                 <label htmlFor="occasion">Occasion</label>
-                <select 
-                id="occasion" 
+                <select
+                id="occasion"
                 name="occasion"
-                value={occasion} 
+                value={occasion}
                 onChange={e => setOccasion(e.target.value)}
                 >
                     <option>Birthday</option>

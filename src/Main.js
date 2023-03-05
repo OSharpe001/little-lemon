@@ -9,18 +9,18 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import React, { useReducer/*, useEffect*/ } from "react";
-import { fetchAPI, submitAPI } from './api.js'
-
+// import { fetchAPI/*, submitAPI*/ } from './api.js'
 
 export default function Main() {
+    // console.log("FETCHAPI RESULTS: ", fetchAPI(new Date("04/24/2022")))
 
     const initialTimes = [
-        {time:"17:00", available:true},
-        {time:"18:00", available:true},
-        {time:"19:00", available:true},
-        {time:"20:00", available:true},
-        {time:"21:00", available:true},
-        {time:"22:00", available:true}
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
     ];
 
     const initializeTimes= () => initialTimes;
