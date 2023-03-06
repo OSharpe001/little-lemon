@@ -13,14 +13,14 @@ import { fetchAPI/*, submitAPI*/ } from './api.js'
 
 export default function Main() {
 
-    const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
+    const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number)
     const today = [day,month,year].join("-");
-    const todaysTimes = fetchAPI(new Date(today));
-    //  console.log("MAIN.JS, TODAY: ", today);
-     console.log("FETCHAPI RESULTS (todayTimes): ", todaysTimes);
+    const todaysTimes = fetchAPI(new Date(today))
+    // console.log("MAIN.JS, TODAY: ", today)
+    // console.log("FETCHAPI RESULTS (todayTimes): ", todaysTimes);
     // const times= fetchAPI(new Date("04/24/2023"));
     // const times= fetchAPI(new Date("2023-03-07"));
-    // console.log("FETCHAPI RESULTS (times): ", times);
+    // console.log("FETCHAPI RESULTS (times): ", times)
 
     // const initialTimes = [
     //     "17:00",
@@ -32,17 +32,17 @@ export default function Main() {
     // ];
 
 
-    // console.log("RESDATE: ", resDate);
+    // console.log("RESDATE: ", resDate)
     const initializeTimes= () => todaysTimes;
     //const initializeTimes= (resDate) => fetchAPI(resDate);
 
     const updateTimes = (availableTimes, action) => {
-        // console.log("updateTimes action:", action.payload);
+        // console.log("updateTimes action:", action.payload)
         if (action.type === "select") {
             // console.log("STATE AND ACTION OF UPDATE TIMES", availableTimes, action);
             // console.log("E.TARGET.VALUE FROM MAIN PAGE", availableTimes.choice);
             const newList= () => fetchAPI(new Date(action.payload));
-            // console.log("NEWLIST: ", newList);
+            // console.log("NEWLIST: ", newList)
             return newList/*{available : !state.available}*/;
         }
     };

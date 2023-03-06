@@ -6,29 +6,26 @@ export default function BookingForm(props) {
 
     // console.log("PROPS.DISPATCH", props.dispatch)
     // console.log("PROPS FROM BOOKING FORM", props)
-    console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
+    // console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
 
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number)
     const today = [year, month, day].join("-");
 
     const [resDate, setResDate] = useState(today);
-    const [resTime, setResTime]= useState(props.availableTimes()[0]);
+    const [resTime, setResTime]= useState("17:00");
     const [guests, setGuests] = useState("0");
     const [occasion, setOccasion]= useState("Birthday");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (guests==="0") {
+        if (resDate==="" || guests==="0") {
             alert("All fields are necessary. .");
-            return;
-          } else if (resDate<today) {
-            alert("Please choose a viable date. .");
             return;
           };
 
         alert("form submitted!");
         setResDate({today});
-        setResTime(props.availableTimes()[0]);
+        //setResTime(props.availableTimes()[0]);
         setGuests("0");
         setOccasion("Birthday");
     };
@@ -37,13 +34,11 @@ export default function BookingForm(props) {
         // console.log("PAST DATE?: ", e.target.value<today),
         // console.log("HANDLEDATECHANGE-E.TARGET.VALUE:", e.target.value),
         // console.log("TODAY: ", today),
-        if (e.target.value<today) { return (
-            setResDate(e.target.value),
+        if (e.target.value<today) {
             alert("Please pick a future date.")
-        )} else { return (
+        } else { return (
         setResDate(e.target.value),
-        props.dispatch({type: "select", payload: e.target.value}))}
-    };
+        props.dispatch({type: "select", payload: e.target.value}))}}
 
     // const date = () => {
     //     (e) => setResDate(e.target.value)
@@ -60,13 +55,12 @@ export default function BookingForm(props) {
             onSubmit={handleSubmit}
             >
                 <label htmlFor="res-date">Choose date</label>
-                <input
+                <input 
                 type="date"
                 id="res-date"
                 name="res-date"
-                value={today/*resDate*/}
+                value={resDate}
                 onChange={handleDateChange}
-                onBlur={handleDateChange}
                 // onFocus = {e => props.dispatch({action: "select", payload: e.target.value})}
                 />
                 <label htmlFor="res-time">Choose time</label>
@@ -98,7 +92,7 @@ export default function BookingForm(props) {
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <input onClick= {handleSubmit} type="submit" value="Make Your reservation"/>
+                <input type="submit" value="Make Your reservation"/>
             </form>
     );
 };
