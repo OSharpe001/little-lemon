@@ -3,7 +3,7 @@ import entree from "../assets/images/entree.jpg";
 export default function Hero() {
     return (
         <>
-            <section class="hero">
+            <section className="hero">
                 <div className="greeting">
                     <h1>Little Lemon</h1>
                     <p>New York City</p>

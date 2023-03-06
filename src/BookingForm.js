@@ -1,12 +1,10 @@
-// props.dispatch({action: "select"}
 import React, { useState, /*useEffect*/ } from "react";
-// import { fetchAPI, submitAPI } from './api.js'
 
 export default function BookingForm(props) {
 
     // console.log("PROPS.DISPATCH", props.dispatch)
     // console.log("PROPS FROM BOOKING FORM", props)
-    console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
+    // console.log("PROPS.availableTimes", props.availableTimes()/*["17:00"]*/)
 
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number)
     const today = [year, month, day].join("-");
@@ -21,12 +19,13 @@ export default function BookingForm(props) {
         if (guests==="0") {
             alert("All fields are necessary. .");
             return;
-          } else if (resDate<today) {
+        } else if (resDate<today) {
             alert("Please choose a viable date. .");
             return;
-          };
+        };
 
         alert("form submitted!");
+        console.log("BOOKINGFORM.JS PROPS.SUBMITFORM RESULTS: ", props.submitForm(e.target.value));
         setResDate({today});
         setResTime(props.availableTimes()[0]);
         setGuests("0");
@@ -53,11 +52,12 @@ export default function BookingForm(props) {
     // console.log("TODAY: ", today)
     // console.log("RESDATE: ", resDate);
     // console.log("SETRESTIME: ", props.availableTimes()[0]);
+    // console.log(resTime)
 
     return (
             <form
             className="booking-form declare"
-            onSubmit={handleSubmit}
+            onSubmit={(e) => handleSubmit(e)}
             >
                 <label htmlFor="res-date">Choose date</label>
                 <input
@@ -98,7 +98,7 @@ export default function BookingForm(props) {
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <input onClick= {handleSubmit} type="submit" value="Make Your reservation"/>
+                <input type="submit" value="Make Your reservation"/>
             </form>
     );
 };
