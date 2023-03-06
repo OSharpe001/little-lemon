@@ -11,8 +11,7 @@ import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import React, { useReducer/*, useEffect*/ } from "react";
 import { fetchAPI, submitAPI } from './api.js';
-// import { useNavigate } from "react-router-dom";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Main() {
 
@@ -66,12 +65,13 @@ export default function Main() {
 
     const [availableTimes, dispatch]= useReducer(updateTimes, initializeTimes);
 
+    const navigate = useNavigate();
     const submitForm = (formData) => {
-        console.log("MAIN.JS FORMDATA: ", formData);
+        // console.log("MAIN.JS FORMDATA: ", formData);
         const result=submitAPI(formData);
-        console.log("MAIN.JS 'RESULT': ", result);
+        // console.log("MAIN.JS 'RESULT': ", result);
         if (result) {
-            redirect("/confirmed_booking");
+            navigate("/confirmed_booking")
         };
     };
 
@@ -101,7 +101,7 @@ export default function Main() {
                 <Route path="/order" element={<Order />}/>
                 <Route path="/sign_in" element={<SignIn />}/>
                 <Route path="/contact" element={<ContactUs />}/>
-                <Route to="/confirmed_booking" element={<ConfirmedBooking />}/>
+                <Route path="/confirmed_booking" element={<ConfirmedBooking />}/>
             </Routes>
             <Footer />
         </>

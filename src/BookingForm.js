@@ -37,10 +37,10 @@ export default function BookingForm(props) {
         // console.log("HANDLEDATECHANGE-E.TARGET.VALUE:", e.target.value),
         // console.log("TODAY: ", today),
         if (e.target.value<today) { return (
-            setResDate(e.target.value),
+            props.dispatch(e.target.value),
             alert("Please pick a future date.")
         )} else { return (
-        setResDate(e.target.value),
+        props.dispatch(e.target.value),
         props.dispatch({type: "select", payload: e.target.value}))}
     };
 
