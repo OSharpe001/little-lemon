@@ -54,8 +54,9 @@ export default function BookingForm(props) {
 
 
     return (
+        <>
             <form
-            className="booking-form declare"
+            className="booking-form"
             onSubmit={handleSubmit}
             >
                 <p>Book Now</p>
@@ -100,5 +101,6 @@ export default function BookingForm(props) {
                 </select>
                 <input type="submit" value="Make Your Reservation!"/>
             </form>
+        </>
     );
 };

@@ -350,6 +350,52 @@ a {
   color: #333333;
 };
 
+/*  */
+.booking-page {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: block;
+};
+.booking-form {
+  width:100%;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: inline-flex;
+};
+.confirmed-booking {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: block;
+};
+.sign-in {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: block;
+};
+.order {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: block;
+};
+.menu {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: block;
+};
+.about-us {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: block;
+}
+/*  */
+
 /**/
 .nav-item:hover {
   background: brown;

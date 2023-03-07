@@ -4,13 +4,15 @@ import Nav from  "./Nav"
 
 export default function Header() {
     return (
-        <header className="head">
-            <img
-            className="logo"
-            src={logo}
-            alt="Little Lemon's banner"
-            />
-            <Nav/>
-        </header>
+        <>
+            <header className="head">
+                <img
+                className="logo"
+                src={logo}
+                alt="Little Lemon's banner"
+                />
+                <Nav/>
+            </header>
+        </>
     );
 };
