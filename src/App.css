@@ -348,7 +348,8 @@ nav li, .nav-bar, .footer-nav {
 a {
   text-decoration: none;
   color: #333333;
-}
+};
+
 /**/
 .nav-item:hover {
   background: brown;
@@ -360,6 +361,9 @@ button:hover {
   color: #EDEFEE;
 }
 /**/
+
+
+
 @media (max-width: 900px/*580px*/) {
 
   header {
