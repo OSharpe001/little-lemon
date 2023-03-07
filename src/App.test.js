@@ -8,13 +8,13 @@ import Menu from './Menu';
 const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
 const today = [day,month,year].join("-");
 
-test('Renders the Home Online Menu Button', () => {
+test('Renders the Home "Online Menu" Button', () => {
   render(<HomePage />);
   const headingElement = screen.getByText("Online Menu");
   expect(headingElement).toBeInTheDocument();
 });
 
-test('Renders the Menu heading', () => {
+test('Renders the Menu Text', () => {
     render(<Menu />);
     const headingElement = screen.getByText("Check out the Menu. . .");
     expect(headingElement).toBeInTheDocument();
@@ -23,7 +23,7 @@ test('Renders the Menu heading', () => {
 
 test('Renders the BookingForm heading', () => {
   render(<BookingForm />);
-  const headingElement = screen.getByText("Occasion");
+  const headingElement = screen.getByRole("select")
   expect(headingElement).toBeInTheDocument();
 });
 test('initializeTimes returns non-empty array', () => {

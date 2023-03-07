@@ -12,11 +12,13 @@
                        "sign-in"
                        "order"
                        "menu"
+                       "about-us"
+                       "contact-us"
                        "declare1"
                        "specials"
                        "declare2"
                        "testimonials"
-                       "about-us"
+                       "about"
                        "footer";
   grid-template-columns: repeat(12, 1fr);
   column-gap: 1%;
@@ -470,6 +472,20 @@ a {
   background-color: #EE9972;
   color: #333333;
   border: solid 2px purple;
+}
+.contact-us {
+  grid-area: menu;
+  grid-column: 3 / 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 16px;
+  background-color: #EDEFEE;
+  color: #333333;
+  border: solid 2px green;
 }
 /*  */
 
