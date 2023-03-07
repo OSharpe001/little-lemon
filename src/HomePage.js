@@ -11,7 +11,7 @@ export default function Homepage() {
             <Hero />
             <section className="declare1">
                 <h2>This week's specials!</h2>
-                <button >Online Menu</button>
+                <button className="button" >Online Menu</button>
             </section>
             <br/>
             <Specials />

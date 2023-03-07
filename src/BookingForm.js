@@ -54,13 +54,12 @@ export default function BookingForm(props) {
 
 
     return (
-        <>
             <form
             className="booking-form"
             onSubmit={handleSubmit}
             >
-                <p>Book Now</p>
-                <label htmlFor="res-date">Choose date</label>
+                <p>Reserve Your Table Today</p>
+                <label htmlFor="res-date">Choose Date</label>
                 <input
                 type="date"
                 id="res-date"
@@ -70,7 +69,7 @@ export default function BookingForm(props) {
                 onBlur={handleDateChange}
                 // onFocus = {e => props.dispatch({action: "select", payload: e.target.value})}
                 />
-                <label htmlFor="res-time">Choose time</label>
+                <label htmlFor="res-time">Choose Time</label>
                 <select
                 id="res-time"
                 name="res-time"
@@ -79,7 +78,7 @@ export default function BookingForm(props) {
                 onChange={e => setResTime(e.target.value) }>
                     {props.availableTimes().map((time) => <option key={time}>{time}</option>)}
                 </select>
-                <label htmlFor="guests">Number of guests</label>
+                <label htmlFor="guests">Number of Guests</label>
                 <input
                 type="number"
                 placeholder="1"
@@ -99,8 +98,7 @@ export default function BookingForm(props) {
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <input type="submit" value="Make Your Reservation!"/>
+                <input className="button" type="submit" value="Make Your Reservation!"/>
             </form>
-        </>
     );
 };
