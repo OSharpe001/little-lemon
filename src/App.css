@@ -147,7 +147,7 @@ h4, h5, h6 {
   justify-content: center; */
   border-radius:16px;
 }
-#occasion, input:focus:invalid {
+/* #occasion,*/ input:focus:invalid {
   border: 2px solid red;
 }
 .booking-form .button {
@@ -156,6 +156,10 @@ h4, h5, h6 {
 
 .booking-form .button, label, #occasion {
   margin-top: 5vh;
+}
+#occasion::selection {
+  color: #EDEFEE;
+  background-color: #495E57;
 }
 .booking-form select, #guests, #res-date {
   width: 30vw;
@@ -412,18 +416,27 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  text-align: center;
   font-size: 18pt;
   font-weight: bold;
   align-items: center;
   width: 100%;
-  height: 30vh;
-  margin: 20px 0;
+  margin: 4vh 0;
+  padding: 3vh 0;
   background-color: #F4CE14;
   border-radius: 16px;
 }
 
-.confirmed-booking p{
-  margin: 0 3vw;
+.confirmed-booking p {
+  margin: 2vh 0;
+  text-decoration: underline;
+  /* border: 2px solid blue; */
+}
+.confirmed-booking span {
+  text-decoration:none;
+  margin: 1vh 0;
+  color:#EDEFEE;
+  background-color: #495E57;
 }
 
 .error-message {
@@ -681,3 +694,5 @@ a {
     font-size: 16pt;
   }
 }
+
+/* "test": "react-scripts test", */
