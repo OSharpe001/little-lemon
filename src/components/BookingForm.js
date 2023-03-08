@@ -7,7 +7,7 @@ export default function BookingForm(props) {
     const timeSelection = props.availableTimes();
     const [resTime, setResTime] = useState(props.availableTimes(today)[0]);
     const [resDate, setResDate] = useState(today);
-    const [guests, setGuests] = useState(2);
+    const [guests, setGuests] = useState("2");
     const [occasion, setOccasion]= useState("");
     const [guestsError, setGuestsError]= useState("");
     // const [timeError, setTimeError]= useState("");
@@ -25,9 +25,14 @@ export default function BookingForm(props) {
                 return;
             default:
                 setOccasionError("");
-                props.submitForm(e.target.value);
+                props.submitForm({
+                    "date":resDate,
+                    "time":resTime,
+                    "guests":guests,
+                    "occasion":occasion
+                });
                 setResDate(today);
-                setGuests(2);
+                setGuests("2");
                 setOccasion("Occasion");
         }
     };
@@ -57,7 +62,7 @@ export default function BookingForm(props) {
         // setTimeError(""),
         setDateError(""),
         setResDate(e.target.value),
-        console.log("HANDLEDATECHANGE-E.TARGET.VALUE:", e.target.value),
+        // console.log("HANDLEDATECHANGE-E.TARGET.VALUE:", e.target.value),
         props.dispatch({type: "select", payload: e.target.value}))}
     };
     const handleTimeChange = (e) => {
@@ -68,7 +73,8 @@ export default function BookingForm(props) {
 
     const handleOccasionChange = (e)=> {
         setOccasion(e.target.value);
-        console.log("OCCASION: ", occasion)
+        // console.log("OCCASION (LOCAL): ", occasion)
+        // console.log('WHAT "OCCASION" IS SUPPOSED TO BE (LOCAL): ', e.target.value)
         e.target.value===""?setOccasionError("What's the occasion?"):setOccasionError("");
     };
 
@@ -83,8 +89,9 @@ export default function BookingForm(props) {
     // console.log("PROPS FROM BOOKING FORM", props);
     // console.log("PROPS.availableTimes", props.availableTimes());
     // console.log("PROPS.availableTimes", timeSelection);
-    // console.log("CURRENT OCCASION: ", occasion);
+    // console.log("CURRENT OCCASION (GLOBAL): ", occasion);
     // console.log("CURRENT OCCASION BOOLEAN: ", !occasion);
+    // console.log("CURRENT GUESTS AMOUNT: ", guests)
 
 
     return (

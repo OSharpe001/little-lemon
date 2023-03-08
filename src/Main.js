@@ -9,7 +9,7 @@ import ConfirmedBooking from "./ConfirmedBooking";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
-import React, { useReducer/*, useEffect*/ } from "react";
+import React, { useReducer, useState/*, useEffect*/ } from "react";
 import { fetchAPI, submitAPI } from './api.js';
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +18,7 @@ export default function Main() {
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year,month, day].join("-");
     const todaysTimes = fetchAPI(new Date(today));
+    const [data, setData] = useState({})
     //  console.log("MAIN.JS, TODAY: ", today);
     //  console.log("FETCHAPI RESULTS (todayTimes): ", todaysTimes);
     // const times= fetchAPI(new Date("04/24/2023"));
@@ -70,6 +71,7 @@ export default function Main() {
         const result=submitAPI(formData);
         // console.log("MAIN.JS 'RESULT': ", result);
         if (result) {
+            setData(formData)
             navigate("/confirmed_booking")
         };
     };
@@ -100,7 +102,7 @@ export default function Main() {
                 <Route path="/order" element={<Order />}/>
                 <Route path="/sign_in" element={<SignIn />}/>
                 <Route path="/contact" element={<ContactUs />}/>
-                <Route path="/confirmed_booking" element={<ConfirmedBooking />}/>
+                <Route path="/confirmed_booking" element={<ConfirmedBooking data={data}/>}/>
             </Routes>
             <Footer />
         </>
