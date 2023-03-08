@@ -472,7 +472,6 @@ a {
   border-radius: 16px;
   background-color: #F4CE14;
   color: #333333;
-  border: solid 2px red;
 }
 .about-us {
   grid-area: menu;
@@ -488,6 +487,7 @@ a {
   color: #333333;
   border: solid 2px purple;
 }
+
 .contact-us {
   grid-area: menu;
   grid-column: 3 / 11;
@@ -500,7 +500,26 @@ a {
   border-radius: 16px;
   background-color: #EDEFEE;
   color: #333333;
-  border: solid 2px green;
+  font-size: 16pt;
+  /* border: solid 2px green; */
+}
+
+.contact-us p {
+  /* border:2px solid red; */
+  /* justify-content: center; */
+  display: inline;
+  text-align: center;
+  color: #495E57;
+  margin: 1vh 0;
+  padding: 1vh 0;
+}
+
+.contact-info {
+  display: inline;
+  font-weight: bold;
+  margin: 1vh;
+  /* background-color: #F4CE14; */
+  /* border-radius: 16px; */
 }
 /*  */
 

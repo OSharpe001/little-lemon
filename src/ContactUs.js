@@ -2,9 +2,9 @@ export default function ContactUs() {
     return (
         <>
             <section className="contact-us">
-                <h2>Call Us At: (555) 555-5555</h2>
-                <h2>Email Us At: LittleLemon.com</h2>
-                <h2>Find Us At: All Throughout NYC!</h2>
+                <p>Call Us At: <span className="contact-info">(555) 555-5555</span></p>
+                <p>Email Us At: <span className="contact-info">LittleLemon.com</span></p>
+                <p>Find Us At: <span className="contact-info">All Throughout NYC!</span></p>
             </section>
         </>
     )
