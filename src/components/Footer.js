@@ -14,24 +14,24 @@ export default function Footer() {
                 </div>
                 <nav className="footer-nav">
                     <p>Doormat Navigation</p>
-                    <Link to="/" className="nav-item">Home</Link>
-                    <Link to="/about_us" className="nav-item">About</Link>
-                    <Link to="/menu" className="nav-item">Menu</Link>
-                    <Link to="/booking" className="nav-item">Reservations</Link>
-                    <Link to="/order" className="nav-item">Order Online</Link>
-                    <Link to="/sign_in" className="nav-item">Login</Link>
+                    <Link aria-label="On Click" to="/" className="nav-item">Home</Link>
+                    <Link aria-label="On Click" to="/about_us" className="nav-item">About</Link>
+                    <Link aria-label="On Click" to="/menu" className="nav-item">Menu</Link>
+                    <Link aria-label="On Click" to="/booking" className="nav-item">Reservations</Link>
+                    <Link aria-label="On Click" to="/order" className="nav-item">Order Online</Link>
+                    <Link aria-label="On Click" to="/sign_in" className="nav-item">Login</Link>
                 </nav>
                 <nav className="footer-nav">
                     <p>Contact</p>
-                    <Link to="/contact" className="nav-item">Address</Link>
-                    <Link to="/contact" className="nav-item">Phone Number</Link>
-                    <Link to="/contact" className="nav-item">Email</Link>
+                    <Link aria-label="On Click" to="/contact" className="nav-item">Address</Link>
+                    <Link aria-label="On Click" to="/contact" className="nav-item">Phone Number</Link>
+                    <Link aria-label="On Click" to="/contact" className="nav-item">Email</Link>
                 </nav>
                 <nav className="footer-nav">
                     <p>Social Media Links</p>
-                    <Link to="https://twitter.com" className="nav-item">Twitter</Link>
-                    <Link to="https://www.facebook.com" className="nav-item">Facebook</Link>
-                    <Link to="https://www.instagram.com" className="nav-item">Instagram</Link>
+                    <Link aria-label="On Click" to="https://twitter.com" className="nav-item">Twitter</Link>
+                    <Link aria-label="On Click" to="https://www.facebook.com" className="nav-item">Facebook</Link>
+                    <Link aria-label="On Click" to="https://www.instagram.com" className="nav-item">Instagram</Link>
                 </nav>
             </footer>
         </>

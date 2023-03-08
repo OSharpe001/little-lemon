@@ -3,7 +3,7 @@ import About from "./components/About";
 import Hero from "./components/Hero";
 import Specials from "./components/Specials";
 import Testimonials from "./components/Testimonials";
-
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
     return (
@@ -11,7 +11,7 @@ export default function Homepage() {
             <Hero />
             <section className="declare1">
                 <h2>This week's specials!</h2>
-                <button className="button" >Online Menu</button>
+                <button aria-label="On Click" className="button" ><Link aria-label="On Click" to="/menu" >Online Menu</Link></button>
             </section>
             <br/>
             <Specials />

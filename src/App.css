@@ -147,14 +147,14 @@ h4, h5, h6 {
   justify-content: center; */
   border-radius:16px;
 }
-input:focus:invalid {
+#occasion, input:focus:invalid {
   border: 2px solid red;
 }
 .booking-form .button {
   border: solid 2px #333333;
 }
 
-.booking-form .button, label {
+.booking-form .button, label, #occasion {
   margin-top: 5vh;
 }
 .booking-form select, #guests, #res-date {

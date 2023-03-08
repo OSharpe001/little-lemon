@@ -8,7 +8,7 @@ export default function BookingForm(props) {
     const [resTime, setResTime] = useState(props.availableTimes(today)[0]);
     const [resDate, setResDate] = useState(today);
     const [guests, setGuests] = useState(2);
-    const [occasion, setOccasion]= useState("Occasion");
+    const [occasion, setOccasion]= useState("");
     const [guestsError, setGuestsError]= useState("");
     // const [timeError, setTimeError]= useState("");
     const [dateError, setDateError]= useState("");
@@ -19,19 +19,26 @@ export default function BookingForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log("BOOKINGFORM.JS PROPS.SUBMITFORM RESULTS: ", props.submitForm(e.target.value));
-        props.submitForm(e.target.value);
-        setResDate(today);
-        setGuests(2);
-        setOccasion("Birthday");
+        switch (occasion) {
+            case (""):
+                setOccasionError("What's the occasion?");
+                return;
+            default:
+                setOccasionError("");
+                props.submitForm(e.target.value);
+                setResDate(today);
+                setGuests(2);
+                setOccasion("Occasion");
+        }
     };
 
     const handleGuestsChange = (e) => {
         setGuests(e.target.value);
         if (e.target.value < 2) {
-            setGuestsError("Reservations have a two-party minimum. . .");
+            setGuestsError("Reservations have a two-party minimum");
             return;
         } else if (e.target.value >10) {
-            setGuestsError("Reservations have a ten-party maximum. . .");
+            setGuestsError("Reservations have a ten-party maximum");
         } else {
             setGuestsError("");
         };
@@ -61,7 +68,8 @@ export default function BookingForm(props) {
 
     const handleOccasionChange = (e)=> {
         setOccasion(e.target.value);
-        e.target.value==="Occasion"?setOccasionError("What's the occasion?"):setOccasionError("");
+        console.log("OCCASION: ", occasion)
+        e.target.value===""?setOccasionError("What's the occasion?"):setOccasionError("");
     };
 
     // const date = () => {
@@ -75,7 +83,8 @@ export default function BookingForm(props) {
     // console.log("PROPS FROM BOOKING FORM", props);
     // console.log("PROPS.availableTimes", props.availableTimes());
     // console.log("PROPS.availableTimes", timeSelection);
-    console.log("CURRENT OCCASION: ", occasion);
+    // console.log("CURRENT OCCASION: ", occasion);
+    // console.log("CURRENT OCCASION BOOLEAN: ", !occasion);
 
 
     return (
@@ -119,21 +128,23 @@ export default function BookingForm(props) {
                 <select
                 id="occasion"
                 name="occasion"
+                invalid={!occasion? "true": "false"}
                 value={occasion}
                 onChange={handleOccasionChange}
                 onFocus={handleOccasionChange}>
-                    <option>Occasion</option>
-                    <option>Birthday</option>
-                    <option>Engagement</option>
-                    <option>Anniversary</option>
-                    <option>Other. . .</option>
+                    <option value="" >Occasion</option>
+                    <option value="Birthday" >Birthday</option>
+                    <option value="Engagement" >Engagement</option>
+                    <option value="Anniversary" >Anniversary</option>
+                    <option value="Other" >Other. . .</option>
                 </select>
                 <p className="error-message">{occasionError}</p>
                 <input
-                disabled={guestsError || occasion==="Occasion"} 
+                disabled={guestsError || occasionError} 
                 className="button"
                 type="submit"
                 value="Make Your Reservation!"
+                aria-label="On Click"
                 />
             </form>
     );
