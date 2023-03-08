@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import BookingForm from './BookingForm';
+import BookingForm from './components/BookingForm';
 // import BookingPage from './BookingPage';
 import HomePage from './HomePage';
 import Menu from './Menu';
