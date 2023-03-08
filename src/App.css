@@ -143,13 +143,22 @@ h4, h5, h6 {
   padding: 1vh 0;
   margin: 1vh 0;
   border: solid 2px;
+  /* text-align: center;
+  justify-content: center; */
+  border-radius:16px;
+}
+input:focus:invalid {
+  border: 2px solid red;
 }
 .booking-form .button {
   border: solid 2px #333333;
 }
 
+.booking-form .button, label {
+  margin-top: 5vh;
+}
 .booking-form select, #guests, #res-date {
-  margin-bottom: 5vh;
+  width: 30vw;
 }
 /*  */
 .greeting {
@@ -415,6 +424,12 @@ a {
 
 .confirmed-booking p{
   margin: 0 3vw;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 2vh;
+  font-size: 18px;
 }
 
 .sign-in {

@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 export default function Main() {
 
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
-    const today = [day,month,year].join("-");
+    const today = [year,month, day].join("-");
     const todaysTimes = fetchAPI(new Date(today));
     //  console.log("MAIN.JS, TODAY: ", today);
     //  console.log("FETCHAPI RESULTS (todayTimes): ", todaysTimes);
@@ -58,8 +58,7 @@ export default function Main() {
                 newList = () => fetchAPI(new Date(action.payload));
                 return newList;
             default:
-                availableTimes = todaysTimes;
-                return availableTimes;
+                return todaysTimes;
         };
     };
 
