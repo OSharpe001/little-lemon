@@ -21,8 +21,8 @@ export default function Specials() {
                     </div>
                     <div className="specials-text">
                         <p className="specials-text-p">The famous greek salad of crispy lettuce, peppers, olives and our New York style feta cheese garnished with crunchy garlic and rosemary croutons.</p>
-                        <a aria-label="On Click" className="specials-a" href="/menu" >Order a delivery 
-                            <img 
+                        <a aria-label="On Click" className="specials-a" href="/menu" >Order a delivery
+                            <img
                                 className="moped"
                                 src={moped_icon}
                                 alt="moped"
@@ -42,8 +42,8 @@ export default function Specials() {
                     </div>
                     <div className="specials-text">
                         <p className="specials-text-p">Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.</p>
-                        <a aria-label="On Click" className="specials-a" href="/menu">Order a delivery 
-                        <img 
+                        <a aria-label="On Click" className="specials-a" href="/menu">Order a delivery
+                        <img
                             className="moped"
                             src={moped_icon}
                             alt="moped"

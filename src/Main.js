@@ -9,7 +9,7 @@ import ConfirmedBooking from "./ConfirmedBooking";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
-import React, { useReducer, useState/*, useEffect*/ } from "react";
+import React, { useReducer, useState } from "react";
 import { fetchAPI, submitAPI } from './api.js';
 import { useNavigate } from "react-router-dom";
 
@@ -19,38 +19,7 @@ export default function Main() {
     const today = [year,month, day].join("-");
     const todaysTimes = fetchAPI(new Date(today));
     const [data, setData] = useState({})
-    //  console.log("MAIN.JS, TODAY: ", today);
-    //  console.log("FETCHAPI RESULTS (todayTimes): ", todaysTimes);
-    // const times= fetchAPI(new Date("04/24/2023"));
-    // const times= fetchAPI(new Date("2023-03-07"));
-    // console.log("FETCHAPI RESULTS (times): ", times);
-
-    // const initialTimes = [
-    //     "17:00",
-    //     "18:00",
-    //     "19:00",
-    //     "20:00",
-    //     "21:00",
-    //     "22:00"
-    // ];
-
-
-    // console.log("RESDATE: ", resDate);
     const initializeTimes= () => todaysTimes;
-    //const initializeTimes= (resDate) => fetchAPI(resDate);
-
-    // const updateTimes = (availableTimes, action) => {
-    //     // console.log("updateTimes action:", action.payload);
-    //     if (action.type === "select") {
-    //         // console.log("STATE AND ACTION OF UPDATE TIMES", availableTimes, action);
-    //         // console.log("E.TARGET.VALUE FROM MAIN PAGE", availableTimes.choice);
-    //         const newList= () => fetchAPI(new Date(action.payload));
-    //         // console.log("NEWLIST: ", newList);
-    //         return newList/*{available : !state.available}*/;
-    //     } else {
-    //         return todaysTimes;
-    //     }
-    // };
 
     const updateTimes = (availableTimes, action) => {
         let newList = "";
@@ -67,25 +36,12 @@ export default function Main() {
 
     const navigate = useNavigate();
     const submitForm = (formData) => {
-        // console.log("MAIN.JS FORMDATA: ", formData);
         const result=submitAPI(formData);
-        // console.log("MAIN.JS 'RESULT': ", result);
         if (result) {
             setData(formData)
             navigate("/confirmed_booking")
         };
     };
-
-    // function submitForm(formData) {
-    //     const result = submitAPI(formData);
-    //     // const goTo = useNavigate();
-
-    //     useEffect(() => {
-    //         if (result) {
-    //             useNavigate("/confirmed_booking");
-    //         }
-    //     }, [result]);
-    // };
 
     return (
         <>

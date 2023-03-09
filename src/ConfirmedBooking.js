@@ -8,8 +8,6 @@ export default function ConfirmedBooking(props) {
   const time = confirmed.time;
   const guests = confirmed.guests;
   const occasion = confirmed.occasion;
-  // console.log("CONFIRMEDBOOKING PROPS: ", props.data);
-  // console.log("CONFIRMEDBOOKING DATE", date)
 
   return (
     <>
@@ -22,8 +20,6 @@ export default function ConfirmedBooking(props) {
             <p>Number of Guests:<span className="confirmed-res-info">{guests}</span></p>
             <p>Occasion:<span className="confirmed-res-info">{occasion}</span></p>
           </section>
-          {/* TODO: PLACE A COMPENENT TO DISPLAY THE 
-          DATE/TIME/NUMBER OF GUESTS/OCCASION */}
       </section>
     </>
   );
