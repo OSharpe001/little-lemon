@@ -15,7 +15,6 @@ export default function BookingForm(props) {
     const [occasionError, setOccasionError]= useState("");
 
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log("BOOKINGFORM.JS PROPS.SUBMITFORM RESULTS: ", props.submitForm(e.target.value));
@@ -89,7 +88,7 @@ export default function BookingForm(props) {
     // console.log("PROPS FROM BOOKING FORM", props);
     // console.log("PROPS.availableTimes", props.availableTimes());
     // console.log("PROPS.availableTimes", timeSelection);
-    // console.log("CURRENT OCCASION (GLOBAL): ", occasion);
+    console.log("CURRENT OCCASION (GLOBAL): ", occasion);
     // console.log("CURRENT OCCASION BOOLEAN: ", !occasion);
     // console.log("CURRENT GUESTS AMOUNT: ", guests)
 
@@ -140,14 +139,14 @@ export default function BookingForm(props) {
                 onChange={handleOccasionChange}
                 onFocus={handleOccasionChange}>
                     <option value="" >Occasion</option>
-                    <option value="Birthday" >Birthday</option>
-                    <option value="Engagement" >Engagement</option>
-                    <option value="Anniversary" >Anniversary</option>
-                    <option value="Other" >Other. . .</option>
+                    <option style={{color: "blue", backgroundColor: "#495E57"}} value="Birthday" >Birthday</option>
+                    <option id={occasion==="Engagement"?"checked":undefined} value="Engagement" >Engagement</option>
+                    <option id={occasion==="Anniversary"?"checked":undefined} value="Anniversary" >Anniversary</option>
+                    <option id={occasion==="Other"?"checked":undefined} value="Other" >Other. . .</option>
                 </select>
                 <p className="error-message">{occasionError}</p>
                 <input
-                disabled={guestsError || occasionError} 
+                disabled={guestsError || occasionError}
                 className="button"
                 type="submit"
                 value="Make Your Reservation!"

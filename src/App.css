@@ -157,10 +157,16 @@ h4, h5, h6 {
 .booking-form .button, label, #occasion {
   margin-top: 5vh;
 }
-#occasion::selection {
+/*  */
+/* PROBLEMS TRYING TO GET THE SELECTED 
+ITEM TO CHANGE COLOR/BACKGROUND-COLOR */
+select > option > #checked {
   color: #EDEFEE;
   background-color: #495E57;
+  border: solid 2px red;
 }
+/*  */
+/*  */
 .booking-form select, #guests, #res-date {
   width: 30vw;
 }
