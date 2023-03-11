@@ -1,8 +1,7 @@
 /*
 TODO:
 
-1-FIRST/LAST NAMES, EMAIL, PHONE NUMBER, COMMENT/REQUEST AND
-    INDOOR/OUTDOOR SEATING SELECTION INPUTS&LABELS NEED TO BE ADDED.
+1- INDOOR/OUTDOOR SEATING SELECTION INPUT & LABEL NEED TO BE ADDED.
 2-VALIDATION/CONTROL MEASURES NEED TO BE IMPLEMENTED FOR
     NEW INPUTS.
 3- ADD NEW (VALIDATED)INPUT INFO INTO OUTPUT FOR CONFIRMATION PAGE.
@@ -18,10 +17,24 @@ export default function BookingForm(props) {
     const [resTime, setResTime] = useState(props.availableTimes(today)[0]);
     const [resDate, setResDate] = useState(today);
     const [guests, setGuests] = useState("2");
-    const [occasion, setOccasion]= useState("");
-    const [guestsError, setGuestsError]= useState("");
-    const [dateError, setDateError]= useState("");
-    const [occasionError, setOccasionError]= useState("");
+    const [occasion, setOccasion] = useState("");
+    const [guestsError, setGuestsError] = useState("");
+    const [dateError, setDateError] = useState("");
+    const [occasionError, setOccasionError] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [firstNameError, setFirstNameError] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [lastNameError, setLastNameError] = useState("");
+    const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [phone, setPhone] = useState("");
+    const [phoneError, setPhoneError] = useState("");
+    const [requests, setRequests] = useState("");
+    const [requestsError, setRequestsError] = useState("");
+    const [seating, setSeating] = useState("indoor")
+    // SET UP A VALID OR INVALID VARIABLE TO CONTROL THE SUBMISSION BUTTON
+
+
 
 
     const handleSubmit = (e) => {
@@ -33,16 +46,76 @@ export default function BookingForm(props) {
             default:
                 setOccasionError("");
                 props.submitForm({
+                    "first-name":firstName,
+                    "last-name":lastName,
+                    "email":email,
+                    "phone":phone,
+                    "seating":seating,
                     "date":resDate,
                     "time":resTime,
                     "guests":guests,
-                    "occasion":occasion
+                    "occasion":occasion,
+                    "requests":requests
                 });
+                setFirstName("");
+                setLastName("");
+                setEmail("");
+                setPhone("");
+                setSeating("indoor")
                 setResDate(today);
                 setGuests("2");
                 setOccasion("Occasion");
+                setRequests("");
         }
     };
+
+    const handleFirstNameChange = (e) => {
+        setFirstName(e.target.value);
+        if (e.target.value.length < 2) {
+            setFirstNameError("First name must have at least 2 characters.");
+            return;
+        } else if (e.target.value.length >15) {
+            setFirstNameError("Please limit the first name to 15 characters long.");
+        } else {
+            setFirstNameError("");
+        };
+    };
+
+    const handleLastNameChange = (e) => {
+        setLastName(e.target.value);
+        if (e.target.value.length < 2) {
+            setLastNameError("Last name must have at least 2 characters.");
+            return;
+        } else if (e.target.value.length >15) {
+            setLastNameError("Please limit the last name to 15 characters long.");
+        } else {
+            setLastNameError("");
+        };
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        if (e.target.value.length < 2/* NEED TO FIX THIS TO CHECK FOR EMAIL FORMAT */) {
+            setEmailError("Please submit a valid email address.");
+            return;
+        } else {
+            setEmailError("");
+        };
+    };
+
+    const handlePhoneChange = (e) => {
+        setPhone(e.target.value);
+        if (e.target.value.length < 2/* NEED TO FIX THIS TO CHECK FOR PHONE NUMBER FORMAT */) {
+            setPhoneError("Please submit a valid phone number.");
+            return;
+        } else {
+            setPhoneError("");
+        };
+    };
+
+    const handleSeatingChange = (e) => {
+        setSeating(e.target.value);
+    }
 
     const handleGuestsChange = (e) => {
         setGuests(e.target.value);
@@ -54,7 +127,7 @@ export default function BookingForm(props) {
         } else {
             setGuestsError("");
         };
-    }
+    };
 
     const handleDateChange= (e) => {
         if (e.target.value<today) { return (
@@ -72,13 +145,111 @@ export default function BookingForm(props) {
         setOccasion(e.target.value);
         e.target.value===""?setOccasionError("What's the occasion?"):setOccasionError("");
     };
-    
+
+    const handleRequestsChange = (e) => {
+        setRequests(e.target.value);
+        if (e.target.value.length > 250) {
+            setRequestsError("No more than 250 characters, please.");
+            return;
+        } else {
+            setRequestsError("");
+        };
+    };
+
+    console.log("SEATING VALUE: ", seating)
     return (
             <form
             className="booking-form"
             onSubmit={handleSubmit}
             >
-                <p>Reserve Your Table Today</p>
+                <h2>Let's Get Your Info, First</h2>
+
+                <label htmlFor="first-name">First Name</label>
+                <input
+                type="text"
+                id="first-name"
+                name="first-name"
+                value={firstName}
+                onChange={handleFirstNameChange}
+                onBlur={handleFirstNameChange}
+                />
+                <p className="error-message">{firstNameError}</p>
+
+                <label htmlFor="last-name">Last Name</label>
+                <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                value={lastName}
+                onChange={handleLastNameChange}
+                onBlur={handleLastNameChange}
+                />
+                <p className="error-message">{lastNameError}</p>
+                
+
+
+
+
+                {/*  */}
+                <label htmlFor="email">Email</label>
+                <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={handleEmailChange}
+                onBlur={handleEmailChange}
+                />
+                <p className="error-message">{emailError}</p>
+                
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={phone}
+                onChange={handlePhoneChange}
+                onBlur={handlePhoneChange}
+                />
+                <p className="error-message">{phoneError}</p>
+                {/*  */}
+
+
+                <h2>Let's Reserve Your Table Today</h2>
+
+
+                {/*  */}
+                <div className="seating">
+                    <input
+                    // className="seating"
+                    type="radio"
+                    id="indoor"
+                    checked={seating==="indoor"}
+                    name="seating"
+                    value="indoor"
+                    onChange={handleSeatingChange}
+                    />
+                    <label
+                    // className="seating"
+                    htmlFor="indoor">Indoor Seating
+                    </label>
+                    <input
+                    // className="seating"
+                    type="radio"
+                    id="outdoor"
+                    checked={seating==="outdoor"}
+                    name="seating"
+                    value="outdoor"
+                    onChange={handleSeatingChange}
+                    />
+                    <label 
+                    // className="seating" 
+                    htmlFor="outdoor">Outdoor Seating</label>
+                </div>
+                {/*  */}
+
+
+
                 <label htmlFor="res-date">Choose Date</label>
                 <input
                 type="date"
@@ -89,6 +260,7 @@ export default function BookingForm(props) {
                 onBlur={handleDateChange}
                 />
                 <p className="error-message">{dateError}</p>
+
                 <label htmlFor="res-time">Choose Time</label>
                 <select
                 id="res-time"
@@ -97,6 +269,7 @@ export default function BookingForm(props) {
                 onChange={handleTimeChange} >
                     {timeSelection.map((time) => <option key={time}>{time}</option>)}
                 </select>
+
                 <label htmlFor="guests">Number of Guests</label>
                 <input
                 type="number"
@@ -107,6 +280,7 @@ export default function BookingForm(props) {
                 onChange={e => handleGuestsChange(e)}
                 />
                 <p className="error-message">{guestsError}</p>
+
                 <label htmlFor="occasion">Occasion</label>
                 <select
                 id="occasion"
@@ -122,6 +296,30 @@ export default function BookingForm(props) {
                     <option value="Other" >Other. . .</option>
                 </select>
                 <p className="error-message">{occasionError}</p>
+
+
+
+
+
+                {/* CREATE THE SECTION FOR "COMMENTS/REQUESTS" */}
+                <label htmlFor="requests">Any Comments or Requests?</label>
+                <input
+                type="textarea"
+                id="requests"
+                name="requests"
+                value={requests}
+                onChange={handleRequestsChange}
+                />
+                <p className="error-message">{requestsError}</p>
+
+                {/* ADD AN AGREEMENT CHECKBOX AND A LINK TO "TERMS OF SERVICE" */}
+                {/*  */}
+
+
+
+
+
+
                 <input
                 disabled={guestsError || occasionError}
                 className="button"
