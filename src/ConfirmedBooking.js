@@ -20,7 +20,7 @@ export default function ConfirmedBooking(props) {
   const guests = confirmed.guests;
   const occasion = confirmed.occasion;
 
-  console.log("PROPS IN CONFIRMEDBOOKING: ", props)
+  // console.log("PROPS IN CONFIRMEDBOOKING: ", props)
 
   return (
     <>
