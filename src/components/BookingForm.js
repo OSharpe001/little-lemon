@@ -1,10 +1,8 @@
 /*
 TODO:
 
-1- INDOOR/OUTDOOR SEATING SELECTION INPUT & LABEL NEED TO BE ADDED.
-2-VALIDATION/CONTROL MEASURES NEED TO BE IMPLEMENTED FOR
+1- VALIDATION/CONTROL MEASURES NEED TO BE IMPLEMENTED FOR
     NEW INPUTS.
-3- ADD NEW (VALIDATED)INPUT INFO INTO OUTPUT FOR CONFIRMATION PAGE.
 */
 import {validateEmail} from "../utils";
 import React, { useState } from "react";
@@ -53,11 +51,18 @@ export default function BookingForm(props) {
         console.log("EVENT: ", e.target.value);
         // handleFirstNameChange(e)
         e.preventDefault();
-        switch (occasion) {
-            case (""):
-                setOccasionError("What's the occasion?");
-                return;
-            default:
+        if (occasion === "") {
+            setOccasionError("What's the occasion?");
+            return;
+        } else if (firstName === ""){
+            setFirstNameError("All fields are required.");
+        } else if (lastName === ""){
+            setLastNameError("All fields are required.");
+        } else if (email === ""){
+            setEmailError("All fields are required.");
+        } else if (phone === ""){
+            setPhoneError("All fields are required.");
+        } else {
                 setOccasionError("");
                 props.submitForm({
                     "first-name":firstName,
@@ -101,8 +106,8 @@ export default function BookingForm(props) {
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
-        // validateEmail(email)
-        if (e.target.value.length < 2/* NEED TO FIX THIS TO CHECK FOR EMAIL FORMAT */) {
+        console.log("HANDLEEMAILCHANGE'S CHECK ON EMAIL'S VALUE", e.target.value)
+        if (!validateEmail(e.target.value)) {
             setEmailError("Please submit a valid email address.");
             return;
         } else {
@@ -162,13 +167,13 @@ export default function BookingForm(props) {
         };
     };
     
-    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !(validateEmail(email)) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
-    const isFormValid = () => {
-        return (firstName && lastName && validateEmail(email))
-    };
+    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
+    // const isFormValid = () => {
+    //     return (firstName && lastName && validateEmail(email))
+    // };
 
     console.log("DISABLED'S VALUE: ", disabled)
-    // console.log("VALIDATE EMAIL RESULTS: ", validateEmail(email))
+    console.log("VALIDATE EMAIL RESULTS: ", validateEmail(email))
     // console.log("SEATING VALUE: ", seating);
     // console.log("INVALID FORM RESULT: ", invalidForm)
     // console.log("EMAIL: ", email)
