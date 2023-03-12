@@ -10,7 +10,7 @@ export default function Homepage() {
             <Hero />
             <section className="declare1">
                 <h2>This week's specials!</h2>
-                <button aria-label="On Click" className="button" ><Link aria-label="On Click" to="/menu" >Online Menu</Link></button>
+                <button aria-label="On Click" className="button" ><Link aria-label="On Click" to="/menu" className="nav-item">Online Menu</Link></button>
             </section>
             <br/>
             <Specials />

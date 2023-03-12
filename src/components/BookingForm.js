@@ -323,10 +323,10 @@ export default function BookingForm(props) {
 
 
 
-                {/* CREATE THE SECTION FOR "COMMENTS/REQUESTS" */}
+                {/* FIX THE TEXTBOX SIZE */}
                 <label htmlFor="requests">Any Comments or Requests?</label>
                 <input
-                type="textarea"
+                type="textArea"
                 id="requests"
                 name="requests"
                 value={requests}
@@ -334,7 +334,6 @@ export default function BookingForm(props) {
                 />
                 <p className="error-message">{requestsError}</p>
 
-                {/* ADD AN AGREEMENT CHECKBOX AND A LINK TO "TERMS OF SERVICE" */}
                 <div className="terms">
                     <input
                     type="checkbox"
@@ -345,15 +344,7 @@ export default function BookingForm(props) {
                         <label htmlFor="terms">Agree to our
                             <a aria-label="On Click" className="terms-link" href="/terms">Terms of Service </a><sup>*</sup>
                         </label>
-                    
                 </div>
-                
-                {/*  */}
-
-
-
-
-
 
                 <input
                 disabled={disabled}

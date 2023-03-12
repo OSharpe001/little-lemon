@@ -1,3 +1,15 @@
+/* A NICE BACKGROUND IMAGE (FROM THE WEB) AND HOW TO APPLY IT:
+
+.res-content-wrapper {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.42),
+      rgba(0, 0, 0, 0.73)
+    ),
+    url("https://a.cdn-hotels.com/gdcs/production141/d778/6b200721-9661-4680-aca2-d6e33ce46cf0.jpg");
+  width: 100%;
+  background-size: cover;
+} */
 * {
   margin: 0;
   padding: 0;
