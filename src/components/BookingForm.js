@@ -4,7 +4,7 @@ TODO:
 1- VALIDATION/CONTROL MEASURES NEED TO BE IMPLEMENTED FOR
     NEW INPUTS.
 */
-import {validateEmail} from "../utils";
+import {validateEmail, validatePhone} from "../utils";
 import React, { useState } from "react";
 
 export default function BookingForm(props) {
@@ -28,7 +28,9 @@ export default function BookingForm(props) {
     const [phoneError, setPhoneError] = useState("");
     const [requests, setRequests] = useState("");
     const [requestsError, setRequestsError] = useState("");
-    const [seating, setSeating] = useState("indoor")
+    const [seating, setSeating] = useState("Indoor")
+    const [terms, setTerms] = useState(false)
+
     // SET UP A VALID OR INVALID VARIABLE TO CONTROL THE SUBMISSION BUTTON
 
 
@@ -39,16 +41,17 @@ export default function BookingForm(props) {
         setLastName("");
         setEmail("");
         setPhone("");
-        setSeating("indoor")
+        setSeating("Indoor")
         setResDate(today);
         setGuests("2");
         setOccasion("Occasion");
         setRequests("");
+        setTerms(false)
     };
 
     
     const handleSubmit = (e) => {
-        console.log("EVENT: ", e.target.value);
+        // console.log("EVENT: ", e.target.value);
         // handleFirstNameChange(e)
         e.preventDefault();
         if (occasion === "") {
@@ -62,6 +65,8 @@ export default function BookingForm(props) {
             setEmailError("All fields are required.");
         } else if (phone === ""){
             setPhoneError("All fields are required.");
+        } else if (terms === false){
+            alert("Do you agree to our terms of service?");
         } else {
                 setOccasionError("");
                 props.submitForm({
@@ -106,7 +111,7 @@ export default function BookingForm(props) {
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
-        console.log("HANDLEEMAILCHANGE'S CHECK ON EMAIL'S VALUE", e.target.value)
+        // console.log("HANDLEEMAILCHANGE'S CHECK ON EMAIL'S VALUE", e.target.value)
         if (!validateEmail(e.target.value)) {
             setEmailError("Please submit a valid email address.");
             return;
@@ -117,7 +122,8 @@ export default function BookingForm(props) {
 
     const handlePhoneChange = (e) => {
         setPhone(e.target.value);
-        if (e.target.value.length < 2/* NEED TO FIX THIS TO CHECK FOR PHONE NUMBER FORMAT */) {
+        // console.log("HANDLEPHONECHANGE'S CHECK ON PHONE'S VALUE", e.target.value)
+        if (!validatePhone(e.target.value)/* NEED TO FIX THIS TO CHECK FOR PHONE NUMBER FORMAT */) {
             setPhoneError("Please submit a valid phone number.");
             return;
         } else {
@@ -166,14 +172,20 @@ export default function BookingForm(props) {
             setRequestsError("");
         };
     };
+
+    const handleTermsChange = (e) => {
+        setTerms(!terms);
+        console.log("TERMS VALUE INSIDE HANDLETERMS: ", terms)
+    }
     
     const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
     // const isFormValid = () => {
     //     return (firstName && lastName && validateEmail(email))
     // };
 
-    console.log("DISABLED'S VALUE: ", disabled)
-    console.log("VALIDATE EMAIL RESULTS: ", validateEmail(email))
+    // console.log("DISABLED'S VALUE: ", disabled);
+    // console.log("VALIDATE EMAIL RESULTS: ", validateEmail(email));
+    // console.log("VALIDATE PHONE RESULTS: ", validatePhone(phone));
     // console.log("SEATING VALUE: ", seating);
     // console.log("INVALID FORM RESULT: ", invalidForm)
     // console.log("EMAIL: ", email)
@@ -185,7 +197,7 @@ export default function BookingForm(props) {
             >
                 <h2>Let's Get Your Info, First</h2>
 
-                <label htmlFor="first-name">First Name</label>
+                <label htmlFor="first-name">First Name <sup>*</sup></label>
                 <input
                 type="text"
                 id="first-name"
@@ -196,7 +208,7 @@ export default function BookingForm(props) {
                 />
                 <p className="error-message">{firstNameError}</p>
 
-                <label htmlFor="last-name">Last Name</label>
+                <label htmlFor="last-name">Last Name <sup>*</sup></label>
                 <input
                 type="text"
                 id="last-name"
@@ -207,48 +219,41 @@ export default function BookingForm(props) {
                 />
                 <p className="error-message">{lastNameError}</p>
                 
-
-
-
-
-                {/*  */}
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email <sup>*</sup></label>
                 <input
                 type="email"
                 id="email"
                 name="email"
+                placeholder="little@lemon.com"
                 value={email}
                 onChange={handleEmailChange}
                 onBlur={handleEmailChange}
                 />
                 <p className="error-message">{emailError}</p>
-                
-                <label htmlFor="phone">Phone Number</label>
+
+                <label htmlFor="phone">Phone Number <sup>*</sup></label>
                 <input
                 type="tel"
                 id="phone"
                 name="phone"
+                placeholder="(123) 456-7890"
                 value={phone}
                 onChange={handlePhoneChange}
                 onBlur={handlePhoneChange}
                 />
                 <p className="error-message">{phoneError}</p>
-                {/*  */}
-
 
                 <h2>Let's Reserve Your Table Today</h2>
 
-
-                {/*  */}
                 <div className="seating">
                     <label
                     htmlFor="indoor">
                         <input
                         type="radio"
                         id="indoor"
-                        checked={seating==="indoor"}
+                        checked={seating==="Indoor"}
                         name="seating"
-                        value="indoor"
+                        value="Indoor"
                         onChange={handleSeatingChange}
                         />
                     Indoor Seating
@@ -259,19 +264,16 @@ export default function BookingForm(props) {
                         <input
                         type="radio"
                         id="outdoor"
-                        checked={seating==="outdoor"}
+                        checked={seating==="Outdoor"}
                         name="seating"
-                        value="outdoor"
+                        value="Outdoor"
                         onChange={handleSeatingChange}
                         />
                     Outdoor Seating
                     </label>
                 </div>
-                {/*  */}
 
-
-
-                <label htmlFor="res-date">Choose Date</label>
+                <label htmlFor="res-date">Choose Date <sup>*</sup></label>
                 <input
                 type="date"
                 id="res-date"
@@ -281,7 +283,7 @@ export default function BookingForm(props) {
                 onBlur={handleDateChange}
                 />
 
-                <label htmlFor="res-time">Choose Time</label>
+                <label htmlFor="res-time">Choose Time <sup>*</sup></label>
                 <select
                 id="res-time"
                 name="res-time"
@@ -290,7 +292,7 @@ export default function BookingForm(props) {
                     {timeSelection.map((time) => <option key={time}>{time}</option>)}
                 </select>
 
-                <label htmlFor="guests">Number of Guests</label>
+                <label htmlFor="guests">Number of Guests <sup>*</sup></label>
                 <input
                 type="number"
                 min="1" max="9"
@@ -301,7 +303,7 @@ export default function BookingForm(props) {
                 />
                 <p className="error-message">{guestsError}</p>
 
-                <label htmlFor="occasion">Occasion</label>
+                <label htmlFor="occasion">Occasion <sup>*</sup></label>
                 <select
                 id="occasion"
                 name="occasion"
@@ -333,6 +335,19 @@ export default function BookingForm(props) {
                 <p className="error-message">{requestsError}</p>
 
                 {/* ADD AN AGREEMENT CHECKBOX AND A LINK TO "TERMS OF SERVICE" */}
+                <div className="terms">
+                    <input
+                    type="checkbox"
+                    id="terms"
+                    name="terms"
+                    onChange={handleTermsChange}
+                    />
+                        <label htmlFor="terms">Agree to our
+                            <a aria-label="On Click" className="terms-link" href="/terms">Terms of Service </a><sup>*</sup>
+                        </label>
+                    
+                </div>
+                
                 {/*  */}
 
 

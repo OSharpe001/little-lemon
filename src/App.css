@@ -14,6 +14,7 @@
                        "menu"
                        "about-us"
                        "contact-us"
+                       "reservation-terms"
                        "declare1"
                        "specials"
                        "declare2"
@@ -169,6 +170,18 @@ input:focus:invalid {
 
 .booking-form select, #guests, #res-date {
   width: 30vw;
+}
+
+.reservation-terms {
+  grid-area: reservation-terms;
+  grid-column: 3 / 11;
+  display:flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  background-color:#EDEFEE;
+  border-radius: 16px;
+  border: 3px solid purple;
 }
 
 .greeting {
@@ -552,21 +565,39 @@ a {
 }
 
 .seating {
-  padding-top: 10vh;
+  padding: 7vh 0;
   text-decoration: none;
+  /* border: 2px solid green; */
+  display: flex;
+  justify-content: space-evenly;
 }
-.seating input {
-  margin: 0 -10vw 0 2vw;
-  padding: 0;
+.seating input, #indoor {
+  margin: 0 -11vw 0 2vw;
+  padding: 20px;
   /* font-size: 40pt; */
-  border: 2px solid red;
+  /* border: 5px solid red; */
 }
 
 .seating label {
-  margin: 0 5vw 0 0;
+  margin: 0;
   text-decoration: none;
-  font-size: 20pt;
+  font-size: 21pt;
+  /* border: 2px solid blue; */
+}
+
+/* .terms {
   border: 2px solid blue;
+} */
+
+#terms {
+  color: red;
+  margin: 3vh -11vw 3vh 0;
+  border: 2px solid red;
+}
+
+.terms-link {
+  color: blue;
+  text-decoration: underline;
 }
 
 .button:hover, .nav-item:hover {
@@ -574,6 +605,9 @@ a {
   color: #EDEFEE;
 }
 
+sup {
+  color: red;
+}
 /* .button:hover {
   background: brown;
   color: #EDEFEE;

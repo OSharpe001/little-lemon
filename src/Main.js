@@ -8,6 +8,7 @@ import ContactUs from "./ContactUs";
 import ConfirmedBooking from "./ConfirmedBooking";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Terms from "./Terms";
 import { Routes, Route } from "react-router-dom";
 import React, { useReducer, useState } from "react";
 import { fetchAPI, submitAPI } from './api.js';
@@ -58,7 +59,9 @@ export default function Main() {
                 <Route path="/order" element={<Order />}/>
                 <Route path="/sign_in" element={<SignIn />}/>
                 <Route path="/contact" element={<ContactUs />}/>
+
                 <Route path="/confirmed_booking" element={<ConfirmedBooking data={data}/>}/>
+                <Route path="/terms" element={<Terms />}/>
             </Routes>
             <Footer />
         </>

@@ -37,7 +37,10 @@ export default function ConfirmedBooking(props) {
             <p>Occasion:<span className="confirmed-res-info">{occasion}</span></p>
           </section>
           <p>We've sent an email to <span className="confirmed-res-info">{email} </span>with your confirmation</p>
-          <p>If we are experiencing any difficulties fullfilling your requests, we will text and email you a notice 24 hours (or nearest applicable time) before your reservation date-time.</p>
+          <p>If we are experiencing any difficulties fullfilling your
+            requests, we will text and/or email you a notice 24 hours (or 
+            nearest applicable time) before your reservation date-time.
+          </p>
       </section>
     </>
   );
