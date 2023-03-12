@@ -1,15 +1,14 @@
 /*
 TODO:
 
-1- VALIDATION/CONTROL MEASURES NEED TO BE IMPLEMENTED FOR
-    NEW INPUTS.
+1- FIX MOBILE SCREEN LAYOUT FOR NEW ADDITIONS
 */
 import {validateEmail, validatePhone} from "../utils";
 import React, { useState } from "react";
 
 export default function BookingForm(props) {
 
-    const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number)
+    const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year, month, day].join("-");
     const timeSelection = props.availableTimes();
     const [resTime, setResTime] = useState(props.availableTimes(today)[0]);
@@ -28,13 +27,8 @@ export default function BookingForm(props) {
     const [phoneError, setPhoneError] = useState("");
     const [requests, setRequests] = useState("");
     const [requestsError, setRequestsError] = useState("");
-    const [seating, setSeating] = useState("Indoor")
-    const [terms, setTerms] = useState(false)
-
-    // SET UP A VALID OR INVALID VARIABLE TO CONTROL THE SUBMISSION BUTTON
-
-
-
+    const [seating, setSeating] = useState("Indoor");
+    const [terms, setTerms] = useState(false);
 
     const clearForm = () => {
         setFirstName("");
@@ -49,10 +43,7 @@ export default function BookingForm(props) {
         setTerms(false)
     };
 
-    
     const handleSubmit = (e) => {
-        // console.log("EVENT: ", e.target.value);
-        // handleFirstNameChange(e)
         e.preventDefault();
         if (occasion === "") {
             setOccasionError("What's the occasion?");
@@ -111,7 +102,6 @@ export default function BookingForm(props) {
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
-        // console.log("HANDLEEMAILCHANGE'S CHECK ON EMAIL'S VALUE", e.target.value)
         if (!validateEmail(e.target.value)) {
             setEmailError("Please submit a valid email address.");
             return;
@@ -122,8 +112,7 @@ export default function BookingForm(props) {
 
     const handlePhoneChange = (e) => {
         setPhone(e.target.value);
-        // console.log("HANDLEPHONECHANGE'S CHECK ON PHONE'S VALUE", e.target.value)
-        if (!validatePhone(e.target.value)/* NEED TO FIX THIS TO CHECK FOR PHONE NUMBER FORMAT */) {
+        if (!validatePhone(e.target.value)) {
             setPhoneError("Please submit a valid phone number.");
             return;
         } else {
@@ -177,18 +166,8 @@ export default function BookingForm(props) {
         setTerms(!terms);
         console.log("TERMS VALUE INSIDE HANDLETERMS: ", terms)
     }
-    
-    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
-    // const isFormValid = () => {
-    //     return (firstName && lastName && validateEmail(email))
-    // };
 
-    // console.log("DISABLED'S VALUE: ", disabled);
-    // console.log("VALIDATE EMAIL RESULTS: ", validateEmail(email));
-    // console.log("VALIDATE PHONE RESULTS: ", validatePhone(phone));
-    // console.log("SEATING VALUE: ", seating);
-    // console.log("INVALID FORM RESULT: ", invalidForm)
-    // console.log("EMAIL: ", email)
+    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
 
     return (
             <form
@@ -218,7 +197,7 @@ export default function BookingForm(props) {
                 onBlur={handleLastNameChange}
                 />
                 <p className="error-message">{lastNameError}</p>
-                
+
                 <label htmlFor="email">Email <sup>*</sup></label>
                 <input
                 type="email"
@@ -319,14 +298,10 @@ export default function BookingForm(props) {
                 </select>
                 <p className="error-message">{occasionError}</p>
 
-
-
-
-
-                {/* FIX THE TEXTBOX SIZE */}
                 <label htmlFor="requests">Any Comments or Requests?</label>
-                <input
-                type="textArea"
+                <textarea
+                rows={5}
+                placeholder="Additional Comments"
                 id="requests"
                 name="requests"
                 value={requests}
@@ -341,12 +316,12 @@ export default function BookingForm(props) {
                     name="terms"
                     onChange={handleTermsChange}
                     />
-                        <label htmlFor="terms">Agree to our
-                            <a aria-label="On Click" className="terms-link" href="/terms">Terms of Service </a><sup>*</sup>
+                        <label htmlFor="terms">Agree to our <a aria-label="On Click" className="terms-link" href="/terms">Terms of Service</a> <sup>*</sup>
                         </label>
                 </div>
 
                 <input
+                style={disabled?{border: "1px solid #999999", backgroundColor: "#cccccc", color: "#666666", cursor: "not-allowed"}:null}
                 disabled={disabled}
                 className="button"
                 type="submit"

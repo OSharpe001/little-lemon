@@ -152,7 +152,7 @@ h4, h5, h6 {
 }
 
 .booking-form label {
-  text-decoration: underline;
+  color: #333333;
 }
 
 .booking-form input, select {
@@ -166,9 +166,11 @@ h4, h5, h6 {
   justify-content: center;
   border-radius:16px;
 }
+
 input:focus:invalid {
   border: 2px solid red;
 }
+
 .booking-form .button {
   border-top: solid 2px #FFF;
   border-right: solid 2px #333333;
@@ -182,6 +184,13 @@ input:focus:invalid {
 
 .booking-form select, #guests, #res-date {
   width: 30vw;
+}
+
+#requests {
+  font-size: 16pt;
+  line-height: 1.5;
+  width: 41vw;
+  /* border: 2px solid red; */
 }
 
 .reservation-terms {
@@ -582,8 +591,11 @@ a {
   /* border: 2px solid green; */
   display: flex;
   justify-content: space-evenly;
+  padding-right: 6vw;
+  /* border: 2px solid red; */
 }
-.seating input, #indoor {
+
+.seating input {
   margin: 0 -11vw 0 2vw;
   padding: 20px;
   /* font-size: 40pt; */
@@ -600,10 +612,11 @@ a {
 /* .terms {
   border: 2px solid blue;
 } */
-
-#terms {
+/* NEED TO MAKE THE INPUT BOX/CIRCLES LARGER */
+#terms, #indoor, #outdoor {
   color: red;
-  margin: 3vh -11vw 3vh 0;
+  background-color: green;
+  margin: 8vh -11vw 0 6vw;
   border: 2px solid red;
 }
 
@@ -625,13 +638,13 @@ sup {
   color: #EDEFEE;
 } */
 
-button:disabled,
+/* button:disabled,
 button[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
-}
+} */
 
 @media (max-width: 900px) {
 
