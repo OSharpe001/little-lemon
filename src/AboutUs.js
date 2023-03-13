@@ -19,14 +19,12 @@ export default function AboutUs() {
                             cuisines from the mediterranean region.
                         </p>
                         <p>
+                            Based in New York City, the chefs draw inspiration
+                            from Italian, Greek, and Turkish cultures and have a menu
+                            of 12-15 items that they rotate seasonally.
                             The restaurant has a rustic and relaxed atmosphere with
                             moderate prices, making it a popular place for lunch or
                             dinner, especially with friends.
-                        </p>
-                        <p>
-                            Based in New York City, New York, the chefs draw inspiration
-                            from Italian, Greek, and Turkish cultures and have a menu
-                            of 12-15 items that they rotate seasonally.
                         </p>
                         <p>
                             We've updated our menu with new dinners!

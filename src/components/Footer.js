@@ -22,10 +22,10 @@ export default function Footer() {
                     <Link aria-label="On Click" to="/sign_in" className="nav-item">Login</Link>
                 </nav>
                 <nav className="footer-nav">
-                    <p>Contact</p>
-                    <p className="contact-info">123 Home Road<br/> NYC, New York 98765</p>
+                    <p>Contact Us</p>
                     <p className="contact-info">(555) 555-5555</p>
                     <p className="contact-info">little@lemon.com</p>
+                    <p className="contact-info">123 Lemon Road<br/> NYC, New York 98765</p>
                 </nav>
                 <nav className="footer-nav">
                     <p>Social Media Links</p>

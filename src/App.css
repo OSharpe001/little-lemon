@@ -25,7 +25,6 @@
                        "order"
                        "menu"
                        "about-us"
-                       "contact-us"
                        "reservation-terms"
                        "declare1"
                        "specials"
@@ -544,27 +543,25 @@ a {
   width: 100%;
   padding: 20px 0;
   border-radius: 16px;
-  background-color: #EE9972;
+  color: #333333;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.22),
     rgba(0, 0, 0, 0.53)
   ), url("./assets/images/chef.jpg");
   background-size:cover;
-  background-attachment: scroll;
-  color: #333333;
 }
 
 .about-us h1 {
   margin: 1vh 0;
   color: #FFF;
-  text-shadow: 2px 2px #333333;
+  text-shadow: 2px 2px #495E57;
 }
 
 .about-us p {
   margin: 3vh 0;
   color: #FFF;
-  text-shadow: 2px 2px #333333;
+  text-shadow: 2px 2px #495E57;
   /* text-align: center; */
 }
 
@@ -579,32 +576,9 @@ a {
   font-weight: bold;
 }
 
-.contact-us {
-  grid-area: menu;
-  grid-column: 3 / 11;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 20px 0;
-  border-radius: 16px;
-  background-color: #EDEFEE;
-  color: #333333;
-  font-size: 16pt;
-}
-
-.contact-us p {
-  display: inline;
-  text-align: center;
-  color: #495E57;
-  margin: 1vh 0;
-  padding: 1vh 0;
-}
-
 .contact-info {
   text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .seating {

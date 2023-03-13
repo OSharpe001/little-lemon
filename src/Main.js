@@ -4,7 +4,6 @@ import AboutUs from "./AboutUs";
 import Menu from "./Menu";
 import Order from "./Order";
 import SignIn from "./SignIn";
-import ContactUs from "./ContactUs";
 import ConfirmedBooking from "./ConfirmedBooking";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -58,7 +57,6 @@ export default function Main() {
                 <Route path="/menu" element={<Menu />}/>
                 <Route path="/order" element={<Order />}/>
                 <Route path="/sign_in" element={<SignIn />}/>
-                <Route path="/contact" element={<ContactUs />}/>
 
                 <Route path="/confirmed_booking" element={<ConfirmedBooking data={data}/>}/>
                 <Route path="/terms" element={<Terms />}/>
