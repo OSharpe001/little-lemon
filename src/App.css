@@ -545,17 +545,38 @@ a {
   padding: 20px 0;
   border-radius: 16px;
   background-color: #EE9972;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.22),
+    rgba(0, 0, 0, 0.53)
+  ), url("./assets/images/chef.jpg");
+  background-size:cover;
+  background-attachment: scroll;
   color: #333333;
 }
 
 .about-us h1 {
   margin: 1vh 0;
+  color: #FFF;
+  text-shadow: 2px 2px #333333;
+}
+
+.about-us p {
+  margin: 3vh 0;
+  color: #FFF;
+  text-shadow: 2px 2px #333333;
+  /* text-align: center; */
 }
 
 .about-us article {
   padding: 1vh 2vw;
   line-height: 1.5;
-  font-size: 16pt;
+  font-size: 18pt;
+}
+
+.about-us article p:last-child {
+  text-align: center;
+  font-weight: bold;
 }
 
 .contact-us {
