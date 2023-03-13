@@ -23,9 +23,9 @@ export default function Footer() {
                 </nav>
                 <nav className="footer-nav">
                     <p>Contact</p>
-                    <Link aria-label="On Click" to="/contact" className="nav-item">Address</Link>
-                    <Link aria-label="On Click" to="/contact" className="nav-item">Phone Number</Link>
-                    <Link aria-label="On Click" to="/contact" className="nav-item">Email</Link>
+                    <p className="contact-info">123 Home Road<br/> NYC, New York 98765</p>
+                    <p className="contact-info">(555) 555-5555</p>
+                    <p className="contact-info">little@lemon.com</p>
                 </nav>
                 <nav className="footer-nav">
                     <p>Social Media Links</p>
