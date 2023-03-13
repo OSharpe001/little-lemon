@@ -207,17 +207,19 @@ input:focus:invalid {
 
 .greeting {
   background-color: #495E57;
-  margin-left: -16%;
+  margin: 0 0 3vh -16%;
   padding: 95px auto;
   grid-column: 3;
   max-width: 20%;
   color:#EDEFEE;
   font-weight: bold;
+  /* border: 2px solid red; */
 }
 
 .greeting article {
   line-height: 1.5rem;
   width: 79%;
+  padding-bottom: 5vh;
 }
 
 section {
@@ -580,9 +582,8 @@ a {
 }
 
 .contact-info {
-  display: inline;
-  font-weight: bold;
-  margin: 1vh;
+  text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .seating {
@@ -612,6 +613,8 @@ a {
 /* .terms {
   border: 2px solid blue;
 } */
+
+/*  */
 /* NEED TO MAKE THE INPUT BOX/CIRCLES LARGER */
 #terms, #indoor, #outdoor {
   color: red;
@@ -619,20 +622,27 @@ a {
   margin: 8vh -11vw 0 6vw;
   border: 2px solid red;
 }
+/*  */
 
 .terms-link {
   color: blue;
   text-decoration: underline;
 }
 
-.button:hover, .nav-item:hover {
-  background: brown;
+.button:hover {
+  background:#495E57;
   color: #EDEFEE;
+}
+
+.nav-item:hover, .specials-a:hover {
+  color: #333333;
+  text-decoration: underline;
 }
 
 sup {
   color: red;
 }
+
 /* .button:hover {
   background: brown;
   color: #EDEFEE;
