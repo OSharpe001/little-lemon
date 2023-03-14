@@ -26,6 +26,7 @@
                        "menu"
                        "about-us"
                        "reservation-terms"
+                       "sign-up"
                        "declare1"
                        "specials"
                        "declare2"
@@ -178,7 +179,7 @@ input:focus:invalid {
 }
 
 .form .button, label {
-  margin-top: 5vh;
+  margin: 3vh 0;
 }
 
 .form select, #guests, #res-date {
@@ -195,13 +196,46 @@ input:focus:invalid {
 .reservation-terms {
   grid-area: reservation-terms;
   grid-column: 3 / 11;
+  font-size: 16pt;
+  line-height: 1.5;
   display:flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   width: 100%;
   background-color:#EDEFEE;
   border-radius: 16px;
-  border: 3px solid purple;
+}
+
+.reservation-terms h1 {
+  margin: 2vh 0;
+}
+
+.reservation-terms p {
+  margin: 2vh;
+}
+
+.sign-up {
+  grid-area: sign-up;
+  grid-column: 3 / 11;
+  font-size: 16pt;
+  line-height: 1.5;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  background-color:#EDEFEE;
+  border-radius: 16px;
+}
+
+.sign-up-or-in {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  align-content: center;
+  /* border: 2px solid red; */
 }
 
 .greeting {
