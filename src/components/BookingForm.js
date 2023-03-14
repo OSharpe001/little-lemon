@@ -6,11 +6,10 @@ TODO:
 */
 
 import CustomerInfoForm from "./CustomerInfoForm"
-import {validateEmail, validatePhone} from "../utils";
 import React, { useState } from "react";
 
 export default function BookingForm(props) {
-
+// console.log("BOOKING FORM PROPS: ", props.info)
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year, month, day].join("-");
     const timeSelection = props.availableTimes();
@@ -21,23 +20,15 @@ export default function BookingForm(props) {
     const [guestsError, setGuestsError] = useState("");
     const [occasion, setOccasion] = useState("");
     const [occasionError, setOccasionError] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [firstNameError, setFirstNameError] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [lastNameError, setLastNameError] = useState("");
-    const [email, setEmail] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [phone, setPhone] = useState("");
-    const [phoneError, setPhoneError] = useState("");
     const [requests, setRequests] = useState("");
     const [requestsError, setRequestsError] = useState("");
     const [terms, setTerms] = useState(false);
 
     const clearForm = () => {
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPhone("");
+        props.info.setFirstName("");
+        props.info.setLastName("");
+        props.info.setEmail("");
+        props.info.setPhone("");
         props.setSeating("Indoor")
         setResDate(today);
         setGuests("1");
@@ -46,24 +37,24 @@ export default function BookingForm(props) {
         setTerms(false)
     };
 
-    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
-    const gotRequiredInfo = (!!firstName && !!lastName && !!email && !!phone & !disabled);
+    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(props.info.phoneError) || !!(props.info.emailError) || !!(props.info.firstNameError) || !!(props.info.lastNameError);
+    const gotRequiredInfo = (!!props.info.firstName && !!props.info.lastName && !!props.info.email && !!props.info.phone & !disabled);
 
     const setSubmissionErrors = () => {
         if (occasion === "") {
             setOccasionError("What's the occasion?");
         }
-        if (firstName === ""){
-            setFirstNameError("All fields are required.");
+        if (props.info.firstName === ""){
+            props.info.setFirstNameError("All fields are required.");
         }
-        if (lastName === ""){
-            setLastNameError("All fields are required.");
+        if (props.info.lastName === ""){
+            props.info.setLastNameError("All fields are required.");
         }
-        if (email === ""){
-            setEmailError("All fields are required.");
+        if (props.info.email === ""){
+            props.info.setEmailError("All fields are required.");
         }
-        if (phone === ""){
-            setPhoneError("All fields are required.");
+        if (props.info.phone === ""){
+            props.info.setPhoneError("All fields are required.");
         }
         return
     }
@@ -78,10 +69,10 @@ export default function BookingForm(props) {
         } else {
                 setOccasionError("");
                 props.submitForm({
-                    "first-name":firstName,
-                    "last-name":lastName,
-                    "email":email,
-                    "phone":phone,
+                    "first-name":props.info.firstName,
+                    "last-name":props.info.lastName,
+                    "email":props.info.email,
+                    "phone":props.info.phone,
                     "seating":props.seating,
                     "date":resDate,
                     "time":resTime,
@@ -91,50 +82,6 @@ export default function BookingForm(props) {
                 });
                 clearForm();
         }
-    };
-
-    const handleFirstNameChange = (e) => {
-        setFirstName(e.target.value);
-        if (e.target.value.length < 2) {
-            setFirstNameError("First name must have at least 2 characters.");
-            return;
-        } else if (e.target.value.length >15) {
-            setFirstNameError("Please limit the first name to 15 characters long.");
-        } else {
-            setFirstNameError("");
-        };
-    };
-
-    const handleLastNameChange = (e) => {
-        setLastName(e.target.value);
-        if (e.target.value.length < 2) {
-            setLastNameError("Last name must have at least 2 characters.");
-            return;
-        } else if (e.target.value.length >15) {
-            setLastNameError("Please limit the last name to 15 characters long.");
-        } else {
-            setLastNameError("");
-        };
-    };
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-        if (!validateEmail(e.target.value)) {
-            setEmailError("Please submit a valid email address.");
-            return;
-        } else {
-            setEmailError("");
-        };
-    };
-
-    const handlePhoneChange = (e) => {
-        setPhone(e.target.value);
-        if (!validatePhone(e.target.value)) {
-            setPhoneError("Please submit a valid phone number.");
-            return;
-        } else {
-            setPhoneError("");
-        };
     };
 
     const handleSeatingChange = (e) => {
@@ -183,27 +130,14 @@ export default function BookingForm(props) {
         setTerms(!terms);
     }
 
-    const CustomerInfoProps = {
-        firstName:firstName,
-        handleFirstNameChange:handleFirstNameChange,
-        firstNameError:firstNameError,
-        lastName:lastName,
-        handleLastNameChange:handleLastNameChange,
-        lastNameError:lastNameError,
-        email:email,
-        handleEmailChange:handleEmailChange,
-        emailError:emailError,
-        phone:phone,
-        handlePhoneChange:handlePhoneChange,
-        phoneError:phoneError,
-    }
-
     return (
             <form
             className="form"
             onSubmit={handleSubmit}
             >
-                <CustomerInfoForm info={CustomerInfoProps}/>
+
+                <h2>Let's Get Your Info, First</h2>
+                <CustomerInfoForm info={props.info}/>
                 <h2>Let's Reserve Your Table Today</h2>
 
                 <div className="seating">

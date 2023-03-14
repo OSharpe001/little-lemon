@@ -1,9 +1,9 @@
-import React from 'react'
+
 
 export default function CustomerInfoForm(props) {
+    console.log("CUSTOMER INFO FORM PROPS: ", props.info)
   return (
     <section className="form">
-        <h2>Let's Get Your Info, First</h2>
 
         <label htmlFor="first-name">First Name <sup>*</sup></label>
         <input
