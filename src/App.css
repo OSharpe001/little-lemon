@@ -638,6 +638,22 @@ sup {
   color: red;
 }
 
+.indoor {
+  border: "5px solid red";
+  background-image: url("./assets/images/indoor_seating2.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+  color:#EDEFEE;
+  text-shadow: 2px 2px #FFF;
+}
+
+.outdoor {
+  background-image: url("./assets/images/outdoor_seating.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color:#333333;
+  text-shadow: 3px 3px #FFF;
+}
 /* .button:hover {
   background: brown;
   color: #EDEFEE;

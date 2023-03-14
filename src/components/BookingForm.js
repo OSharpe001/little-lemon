@@ -11,11 +11,12 @@ export default function BookingForm(props) {
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year, month, day].join("-");
     const timeSelection = props.availableTimes();
+
     const [resTime, setResTime] = useState(props.availableTimes(today)[0]);
     const [resDate, setResDate] = useState(today);
     const [guests, setGuests] = useState("1");
-    const [occasion, setOccasion] = useState("");
     const [guestsError, setGuestsError] = useState("");
+    const [occasion, setOccasion] = useState("");
     const [occasionError, setOccasionError] = useState("");
     const [firstName, setFirstName] = useState("");
     const [firstNameError, setFirstNameError] = useState("");
@@ -27,7 +28,7 @@ export default function BookingForm(props) {
     const [phoneError, setPhoneError] = useState("");
     const [requests, setRequests] = useState("");
     const [requestsError, setRequestsError] = useState("");
-    const [seating, setSeating] = useState("Indoor");
+    // const [seating, setSeating] = useState("Indoor");
     const [terms, setTerms] = useState(false);
 
     const clearForm = () => {
@@ -35,9 +36,9 @@ export default function BookingForm(props) {
         setLastName("");
         setEmail("");
         setPhone("");
-        setSeating("Indoor")
+        props.setSeating("Indoor")
         setResDate(today);
-        setGuests("2");
+        setGuests("1");
         setOccasion("Occasion");
         setRequests("");
         setTerms(false)
@@ -45,11 +46,17 @@ export default function BookingForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        /** TODO:
+         * 1- CREATE PROGROM THAT WILL RUN ALL CHECKS AND ISSUE ALL ERRORS
+         * AT ONCE INSTEAD OF CURRENT METHOD.
+        */
         if (occasion === "") {
             setOccasionError("What's the occasion?");
             return;
         } else if (firstName === ""){
             setFirstNameError("All fields are required.");
+            console.log("FIRSTNAMEERROR: ", firstNameError)
         } else if (lastName === ""){
             setLastNameError("All fields are required.");
         } else if (email === ""){
@@ -65,7 +72,7 @@ export default function BookingForm(props) {
                     "last-name":lastName,
                     "email":email,
                     "phone":phone,
-                    "seating":seating,
+                    "seating":props.seating,
                     "date":resDate,
                     "time":resTime,
                     "guests":guests,
@@ -76,6 +83,7 @@ export default function BookingForm(props) {
         }
     };
 
+    console.log("(GLOBAL) FIRSTNAMEERROR: ", firstNameError)
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
         if (e.target.value.length < 2) {
@@ -121,7 +129,7 @@ export default function BookingForm(props) {
     };
 
     const handleSeatingChange = (e) => {
-        setSeating(e.target.value);
+        props.setSeating(e.target.value);
     }
 
     const handleGuestsChange = (e) => {
@@ -169,6 +177,7 @@ export default function BookingForm(props) {
 
     const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
 
+    console.log("SEATING VALUE: ", props.seating);
     return (
             <form
             className="booking-form"
@@ -230,7 +239,7 @@ export default function BookingForm(props) {
                         <input
                         type="radio"
                         id="indoor"
-                        checked={seating==="Indoor"}
+                        checked={props.seating==="Indoor"}
                         name="seating"
                         value="Indoor"
                         onChange={handleSeatingChange}
@@ -243,7 +252,7 @@ export default function BookingForm(props) {
                         <input
                         type="radio"
                         id="outdoor"
-                        checked={seating==="Outdoor"}
+                        checked={props.seating==="Outdoor"}
                         name="seating"
                         value="Outdoor"
                         onChange={handleSeatingChange}
