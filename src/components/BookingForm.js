@@ -2,6 +2,7 @@
 TODO:
 
 1- FIX MOBILE SCREEN LAYOUT FOR NEW ADDITIONS
+2- FIX THE CSS FOR TEXT, ESPECIALLY THE ERROR MESSAGES
 */
 import {validateEmail, validatePhone} from "../utils";
 import React, { useState } from "react";
@@ -28,7 +29,6 @@ export default function BookingForm(props) {
     const [phoneError, setPhoneError] = useState("");
     const [requests, setRequests] = useState("");
     const [requestsError, setRequestsError] = useState("");
-    // const [seating, setSeating] = useState("Indoor");
     const [terms, setTerms] = useState(false);
 
     const clearForm = () => {
@@ -44,25 +44,33 @@ export default function BookingForm(props) {
         setTerms(false)
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        /** TODO:
-         * 1- CREATE PROGROM THAT WILL RUN ALL CHECKS AND ISSUE ALL ERRORS
-         * AT ONCE INSTEAD OF CURRENT METHOD.
-        */
+    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
+    const gotRequiredInfo = (!!firstName && !!lastName && !!email && !!phone & !disabled);
+
+    const setSubmissionErrors = () => {
         if (occasion === "") {
             setOccasionError("What's the occasion?");
-            return;
-        } else if (firstName === ""){
+        }
+        if (firstName === ""){
             setFirstNameError("All fields are required.");
-            console.log("FIRSTNAMEERROR: ", firstNameError)
-        } else if (lastName === ""){
+        }
+        if (lastName === ""){
             setLastNameError("All fields are required.");
-        } else if (email === ""){
+        }
+        if (email === ""){
             setEmailError("All fields are required.");
-        } else if (phone === ""){
+        }
+        if (phone === ""){
             setPhoneError("All fields are required.");
+        }
+        return
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!gotRequiredInfo) {
+            setSubmissionErrors();
+            return
         } else if (terms === false){
             alert("Do you agree to our terms of service?");
         } else {
@@ -83,7 +91,6 @@ export default function BookingForm(props) {
         }
     };
 
-    console.log("(GLOBAL) FIRSTNAMEERROR: ", firstNameError)
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
         if (e.target.value.length < 2) {
@@ -172,12 +179,8 @@ export default function BookingForm(props) {
 
     const handleTermsChange = (e) => {
         setTerms(!terms);
-        console.log("TERMS VALUE INSIDE HANDLETERMS: ", terms)
     }
 
-    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(phoneError) || !!(emailError) || !!(firstNameError) || !!(lastNameError);
-
-    console.log("SEATING VALUE: ", props.seating);
     return (
             <form
             className="booking-form"
@@ -191,6 +194,7 @@ export default function BookingForm(props) {
                 id="first-name"
                 name="first-name"
                 value={firstName}
+                placeholder="First name"
                 onChange={handleFirstNameChange}
                 onBlur={handleFirstNameChange}
                 />
@@ -201,6 +205,7 @@ export default function BookingForm(props) {
                 type="text"
                 id="last-name"
                 name="last-name"
+                placeholder="Last name"
                 value={lastName}
                 onChange={handleLastNameChange}
                 onBlur={handleLastNameChange}
