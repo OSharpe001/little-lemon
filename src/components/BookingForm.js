@@ -4,6 +4,8 @@ TODO:
 1- FIX MOBILE SCREEN LAYOUT FOR NEW ADDITIONS
 2- FIX THE CSS FOR TEXT, ESPECIALLY THE ERROR MESSAGES
 */
+
+import CustomerInfoForm from "./CustomerInfoForm"
 import {validateEmail, validatePhone} from "../utils";
 import React, { useState } from "react";
 
@@ -181,61 +183,27 @@ export default function BookingForm(props) {
         setTerms(!terms);
     }
 
+    const CustomerInfoProps = {
+        firstName:firstName,
+        handleFirstNameChange:handleFirstNameChange,
+        firstNameError:firstNameError,
+        lastName:lastName,
+        handleLastNameChange:handleLastNameChange,
+        lastNameError:lastNameError,
+        email:email,
+        handleEmailChange:handleEmailChange,
+        emailError:emailError,
+        phone:phone,
+        handlePhoneChange:handlePhoneChange,
+        phoneError:phoneError,
+    }
+
     return (
             <form
-            className="booking-form"
+            className="form"
             onSubmit={handleSubmit}
             >
-                <h2>Let's Get Your Info, First</h2>
-
-                <label htmlFor="first-name">First Name <sup>*</sup></label>
-                <input
-                type="text"
-                id="first-name"
-                name="first-name"
-                value={firstName}
-                placeholder="First name"
-                onChange={handleFirstNameChange}
-                onBlur={handleFirstNameChange}
-                />
-                <p className="error-message">{firstNameError}</p>
-
-                <label htmlFor="last-name">Last Name <sup>*</sup></label>
-                <input
-                type="text"
-                id="last-name"
-                name="last-name"
-                placeholder="Last name"
-                value={lastName}
-                onChange={handleLastNameChange}
-                onBlur={handleLastNameChange}
-                />
-                <p className="error-message">{lastNameError}</p>
-
-                <label htmlFor="email">Email <sup>*</sup></label>
-                <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="little@lemon.com"
-                value={email}
-                onChange={handleEmailChange}
-                onBlur={handleEmailChange}
-                />
-                <p className="error-message">{emailError}</p>
-
-                <label htmlFor="phone">Phone Number <sup>*</sup></label>
-                <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="(123) 456-7890"
-                value={phone}
-                onChange={handlePhoneChange}
-                onBlur={handlePhoneChange}
-                />
-                <p className="error-message">{phoneError}</p>
-
+                <CustomerInfoForm info={CustomerInfoProps}/>
                 <h2>Let's Reserve Your Table Today</h2>
 
                 <div className="seating">
@@ -294,7 +262,7 @@ export default function BookingForm(props) {
                 value={guests}
                 onChange={e => handleGuestsChange(e)}
                 />
-                <p className="error-message">{guestsError}</p>
+                {guestsError?<p className="error-message">{guestsError}</p>:null}
 
                 <label htmlFor="occasion">Occasion <sup>*</sup></label>
                 <select
@@ -310,7 +278,7 @@ export default function BookingForm(props) {
                     <option value="Anniversary" >Anniversary</option>
                     <option value="Other" >Other. . .</option>
                 </select>
-                <p className="error-message">{occasionError}</p>
+                {occasionError?<p className="error-message">{occasionError}</p>:null}
 
                 <label htmlFor="requests">Any Comments or Requests?</label>
                 <textarea
@@ -321,7 +289,7 @@ export default function BookingForm(props) {
                 value={requests}
                 onChange={handleRequestsChange}
                 />
-                <p className="error-message">{requestsError}</p>
+                {requestsError?<p className="error-message">{requestsError}</p>:null}
 
                 <div className="terms">
                     <input

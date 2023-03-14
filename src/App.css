@@ -134,7 +134,7 @@ h4, h5, h6 {
   border-radius: 16px;
 }
 
-.booking-form {
+.form {
   margin: 2vh 1vw;
   padding: 2vh 1vw;
   font-size: 16pt;
@@ -145,16 +145,16 @@ h4, h5, h6 {
   align-items: center;
 }
 
-.booking-form p {
+.form p {
   margin-bottom: 2vh;
   text-decoration: underline;
 }
 
-.booking-form label {
+.form label {
   color: #333333;
 }
 
-.booking-form input, select {
+.form input, select {
   font-size: 16pt;
   font-weight: bold;
   padding: 1vh 0;
@@ -170,18 +170,18 @@ input:focus:invalid {
   border: 2px solid red;
 }
 
-.booking-form .button {
+.form .button {
   border-top: solid 2px #FFF;
   border-right: solid 2px #333333;
   border-bottom: solid 2px #333333;
   border-left: solid 2px #FFF;
 }
 
-.booking-form .button, label {
+.form .button, label {
   margin-top: 5vh;
 }
 
-.booking-form select, #guests, #res-date {
+.form select, #guests, #res-date {
   width: 30vw;
 }
 

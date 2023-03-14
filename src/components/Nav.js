@@ -1,3 +1,7 @@
+/**
+ * TODO:
+ * 1- CREATE A BURGER MENU FUNCTION FOR MOBILE SCREENS
+ */
 import { Link } from "react-router-dom";
 
 export default function Nav() {
