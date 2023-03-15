@@ -12,3 +12,45 @@ export const validatePhone = (phone) => {
         /^(\([0-9]{3}\) | [0-9]{3}-)[0-9]{3}-[0-9]{4}$/
       );
   };
+
+  export const validateAddress = (address) => {
+    return String(address)
+      .match(
+        /^[0-9]{3}.[A-Z]{1}[a-z.]*$/
+      );
+  };
+
+  export const validateCity = (city) => {
+    return String(city)
+      .match(
+        /^[A-Z]{1}[a-z.]*$/
+      );
+  };
+
+  export const validateZipCode = (zipCode) => {
+    return String(zipCode)
+      .match(
+        /^[0-9]{5}$/
+      );
+  };
+
+  export const validateCardNumber = (cardNumber) => {
+    return String(cardNumber)
+      .match(
+        /^[0-9]{5}$/
+      );
+  };
+
+  export const validateCardExpiration = (cardExpiration) => {
+    return String(cardExpiration)
+      .match(
+        /^[0-9]{2}\/[0-9]{2}$/
+      );
+  };
+
+  export const validateCardCVV = (cardCVV) => {
+    return String(cardCVV)
+      .match(
+        /^[0-9]{3}$/
+      );
+  };

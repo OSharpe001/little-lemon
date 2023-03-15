@@ -144,11 +144,13 @@ h4, h5, h6 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  border: 2px solid red;
+
 }
 
-.form p {
-  margin-bottom: 2vh;
+.form h2 {
   text-decoration: underline;
+  /* border: 2px solid red; */
 }
 
 .form label {
@@ -179,7 +181,7 @@ input:focus:invalid {
 }
 
 .form .button, label {
-  margin: 3vh 0;
+  margin: 1vh 0 1vh;
 }
 
 .form select, #guests, #res-date {

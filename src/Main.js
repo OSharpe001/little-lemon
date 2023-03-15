@@ -13,7 +13,16 @@ import { Routes, Route } from "react-router-dom";
 import React, { useReducer, useState } from "react";
 import { fetchAPI, submitAPI } from './api.js';
 import { useNavigate } from "react-router-dom";
-import {validateEmail, validatePhone} from "./utils";
+import {
+    validateEmail,
+    validatePhone,
+    validateAddress,
+    validateCity,
+    validateZipCode,
+    validateCardNumber,
+    validateCardExpiration,
+    validateCardCVV,
+    } from "./utils";
 
 export default function Main() {
 
@@ -25,6 +34,21 @@ export default function Main() {
     const [emailError, setEmailError] = useState("");
     const [phone, setPhone] = useState("");
     const [phoneError, setPhoneError] = useState("");
+
+    const [address, setAddress] = useState("");
+    const [addressError, setAddressError] = useState("");
+    const [city, setCity] = useState("");
+    const [cityError, setCityError] = useState("");
+    const [state, setState] = useState("");
+    const [zipCode, setZipCode] = useState("");
+    const [zipCodeError, setZipCodeError] = useState("");
+
+    const [cardNumber, setCardNumber] = useState("");
+    const [cardNumberError, setCardNumberError] = useState("");
+    const [cardExpiration, setCardExpiration] = useState("");
+    const [cardExpirationError, setCardExpirationError] = useState("");
+    const [cardCVV, setCardCVV] = useState("");
+    const [cardCVVError, setCardCVVError] = useState("");
 
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year,month, day].join("-");
@@ -111,7 +135,97 @@ export default function Main() {
         phone:phone,
         handlePhoneChange:handlePhoneChange,
         phoneError:phoneError,
-    }
+    };
+
+    const handleCardNumberChange = (e) => {
+        setCardNumber(e.target.value);
+        if (!validateCardNumber(e.target.value)) {
+            setCardNumberError("Please submit a valid credit/debit card number.");
+            return;
+        } else {
+            setCardNumberError("");
+        };
+    };
+
+    const handleCardExpirationChange = (e) => {
+        setCardExpiration(e.target.value);
+        if (!validateCardExpiration(e.target.value)) {
+            setCardExpirationError("Are you sure that this is the expiration date?");
+            return;
+        } else {
+            setCardExpirationError("");
+        };
+    };
+
+    const handleCardCVVChange = (e) => {
+        setCardCVV(e.target.value);
+        if (!validateCardCVV(e.target.value)) {
+            setCardCVVError("Are you sure that this is the CVV number?");
+            return;
+        } else {
+            setCardCVVError("");
+        };
+    };
+
+    const CustomerPaymentProps = {
+        cardNumber: cardNumber,
+        handleCardNumberChange:handleCardNumberChange,
+        cardNumberError:cardNumberError,
+        cardExpiration:cardExpiration,
+        handleCardExpirationChange:handleCardExpirationChange,
+        cardExpirationError:cardExpirationError,
+        cardCVV:cardCVV,
+        handleCardCVVChange:handleCardCVVChange,
+        cardCVVError:cardCVVError,
+    };
+
+    const handleAddressChange = (e) => {
+        setAddress(e.target.value);
+        if (!validateAddress(e.target.value)) {
+            setAddressError("Please submit a valid address.");
+            return;
+        } else {
+            setAddressError("");
+        };
+    };
+
+    const handleCityChange = (e) => {
+        setCity(e.target.value);
+        if (!validateCity(e.target.value)) {
+            setCityError("Please submit a valid City.");
+            return;
+        } else {
+            setCityError("");
+        };
+    };
+
+    const handleStateChange = (e) => {
+        setState(e.target.value);
+    };
+
+    const handleZipCodeChange = (e) => {
+        setZipCode(e.target.value);
+        if (!validateZipCode(e.target.value)) {
+            setZipCodeError("Please submit a valid Zip Code.");
+            return;
+        } else {
+            setZipCodeError("");
+        };
+    };
+
+    const CustomerDeliveryProps = {
+        address:address,
+        handleAddressChange:handleAddressChange,
+        addressError:addressError,
+        city:city,
+        handlCityChange:handleCityChange,
+        cityError:cityError,
+        state:state,
+        handleStateChange:handleStateChange,
+        zipCode:zipCode,
+        handleZipCodeChange:handleZipCodeChange,
+        zipCodeError:zipCodeError,
+    };
 
     return (
         <>
@@ -131,7 +245,10 @@ export default function Main() {
 
                 <Route path="/confirmed_booking" element={<ConfirmedBooking data={data}/>}/>
                 <Route path="/terms" element={<Terms />}/>
-                <Route path="/sign_up" element={<SignUp info={CustomerInfoProps}/>}/>
+                <Route path="/sign_up" element={<SignUp info={CustomerInfoProps}
+                                                        payment={CustomerPaymentProps}
+                                                        delivery={CustomerDeliveryProps}
+                                                        />}/>
 
             </Routes>
             <Footer />

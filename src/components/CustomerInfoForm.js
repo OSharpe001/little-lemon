@@ -1,7 +1,7 @@
 
 
 export default function CustomerInfoForm(props) {
-    console.log("CUSTOMER INFO FORM PROPS: ", props.info)
+    // console.log("CUSTOMER INFO FORM PROPS: ", props.info)
   return (
     <section className="form">
 
