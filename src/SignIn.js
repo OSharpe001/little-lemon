@@ -31,11 +31,12 @@ export default function SignIn(props) {
             setSubmissionErrors();
             return
         } else {
-                props.submitForm({
-                    "user-name":props.userName,
-                    "password":password,
-                });
-                clearForm();
+            props.submitForm({
+                "user-name":props.userName,
+                "password":password,
+            });
+            props.setLoggedIn({userName:props.userName, state:true})
+            clearForm();
         };
     };
 

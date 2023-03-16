@@ -10,7 +10,7 @@ import React, { useState } from "react";
 
 export default function BookingForm(props) {
     
-    // console.log("BOOKING FORM PROPS: ", props.info)
+    // console.log("BOOKING FORM PROPS: ", props.userName)
     
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year, month, day].join("-");
@@ -136,9 +136,15 @@ export default function BookingForm(props) {
             className="form"
             onSubmit={handleSubmit}
             >
+                {!props.userName?(
+                    <>
+                    <h2>Let's Get Your Info, First</h2>
+                    <CustomerInfoForm info={props.info}/>
+                    </>
+                    )
+                    :null
+                };
 
-                <h2>Let's Get Your Info, First</h2>
-                <CustomerInfoForm info={props.info}/>
                 <h2>Let's Reserve Your Table Today</h2>
 
                 <div className="seating">

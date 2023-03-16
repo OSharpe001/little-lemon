@@ -142,6 +142,7 @@ export default function SignUp(props) {
                 "delivery-state":props.payment.state,
                 "delivery-zip-code":props.payment.zipCode
             });
+            props.setLoggedIn({userName:props.userName, state:true})
             clearForm();
         } else {
             props.submitForm({
@@ -162,6 +163,7 @@ export default function SignUp(props) {
                 "delivery-state":props.delivery.state,
                 "delivery-zip-code":props.delivery.zipCode
             });
+            props.setLoggedIn({userName:props.userName, state:true})
             clearForm();
         }
     };

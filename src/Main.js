@@ -12,6 +12,7 @@ import Menu from "./Menu";
 import Order from "./Order";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import SignOut from "./SignOut";
 import ConfirmedBooking from "./ConfirmedBooking";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -40,10 +41,10 @@ export default function Main() {
      * WELCOME BANNER AT THE TOP CURRRENTLY BEING HELD BY
      * THE TESTING AREA.
      */
-    // const [loggedIn, setLoggedIn] = useState({
-    //                                         state:false,
-    //                                         userName:"",
-    //                                         });
+    const [loggedIn, setLoggedIn] = useState({
+                                            state:false,
+                                            userName:"",
+                                            });
 
     const [userName, setUserName] = useState("");
     const [userNameError, setUserNameError] = useState("");
@@ -367,14 +368,16 @@ export default function Main() {
         setZipCodeError:setZipCodeError
     };
 
-    console.log("MAIN.JS' USERNAME VALUE: ", userName)
+    // console.log("MAIN.JS' LOGGEDIN STATE AND USERNAME VALUE: ", loggedIn.state, loggedIn.userName)
 
     return (
         <>
             <Header
-                // loggedIn={loggedIn}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+                navigate={navigate}
                 />
-            <h2 className="testing-area">TESTING AREA! !</h2>
+             {loggedIn.state?<h2 className="welcome-banner">Welcome, {loggedIn.userName}!</h2>:null}
             <Routes>
                 <Route path="/" element={<HomePage />}/>
                 <Route path="/booking" element={<BookingPage
@@ -382,19 +385,25 @@ export default function Main() {
                                                     availableTimes={availableTimes}
                                                     dispatch={dispatch}
                                                     submitForm={submitReservationForm}
+                                                    userName={loggedIn.userName}
                                                     />}/>
                 <Route path="/about_us" element={<AboutUs />}/>
                 <Route path="/menu" element={<Menu />}/>
-                <Route path="/order" element={<Order />}/>
+                <Route path="/order" element={<Order 
+                                                userName={loggedIn.userName}
+                                                />}/>
                 <Route path="/sign_in" element={<SignIn
                                                     submitForm={submitSignInForm}
                                                     userName={userName}
                                                     setUserName={setUserName}
                                                     userNameError={userNameError}
                                                     setUserNameError={setUserNameError}
+                                                    setLoggedIn={setLoggedIn}
                                                     />}/>
 
-                <Route path="/confirmed_booking" element={<ConfirmedBooking data={data}/>}/>
+                <Route path="/confirmed_booking" element={<ConfirmedBooking
+                                                                        data={data}
+                                                                        userName={loggedIn.userName}/>}/>
                 <Route path="/terms" element={<Terms />}/>
                 <Route path="/sign_up" element={<SignUp
                                                     info={CustomerInfoProps}
@@ -405,6 +414,11 @@ export default function Main() {
                                                     setUserName={setUserName}
                                                     userNameError={userNameError}
                                                     setUserNameError={setUserNameError}
+                                                    setLoggedIn={setLoggedIn}
+                                                    />}/>
+                <Route path="/sign_out" element={<SignOut
+                                                    setLoggedIn={setLoggedIn}
+                                                    navigate={navigate}
                                                     />}/>
 
             </Routes>

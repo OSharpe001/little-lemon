@@ -4,6 +4,7 @@ import Nav from  "./Nav"
 
 
 export default function Header(props) {
+    // console.log("HEADER.JS PROPS: ", props)
     return (
         <>
             <header className="head">
@@ -14,7 +15,11 @@ export default function Header(props) {
                     alt="Little Lemon's banner"
                     />
                 </Link>
-                <Nav props={props}/>
+                <Nav
+                    loggedIn={props.loggedIn}
+                    setLoggedIn={props.setLoggedIn}
+                    navigate={props.navigate}
+                    />
             </header>
         </>
     );

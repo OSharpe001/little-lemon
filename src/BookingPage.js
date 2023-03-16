@@ -4,7 +4,7 @@ import BookingForm from "./components/BookingForm";
 export default function BookingPage(props) {
 
     const [seating, setSeating] = useState("Indoor");
-    // console.log("BOOKING PAGE PROPS: ", props.info)
+    // console.log("BOOKING PAGE PROPS: ", props.userName)
     return (
             <section
             className={seating==="Indoor"?"booking-page indoor":"booking-page outdoor"}>
@@ -15,6 +15,7 @@ export default function BookingPage(props) {
                     submitForm={props.submitForm}
                     seating={seating}
                     setSeating={setSeating}
+                    userName={props.userName}
                 />
             </section>
     );
