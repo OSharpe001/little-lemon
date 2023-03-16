@@ -1,10 +1,3 @@
-/**
- * TODO:
- * 1- PLACE A WELCOME BANNER ON THE TOP OF THIS PAGE SO
- * WHEN SOMEONE LOGGS IN OR SIGNS UP, THEIR USERNAME
- * APPEARS WITH A LITTLE MESSAGE.
- */
-
 import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
 import AboutUs from "./AboutUs";
@@ -34,13 +27,6 @@ import {
 
 export default function Main() {
 
-    /**
-     * TODO:
-     * 1- SET IT UP THAT THE USERNAME FROM SIGNIN OR
-     * SIGNUP IS HELD A LITTLE LONGER TO SHOWCASE THE
-     * WELCOME BANNER AT THE TOP CURRRENTLY BEING HELD BY
-     * THE TESTING AREA.
-     */
     const [loggedIn, setLoggedIn] = useState({
                                             state:false,
                                             userName:"",

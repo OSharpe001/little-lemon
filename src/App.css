@@ -220,19 +220,21 @@ input:focus:invalid {
 }
 
 .reservation-terms p {
-  margin: 2vh;
+  margin: 2vh 0;
 }
 
 .sign-up {
   grid-area: sign-up;
   grid-column: 3 / 11;
   font-size: 16pt;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   display:flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 100%;
+  margin:0;
+  padding: 0;
   background-color:#EDEFEE;
   border-radius: 16px;
 }
@@ -246,7 +248,7 @@ input:focus:invalid {
   /* border: 2px solid red; */
 }
 
-.greeting {
+.hero .greeting {
   background-color: #495E57;
   margin: 0 0 3vh -16%;
   padding: 95px auto;
@@ -254,7 +256,7 @@ input:focus:invalid {
   max-width: 20%;
   color:#EDEFEE;
   font-weight: bold;
-  /* border: 2px solid red; */
+  /* border: 2px solid yellow; */
 }
 
 .greeting article {
@@ -531,7 +533,7 @@ a {
 .error-message {
   color: red;
   margin-bottom: 2vh;
-  font-size: 18px;
+  font-size: 16pt;
 }
 
 .sign-in {
@@ -662,15 +664,16 @@ a {
   /* border: 2px solid blue; */
 }
 
-/* .terms {
+/* .terms, .same-as-billing {
+  margin-left: -5vw;
   border: 2px solid blue;
 } */
 
 /*  */
 /* NEED TO MAKE THE INPUT BOX/CIRCLES LARGER */
 #terms, #indoor, #outdoor, #same-as-billing {
-  margin: 8vh -11vw 0 6vw;
-  /* border: 2px solid red; */
+  margin: 2vh -11vw 1vh 6vw;
+  border: 2px solid red;
 }
 /*  */
 
@@ -698,7 +701,7 @@ sup {
   background-size:cover;
   background-repeat: no-repeat;
   color:#EDEFEE;
-  text-shadow: 2px 2px 4px #FFF;
+  text-shadow: 2px 2px 4px #333333;
   /* border: 5px solid red; */
 }
 
@@ -721,7 +724,11 @@ sup {
   justify-content: center;
   align-items: center;
   padding: 0 0;
-  border: 2px solid red;
+  height: 6vh;
+  border-radius: 16px 16px;
+  background-color: #F4CE14;
+  color: #495E57;
+  /* border: 2px solid red; */
 }
 /* .button:hover {
   background: brown;
