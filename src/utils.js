@@ -16,7 +16,7 @@ export const validatePhone = (phone) => {
   export const validateAddress = (address) => {
     return String(address)
       .match(
-        /^[0-9]{3}.[A-Z]{1}[a-z.]*$/
+        /^[0-9]{1,8} [A-Za-z]* [A-Za-z]*\.$/
       );
   };
 
@@ -37,7 +37,7 @@ export const validatePhone = (phone) => {
   export const validateCardNumber = (cardNumber) => {
     return String(cardNumber)
       .match(
-        /^[0-9]{5}$/
+        /^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$/
       );
   };
 

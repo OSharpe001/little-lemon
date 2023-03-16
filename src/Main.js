@@ -40,6 +40,7 @@ export default function Main() {
     const [city, setCity] = useState("");
     const [cityError, setCityError] = useState("");
     const [state, setState] = useState("");
+    const [stateError, setStateError] = useState("");
     const [zipCode, setZipCode] = useState("");
     const [zipCodeError, setZipCodeError] = useState("");
 
@@ -49,6 +50,14 @@ export default function Main() {
     const [cardExpirationError, setCardExpirationError] = useState("");
     const [cardCVV, setCardCVV] = useState("");
     const [cardCVVError, setCardCVVError] = useState("");
+    const [payAddress, setPayAddress] = useState("");
+    const [payAddressError, setPayAddressError] = useState("");
+    const [payCity, setPayCity] = useState("");
+    const [payCityError, setPayCityError] = useState("");
+    const [payState, setPayState] = useState("");
+    const [payStateError, setPayStateError] = useState("");
+    const [payZipCode, setPayZipCode] = useState("");
+    const [payZipCodeError, setPayZipCodeError] = useState("");
 
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year,month, day].join("-");
@@ -70,11 +79,19 @@ export default function Main() {
     const [availableTimes, dispatch]= useReducer(updateTimes, initializeTimes);
 
     const navigate = useNavigate();
-    const submitForm = (formData) => {
+    const submitReservationForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
             setData(formData)
             navigate("/confirmed_booking")
+        };
+    };
+
+    const submitSignUpForm = (formData) => {
+        const result=submitAPI(formData);
+        if (result) {
+            setData(formData)
+            navigate("/confirmed_sign-up")
         };
     };
 
@@ -126,15 +143,19 @@ export default function Main() {
         firstName:firstName,
         handleFirstNameChange:handleFirstNameChange,
         firstNameError:firstNameError,
+        setFirstNameError:setFirstNameError,
         lastName:lastName,
         handleLastNameChange:handleLastNameChange,
         lastNameError:lastNameError,
+        setLastNameError:setLastNameError,
         email:email,
         handleEmailChange:handleEmailChange,
         emailError:emailError,
+        setEmailError:setEmailError,
         phone:phone,
         handlePhoneChange:handlePhoneChange,
         phoneError:phoneError,
+        setPhoneError:setPhoneError
     };
 
     const handleCardNumberChange = (e) => {
@@ -167,16 +188,76 @@ export default function Main() {
         };
     };
 
+    const handlePayAddressChange = (e) => {
+        setPayAddress(e.target.value);
+        if (!validateAddress(e.target.value)) {
+            setPayAddressError("Please submit a valid address.");
+            return;
+        } else {
+            setPayAddressError("");
+        };
+    };
+
+    const handlePayCityChange = (e) => {
+        setPayCity(e.target.value);
+        if (!validateCity(e.target.value)) {
+            setPayCityError("Please submit a valid City.");
+            return;
+        } else {
+            setPayCityError("");
+        };
+    };
+
+    const handlePayStateChange = (e) => {
+        setPayState(e.target.value);
+        if (e.target.value==="New York") {
+            setPayStateError("");
+        } else {
+            setPayStateError("I'm sorry. We currently only service NYC.");
+            return;
+        }
+    };
+    // console.log("MAIN.JS' STATE VALUE: ", state)
+
+    const handlePayZipCodeChange = (e) => {
+        setPayZipCode(e.target.value);
+        if (!validateZipCode(e.target.value)) {
+            setPayZipCodeError("Please submit a valid Zip Code.");
+            return;
+        } else {
+            setPayZipCodeError("");
+        };
+    };
+
     const CustomerPaymentProps = {
         cardNumber: cardNumber,
         handleCardNumberChange:handleCardNumberChange,
         cardNumberError:cardNumberError,
+        setCardNumberError:setCardNumberError,
         cardExpiration:cardExpiration,
         handleCardExpirationChange:handleCardExpirationChange,
         cardExpirationError:cardExpirationError,
+        setCardExpirationError:setCardExpirationError,
         cardCVV:cardCVV,
         handleCardCVVChange:handleCardCVVChange,
         cardCVVError:cardCVVError,
+        setCardCVVError:setCardCVVError,
+        address:payAddress,
+        handleAddressChange:handlePayAddressChange,
+        addressError:payAddressError,
+        setPayAddressError:setPayAddressError,
+        city:payCity,
+        handleCityChange:handlePayCityChange,
+        cityError:payCityError,
+        setPayCityError:setPayCityError,
+        state:payState,
+        handleStateChange:handlePayStateChange,
+        stateError:payStateError,
+        setPayStateError:setPayStateError,
+        zipCode:payZipCode,
+        handleZipCodeChange:handlePayZipCodeChange,
+        zipCodeError:payZipCodeError,
+        setPayZipCodeError:setPayZipCodeError
     };
 
     const handleAddressChange = (e) => {
@@ -201,7 +282,14 @@ export default function Main() {
 
     const handleStateChange = (e) => {
         setState(e.target.value);
+        if (e.target.value==="New York") {
+            setStateError("");
+        } else {
+            setStateError("I'm sorry. We currently only service NYC.");
+            return;
+        }
     };
+    // console.log("MAIN.JS' STATE VALUE: ", state)
 
     const handleZipCodeChange = (e) => {
         setZipCode(e.target.value);
@@ -217,14 +305,19 @@ export default function Main() {
         address:address,
         handleAddressChange:handleAddressChange,
         addressError:addressError,
+        setAddressError:setAddressError,
         city:city,
-        handlCityChange:handleCityChange,
+        handleCityChange:handleCityChange,
         cityError:cityError,
+        setCityError:setCityError,
         state:state,
         handleStateChange:handleStateChange,
+        stateError:stateError,
+        setStateError:setStateError,
         zipCode:zipCode,
         handleZipCodeChange:handleZipCodeChange,
         zipCodeError:zipCodeError,
+        setZipCodeError:setZipCodeError
     };
 
     return (
@@ -236,7 +329,7 @@ export default function Main() {
                                                     info={CustomerInfoProps}
                                                     availableTimes={availableTimes}
                                                     dispatch={dispatch}
-                                                    submitForm={submitForm}
+                                                    submitForm={submitReservationForm}
                                                     />}/>
                 <Route path="/about_us" element={<AboutUs />}/>
                 <Route path="/menu" element={<Menu />}/>
@@ -248,6 +341,7 @@ export default function Main() {
                 <Route path="/sign_up" element={<SignUp info={CustomerInfoProps}
                                                         payment={CustomerPaymentProps}
                                                         delivery={CustomerDeliveryProps}
+                                                        submitForm={submitSignUpForm}
                                                         />}/>
 
             </Routes>

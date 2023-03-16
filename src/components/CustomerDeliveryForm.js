@@ -1,6 +1,8 @@
 
 
 export default function CustomerDeliveryForm(props) {
+
+  // console.log("CUSTOMERDELIVERYFORM'S STATE VALUE: ", props.delivery.state)
   return (
     <section className="form">
 
@@ -28,20 +30,24 @@ export default function CustomerDeliveryForm(props) {
         />
         {props.delivery.cityError?<p className="error-message">{props.delivery.cityError}</p>:null}
         
-
-        {/* CHANGE STATE TO A SELECTION BOX WITH ONLY 10 OPTIONS SHOWING AT A TIME */}
-        
         <label htmlFor="state">State <sup>*</sup></label>
-        <input
-        type="text"
+        <select
         id="state"
         name="state"
-        // value={props.delivery.address}
-        // onChange={props.delivery.handleAddressChange}
-        // onBlur={props.delivery.handleAddressChange}
-        />
-        {/* {props.delivery.addressError?<p className="error-message">{props.delivery.addressError}</p>:null} */}
-        
+        style={props.delivery.state?{color: "#EDEFEE", backgroundColor: "#495E57"}:null}
+        value={props.delivery.state}
+        onChange={props.delivery.handleStateChange}
+        onBlur={props.delivery.handleStateChange}
+        >
+          <option value="" >State</option>
+          <option value="New York" >New York</option>
+          <option value="" >Other. . .</option>
+        </select>
+        {props.delivery.stateError?<p className="error-message">{props.delivery.stateError}</p>:null}
+               
+
+
+
         <label htmlFor="zip-code">Zip/Postal Code <sup>*</sup></label>
         <input
         type="number"

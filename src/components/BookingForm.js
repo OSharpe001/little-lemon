@@ -9,7 +9,9 @@ import CustomerInfoForm from "./CustomerInfoForm"
 import React, { useState } from "react";
 
 export default function BookingForm(props) {
-// console.log("BOOKING FORM PROPS: ", props.info)
+    
+    console.log("BOOKING FORM PROPS: ", props.info)
+    
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year, month, day].join("-");
     const timeSelection = props.availableTimes();
@@ -43,21 +45,20 @@ export default function BookingForm(props) {
     const setSubmissionErrors = () => {
         if (occasion === "") {
             setOccasionError("What's the occasion?");
-        }
+        };
         if (props.info.firstName === ""){
             props.info.setFirstNameError("All fields are required.");
-        }
+        };
         if (props.info.lastName === ""){
             props.info.setLastNameError("All fields are required.");
-        }
+        };
         if (props.info.email === ""){
             props.info.setEmailError("All fields are required.");
-        }
+        };
         if (props.info.phone === ""){
             props.info.setPhoneError("All fields are required.");
-        }
-        return
-    }
+        };
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();

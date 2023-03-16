@@ -144,7 +144,7 @@ h4, h5, h6 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 
 }
 
@@ -157,16 +157,20 @@ h4, h5, h6 {
   color: #333333;
 }
 
+.indoor .form label {
+  color: #EDEFEE;
+}
+
 .form input, select {
   font-size: 16pt;
   font-weight: bold;
   padding: 1vh 0;
   margin: 1vh 0;
-  border: solid 2px;
   min-width: 200px;
   text-align: center;
   justify-content: center;
   border-radius:16px;
+  /* border: solid 2px red; */
 }
 
 input:focus:invalid {
@@ -648,11 +652,9 @@ a {
 
 /*  */
 /* NEED TO MAKE THE INPUT BOX/CIRCLES LARGER */
-#terms, #indoor, #outdoor {
-  color: red;
-  background-color: green;
+#terms, #indoor, #outdoor, #same-as-billing {
   margin: 8vh -11vw 0 6vw;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 /*  */
 
@@ -676,12 +678,12 @@ sup {
 }
 
 .indoor {
-  border: "5px solid red";
   background-image: url("./assets/images/indoor_seating2.png");
   background-size:cover;
   background-repeat: no-repeat;
   color:#EDEFEE;
   text-shadow: 2px 2px 4px #FFF;
+  /* border: 5px solid red; */
 }
 
 .outdoor {

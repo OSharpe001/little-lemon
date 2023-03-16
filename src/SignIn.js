@@ -10,7 +10,10 @@ export default function SignIn() {
         <>
             <section className="sign-in">
                 <h1>Sign In or Sign Up. . .</h1>
-                <form className="form">
+                <form 
+                // onSubmit={handleSubmit}
+                className="form"
+                >
                     <label htmlFor="username">Username: </label>
                     <input
                     name="username"
