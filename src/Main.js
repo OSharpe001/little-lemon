@@ -1,3 +1,10 @@
+/**
+ * TODO:
+ * 1- PLACE A WELCOME BANNER ON THE TOP OF THIS PAGE SO
+ * WHEN SOMEONE LOGGS IN OR SIGNS UP, THEIR USERNAME
+ * APPEARS WITH A LITTLE MESSAGE.
+ */
+
 import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
 import AboutUs from "./AboutUs";
@@ -91,7 +98,17 @@ export default function Main() {
         const result=submitAPI(formData);
         if (result) {
             setData(formData)
-            navigate("/confirmed_sign-up")
+            // console.log(formData)
+            navigate("/")
+        };
+    };
+
+    const submitSignInForm = (formData) => {
+        const result=submitAPI(formData);
+        if (result) {
+            setData(formData)
+            // console.log(formData)
+            navigate("/")
         };
     };
 
@@ -141,18 +158,22 @@ export default function Main() {
 
     const CustomerInfoProps = {
         firstName:firstName,
+        setFirstName:setFirstName,
         handleFirstNameChange:handleFirstNameChange,
         firstNameError:firstNameError,
         setFirstNameError:setFirstNameError,
         lastName:lastName,
+        setLastName:setLastName,
         handleLastNameChange:handleLastNameChange,
         lastNameError:lastNameError,
         setLastNameError:setLastNameError,
         email:email,
+        setEmail:setEmail,
         handleEmailChange:handleEmailChange,
         emailError:emailError,
         setEmailError:setEmailError,
         phone:phone,
+        setPhone:setPhone,
         handlePhoneChange:handlePhoneChange,
         phoneError:phoneError,
         setPhoneError:setPhoneError
@@ -231,30 +252,37 @@ export default function Main() {
 
     const CustomerPaymentProps = {
         cardNumber: cardNumber,
+        setCardNumber:setCardNumber,
         handleCardNumberChange:handleCardNumberChange,
         cardNumberError:cardNumberError,
         setCardNumberError:setCardNumberError,
         cardExpiration:cardExpiration,
+        setCardExpiration:setCardExpiration,
         handleCardExpirationChange:handleCardExpirationChange,
         cardExpirationError:cardExpirationError,
         setCardExpirationError:setCardExpirationError,
         cardCVV:cardCVV,
+        setCardCVV:setCardCVV,
         handleCardCVVChange:handleCardCVVChange,
         cardCVVError:cardCVVError,
         setCardCVVError:setCardCVVError,
         address:payAddress,
+        setPayAddress:setPayAddress,
         handleAddressChange:handlePayAddressChange,
         addressError:payAddressError,
         setPayAddressError:setPayAddressError,
         city:payCity,
+        setPayCity:setPayCity,
         handleCityChange:handlePayCityChange,
         cityError:payCityError,
         setPayCityError:setPayCityError,
         state:payState,
+        setPayState:setPayState,
         handleStateChange:handlePayStateChange,
         stateError:payStateError,
         setPayStateError:setPayStateError,
         zipCode:payZipCode,
+        setPayZipCode:setPayZipCode,
         handleZipCodeChange:handlePayZipCodeChange,
         zipCodeError:payZipCodeError,
         setPayZipCodeError:setPayZipCodeError
@@ -303,18 +331,22 @@ export default function Main() {
 
     const CustomerDeliveryProps = {
         address:address,
+        setAddress:setAddress,
         handleAddressChange:handleAddressChange,
         addressError:addressError,
         setAddressError:setAddressError,
         city:city,
+        setCity:setCity,
         handleCityChange:handleCityChange,
         cityError:cityError,
         setCityError:setCityError,
         state:state,
+        setState:setState,
         handleStateChange:handleStateChange,
         stateError:stateError,
         setStateError:setStateError,
         zipCode:zipCode,
+        setZipCode:setZipCode,
         handleZipCodeChange:handleZipCodeChange,
         zipCodeError:zipCodeError,
         setZipCodeError:setZipCodeError
@@ -323,6 +355,7 @@ export default function Main() {
     return (
         <>
             <Header />
+            <p>Jello!</p>
             <Routes>
                 <Route path="/" element={<HomePage />}/>
                 <Route path="/booking" element={<BookingPage
@@ -334,15 +367,16 @@ export default function Main() {
                 <Route path="/about_us" element={<AboutUs />}/>
                 <Route path="/menu" element={<Menu />}/>
                 <Route path="/order" element={<Order />}/>
-                <Route path="/sign_in" element={<SignIn />}/>
+                <Route path="/sign_in" element={<SignIn submitForm={submitSignInForm}/>}/>
 
                 <Route path="/confirmed_booking" element={<ConfirmedBooking data={data}/>}/>
                 <Route path="/terms" element={<Terms />}/>
-                <Route path="/sign_up" element={<SignUp info={CustomerInfoProps}
-                                                        payment={CustomerPaymentProps}
-                                                        delivery={CustomerDeliveryProps}
-                                                        submitForm={submitSignUpForm}
-                                                        />}/>
+                <Route path="/sign_up" element={<SignUp
+                                                    info={CustomerInfoProps}
+                                                    payment={CustomerPaymentProps}
+                                                    delivery={CustomerDeliveryProps}
+                                                    submitForm={submitSignUpForm}
+                                                    />}/>
 
             </Routes>
             <Footer />

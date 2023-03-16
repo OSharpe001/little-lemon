@@ -8,9 +8,13 @@ export default function SignUp(props) {
     const [sameAsBilling, setSameAsBilling] = useState(false);
     const [userName, setUserName] = useState("");
     const [userNameError, setUserNameError] = useState("");
+    const [signUpTerms, setSignUpTerms] = useState(false);
 
     const clearForm = () => {
         setUserName("");
+        setSignUpTerms(false);
+        setSameAsBilling(false);
+
         props.info.setFirstName("");
         props.info.setLastName("");
         props.info.setEmail("");
@@ -19,16 +23,20 @@ export default function SignUp(props) {
         props.payment.setCardNumber("");
         props.payment.setCardExpiration("");
         props.payment.setCardCVV("");
-        props.payment.setAddress("");
-        props.payment.setCity("");
-        props.payment.setState("");
-        props.payment.setZip("");
+        props.payment.setPayAddress("");
+        props.payment.setPayCity("");
+        props.payment.setPayState("");
+        props.payment.setPayZipCode("");
 
-        setSameAsBilling(false);
         props.delivery.setAddress("");
+        props.delivery.setAddressError("");
         props.delivery.setCity("");
+        props.delivery.setCityError("");
         props.delivery.setState("");
+        props.delivery.setStateError("");
         props.delivery.setZipCode("");
+        props.delivery.setZipCodeError("");
+
     };
 
     const handleUserNameChange = (e) => {
@@ -47,7 +55,7 @@ export default function SignUp(props) {
     const personalFormDisabled = !!(userNameError) || !!(props.info.firstNameError) || !!(props.info.lastNameError) || !!(props.info.emailError) || !!(props.info.phoneError);
     const paymentFormDisabled = !!(props.payment.cardNumberError) || !!(props.payment.cardExpirationError) || !!(props.payment.cardCVVError) || !!(props.payment.addressError) || !!(props.payment.cityError) || !!(props.payment.stateError) || !!(props.payment.zipCodeError);
     const deliveryFormDisabled = (!!(props.delivery.addressError) || !!(props.delivery.cityError) || !!(props.delivery.stateError) || !!(props.delivery.zipCodeError)) && !sameAsBilling;
-    const disabled = personalFormDisabled || paymentFormDisabled || deliveryFormDisabled;
+    const disabled = personalFormDisabled || paymentFormDisabled || deliveryFormDisabled ;
 
     const gotRequiredPersonalInfo = !!props.info.firstName && !!props.info.lastName && !!props.info.email && !!props.info.phone;
     const gotRequiredPaymentInfo = !!props.payment.cardNumber && !!props.payment.cardExpiration && !!props.payment.cardCVV && !!props.payment.address && !!props.payment.city && !!props.payment.state && !!props.payment.zipCode;
@@ -113,6 +121,8 @@ export default function SignUp(props) {
         if (!gotRequiredInfo) {
             setSubmissionErrors();
             return
+        }else if (signUpTerms === false){
+            alert("Do you agree to our terms of service?");
         } else if (sameAsBilling) {
             props.submitForm({
                 "user-name": userName,
@@ -156,6 +166,10 @@ export default function SignUp(props) {
         }
     };
 
+    const handleTermsChange = (e) => {
+        setSignUpTerms(!signUpTerms);
+    }
+
     // console.log("SAMEASBILLING VALUE: ", sameAsBilling)
   return (
     <form
@@ -194,6 +208,16 @@ export default function SignUp(props) {
 
         {sameAsBilling?null:<CustomerDeliveryForm delivery={props.delivery}/>}
         
+        <div className="terms">
+            <input
+            type="checkbox"
+            id="terms"
+            name="terms"
+            onChange={handleTermsChange}
+            />
+                <label htmlFor="terms">Agree to our <a aria-label="On Click" className="terms-link" href="/terms">Terms of Service</a> <sup>*</sup>
+                </label>
+        </div>
         <input
         style={disabled?{border: "1px solid #999999", backgroundColor: "#cccccc", color: "#666666", cursor: "not-allowed"}:null}
         aria-label="On Click"
@@ -204,5 +228,5 @@ export default function SignUp(props) {
         />
 
     </form>
-  )
-}
+  );
+};

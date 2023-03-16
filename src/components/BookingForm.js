@@ -24,7 +24,7 @@ export default function BookingForm(props) {
     const [occasionError, setOccasionError] = useState("");
     const [requests, setRequests] = useState("");
     const [requestsError, setRequestsError] = useState("");
-    const [terms, setTerms] = useState(false);
+    const [reservationTerms, setReservationTerms] = useState(false);
 
     const clearForm = () => {
         props.info.setFirstName("");
@@ -36,7 +36,7 @@ export default function BookingForm(props) {
         setGuests("1");
         setOccasion("Occasion");
         setRequests("");
-        setTerms(false)
+        setReservationTerms(false);
     };
 
     const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(props.info.phoneError) || !!(props.info.emailError) || !!(props.info.firstNameError) || !!(props.info.lastNameError);
@@ -65,7 +65,7 @@ export default function BookingForm(props) {
         if (!gotRequiredInfo) {
             setSubmissionErrors();
             return
-        } else if (terms === false){
+        } else if (reservationTerms === false){
             alert("Do you agree to our terms of service?");
         } else {
                 setOccasionError("");
@@ -128,7 +128,7 @@ export default function BookingForm(props) {
     };
 
     const handleTermsChange = (e) => {
-        setTerms(!terms);
+        setReservationTerms(!reservationTerms);
     }
 
     return (
