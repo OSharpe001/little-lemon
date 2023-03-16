@@ -18,6 +18,7 @@
 .container {
   display: grid;
   grid-template-areas: "head"
+                       "testing-area"
                        "hero"
                        "booking-page"
                        "confirmed-booking"
@@ -269,7 +270,7 @@ section {
 .declare1 {
   grid-area: declare1;
   grid-column: 3 / 11;
-  grid-row: 3;
+  grid-row: 4;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
@@ -292,7 +293,7 @@ section {
 .declare2 {
   grid-area: declare2;
   grid-column: 3 / 11;
-  grid-row: 5;
+  grid-row: 6;
   display: inline-flex;
   justify-content: space-evenly;
   align-items: center;
@@ -302,7 +303,7 @@ section {
 .specials {
   grid-area: specials;
   grid-column: 3 / 11;
-  grid-row: 4;
+  grid-row: 5;
   display: inline-flex;
   justify-content: space-between;
   text-align:left;
@@ -364,6 +365,7 @@ section {
 .testimonials {
   grid-area: testimonials;
   grid-column: 3 / 13;
+  grid-row: 7;
   display: inline-flex;
   justify-content: space-between;
   width: 80%;
@@ -696,6 +698,16 @@ sup {
   background-repeat: no-repeat;
   color:#333333;
   text-shadow: 3px 3px #FFF;
+}
+
+.testing-area {
+  grid-area: testing-area;
+  grid-column: 3 / 11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0;
+  border: 2px solid red;
 }
 /* .button:hover {
   background: brown;

@@ -3,7 +3,7 @@ import logo from "../assets/images/logo.png"
 import Nav from  "./Nav"
 
 
-export default function Header() {
+export default function Header(props) {
     return (
         <>
             <header className="head">
@@ -14,7 +14,7 @@ export default function Header() {
                     alt="Little Lemon's banner"
                     />
                 </Link>
-                <Nav/>
+                <Nav props={props}/>
             </header>
         </>
     );

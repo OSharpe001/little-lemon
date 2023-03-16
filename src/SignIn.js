@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 
 export default function SignIn(props) {
 
-    const [userName, setUserName] = useState("");
-    const [userNameError, setUserNameError] = useState("");
+    // const [userName, setUserName] = useState("");
+    // const [userNameError, setUserNameError] = useState("");
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
-    const disabled = !!(userNameError) || !!(passwordError);
-    const gotRequiredInfo = !!userName && !!password;
+    const disabled = !!(props.userNameError) || !!(passwordError);
+    const gotRequiredInfo = !!props.userName && !!password;
 
     const clearForm = () => {
-        setUserName("");
+        props.setUserName("");
         setPassword("");
     };
 
     const setSubmissionErrors = () => {
-        if (userName === "") {
-            setUserNameError("All fields are required.");
+        if (props.userName === "") {
+            props.setUserNameError("All fields are required.");
         };
         if (password === "") {
             setPasswordError("All fields are required.");
@@ -32,7 +32,7 @@ export default function SignIn(props) {
             return
         } else {
                 props.submitForm({
-                    "user-name":userName,
+                    "user-name":props.userName,
                     "password":password,
                 });
                 clearForm();
@@ -40,14 +40,14 @@ export default function SignIn(props) {
     };
 
     const handleUserNameChange = (e) => {
-        setUserName(e.target.value);
+        props.setUserName(e.target.value);
         if (e.target.value.length < 2) {
-            setUserNameError("Username must have at least 2 characters.");
+            props.setUserNameError("Username must have at least 2 characters.");
             return;
         } else if (e.target.value.length >15) {
-            setUserNameError("Please limit the Username to 15 characters long.");
+            props.setUserNameError("Please limit the Username to 15 characters long.");
         } else {
-            setUserNameError("");
+            props.setUserNameError("");
         };
     };
 
@@ -76,12 +76,12 @@ export default function SignIn(props) {
                     <input
                     name="username"
                     id="username"
-                    value={userName}
+                    value={props.userName}
                     type="text"
                     placeholder="Username"
                     onChange= {handleUserNameChange}
                     />
-                    {userNameError?<p className="error-message">{userNameError}</p>:null}
+                    {props.userNameError?<p className="error-message">{props.userNameError}</p>:null}
 
                     <label htmlFor="password">Password: </label>
 
@@ -97,6 +97,7 @@ export default function SignIn(props) {
                     <div className="sign-up-or-in">
                         <input
                         disabled={disabled}
+                        style={disabled?{border: "1px solid #999999", backgroundColor: "#cccccc", color: "#666666", cursor: "not-allowed"}:null}
                         aria-label="On Click"
                         className="button"
                         type="submit"

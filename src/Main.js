@@ -33,6 +33,21 @@ import {
 
 export default function Main() {
 
+    /**
+     * TODO:
+     * 1- SET IT UP THAT THE USERNAME FROM SIGNIN OR
+     * SIGNUP IS HELD A LITTLE LONGER TO SHOWCASE THE
+     * WELCOME BANNER AT THE TOP CURRRENTLY BEING HELD BY
+     * THE TESTING AREA.
+     */
+    // const [loggedIn, setLoggedIn] = useState({
+    //                                         state:false,
+    //                                         userName:"",
+    //                                         });
+
+    const [userName, setUserName] = useState("");
+    const [userNameError, setUserNameError] = useState("");
+    
     const [firstName, setFirstName] = useState("");
     const [firstNameError, setFirstNameError] = useState("");
     const [lastName, setLastName] = useState("");
@@ -352,12 +367,14 @@ export default function Main() {
         setZipCodeError:setZipCodeError
     };
 
-    console.log("MAIN.JS' STATE VALUE: ", state)
+    console.log("MAIN.JS' USERNAME VALUE: ", userName)
 
     return (
         <>
-            <Header />
-            <p>Jello!</p>
+            <Header
+                // loggedIn={loggedIn}
+                />
+            <h2 className="testing-area">TESTING AREA! !</h2>
             <Routes>
                 <Route path="/" element={<HomePage />}/>
                 <Route path="/booking" element={<BookingPage
@@ -369,7 +386,13 @@ export default function Main() {
                 <Route path="/about_us" element={<AboutUs />}/>
                 <Route path="/menu" element={<Menu />}/>
                 <Route path="/order" element={<Order />}/>
-                <Route path="/sign_in" element={<SignIn submitForm={submitSignInForm}/>}/>
+                <Route path="/sign_in" element={<SignIn
+                                                    submitForm={submitSignInForm}
+                                                    userName={userName}
+                                                    setUserName={setUserName}
+                                                    userNameError={userNameError}
+                                                    setUserNameError={setUserNameError}
+                                                    />}/>
 
                 <Route path="/confirmed_booking" element={<ConfirmedBooking data={data}/>}/>
                 <Route path="/terms" element={<Terms />}/>
@@ -378,6 +401,10 @@ export default function Main() {
                                                     payment={CustomerPaymentProps}
                                                     delivery={CustomerDeliveryProps}
                                                     submitForm={submitSignUpForm}
+                                                    userName={userName}
+                                                    setUserName={setUserName}
+                                                    userNameError={userNameError}
+                                                    setUserNameError={setUserNameError}
                                                     />}/>
 
             </Routes>

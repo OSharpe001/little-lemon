@@ -6,12 +6,12 @@ import { useState } from "react";
 export default function SignUp(props) {
 
     const [sameAsBilling, setSameAsBilling] = useState(false);
-    const [userName, setUserName] = useState("");
-    const [userNameError, setUserNameError] = useState("");
+    // const [userName, setUserName] = useState("");
+    // const [userNameError, setUserNameError] = useState("");
     const [signUpTerms, setSignUpTerms] = useState(false);
 
     const clearForm = () => {
-        setUserName("");
+        props.setUserName("");
         setSignUpTerms(false);
         setSameAsBilling(false);
 
@@ -40,19 +40,19 @@ export default function SignUp(props) {
     };
 
     const handleUserNameChange = (e) => {
-        setUserName(e.target.value);
+        props.setUserName(e.target.value);
         if (e.target.value.length < 2) {
-            setUserNameError("Username must have at least 2 characters.");
+            props.setUserNameError("Username must have at least 2 characters.");
             return;
         } else if (e.target.value.length >15) {
-            setUserNameError("Please limit the Username to 15 characters long.");
+            props.setUserNameError("Please limit the Username to 15 characters long.");
         } else {
-            setUserNameError("");
+            props.setUserNameError("");
         };
     };
 
     // console.log("SIGNUP PROPS: ", props)
-    const personalFormDisabled = !!(userNameError) || !!(props.info.firstNameError) || !!(props.info.lastNameError) || !!(props.info.emailError) || !!(props.info.phoneError);
+    const personalFormDisabled = !!(props.userNameError) || !!(props.info.firstNameError) || !!(props.info.lastNameError) || !!(props.info.emailError) || !!(props.info.phoneError);
     const paymentFormDisabled = !!(props.payment.cardNumberError) || !!(props.payment.cardExpirationError) || !!(props.payment.cardCVVError) || !!(props.payment.addressError) || !!(props.payment.cityError) || !!(props.payment.stateError) || !!(props.payment.zipCodeError);
     const deliveryFormDisabled = (!!(props.delivery.addressError) || !!(props.delivery.cityError) || !!(props.delivery.stateError) || !!(props.delivery.zipCodeError)) && !sameAsBilling;
     const disabled = personalFormDisabled || paymentFormDisabled || deliveryFormDisabled ;
@@ -64,8 +64,8 @@ export default function SignUp(props) {
     const gotRequiredInfo = (gotRequiredPersonalInfo && gotRequiredPaymentInfo && gotRequiredDeliveryInfo) && !disabled;
 
     const setSubmissionErrors = () => {
-        if (userName==="") {
-            setUserNameError("All fields are required.")
+        if (props.userName==="") {
+            props.setUserNameError("All fields are required.")
         }
         if (props.info.firstName === ""){
             props.info.setFirstNameError("All fields are required.");
@@ -125,7 +125,7 @@ export default function SignUp(props) {
             alert("Do you agree to our terms of service?");
         } else if (sameAsBilling) {
             props.submitForm({
-                "user-name": userName,
+                "user-name": props.userName,
                 "first-name":props.info.firstName,
                 "last-name":props.info.lastName,
                 "email":props.info.email,
@@ -145,7 +145,7 @@ export default function SignUp(props) {
             clearForm();
         } else {
             props.submitForm({
-                "user-name": userName,
+                "user-name": props.userName,
                 "first-name":props.info.firstName,
                 "last-name":props.info.lastName,
                 "email":props.info.email,
@@ -183,12 +183,12 @@ export default function SignUp(props) {
         type="text"
         id="user-name"
         name="user-name"
-        value={userName}
+        value={props.userName}
         placeholder="preffered UserName"
         onChange={handleUserNameChange}
         onBlur={handleUserNameChange}
         />
-        {userNameError?<p className="error-message">{userNameError}</p>:null}
+        {props.userNameError?<p className="error-message">{props.userNameError}</p>:null}
 
         <CustomerInfoForm info={props.info}/>
         <h2>Payment Information</h2>
