@@ -352,6 +352,8 @@ export default function Main() {
         setZipCodeError:setZipCodeError
     };
 
+    console.log("MAIN.JS' STATE VALUE: ", state)
+
     return (
         <>
             <Header />
