@@ -10,7 +10,7 @@ import React, { useState } from "react";
 
 export default function BookingForm(props) {
     
-    console.log("BOOKING FORM PROPS: ", props.info)
+    // console.log("BOOKING FORM PROPS: ", props.info)
     
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year, month, day].join("-");

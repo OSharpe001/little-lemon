@@ -43,7 +43,7 @@ export default function SignUp(props) {
         };
     };
 
-    console.log("SIGNUP PROPS: ", props)
+    // console.log("SIGNUP PROPS: ", props)
     const personalFormDisabled = !!(userNameError) || !!(props.info.firstNameError) || !!(props.info.lastNameError) || !!(props.info.emailError) || !!(props.info.phoneError);
     const paymentFormDisabled = !!(props.payment.cardNumberError) || !!(props.payment.cardExpirationError) || !!(props.payment.cardCVVError) || !!(props.payment.addressError) || !!(props.payment.cityError) || !!(props.payment.stateError) || !!(props.payment.zipCodeError);
     const deliveryFormDisabled = (!!(props.delivery.addressError) || !!(props.delivery.cityError) || !!(props.delivery.stateError) || !!(props.delivery.zipCodeError)) && !sameAsBilling;

@@ -9,11 +9,12 @@ export default function SignIn() {
     return (
         <>
             <section className="sign-in">
-                <h1>Sign In or Sign Up. . .</h1>
-                <form 
+                <form
                 // onSubmit={handleSubmit}
                 className="form"
                 >
+
+                <h2>Sign In or Sign Up. . .</h2>
                     <label htmlFor="username">Username: </label>
                     <input
                     name="username"
@@ -43,6 +44,7 @@ export default function SignIn() {
                         />
 
                         <p>or</p>
+                        <p>If You're Not Already A Member</p>
 
                         <Link aria-label="On Click" className="button" to="/sign_up">Sign Up</Link>
                     </div>
