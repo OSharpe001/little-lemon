@@ -153,11 +153,6 @@ export const Side_Orders = [
 
 export const Flame_Brick_Oven = [
     {
-        name:"Rustic Pizza",
-        description:"Short rib, caramelized onion, mushrooms, and pickled vegetables.",
-        price:"$27.00"
-    },
-    {
         name:"Buffalo Chicken Pizza",
         description:"",
         price:"$25.00"
@@ -166,6 +161,11 @@ export const Flame_Brick_Oven = [
         name:"Vegetarian Pizza",
         description:"Grilled vegetables and pesto.",
         price:"$19.00"
+    },
+    {
+        name:"Rustic Pizza",
+        description:"Short rib, caramelized onion, mushrooms, and pickled vegetables.",
+        price:"$27.00"
     }
 ]
 

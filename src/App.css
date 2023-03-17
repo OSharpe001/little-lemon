@@ -588,7 +588,7 @@ a {
   width: 100%;
   /* padding: 20px 0; */
   border-radius: 16px;
-  background-color: #EDEFEE;
+  background-color: white /*#EDEFEE*/;
   color: #333333;
 }
 .menu h1 {
@@ -597,28 +597,28 @@ a {
   margin: 3vh 0 0;
   color:#495E57;
   /* border-radius: 16pt; */
-  background-color: #EDEFEE;
-  border: 2px solid #495E57;
+  background-color: white/*#EDEFEE*/;
+  /* border: 2px solid #495E57; */
 }
 .menu h2 {
   text-align: center;
   text-decoration: underline;
-  margin: 3vh 0 0;
+  /* margin: 0 0 0; */
   color:#EDEFEE;
-  border-radius: 16pt;
+  border-radius: 16px 16px 0 0;
   background-color: #495E57;
-  border: 2px solid #EDEFEE;
+  /* border: 2px solid white; */
 }
 .menu h3 {
   text-align: center;
   text-decoration: underline;
-  font-size: 16pt;
+  font-size: 18pt;
   line-height: 1.5;
   margin: 3vh 0 0;
   color:#333333;
   /* border-radius: 16pt; */
   background-color: #EDEFEE;
-  border: 2px solid #495E57;
+  /* border: 2px solid #495E57; */
 }
 .menu h4 {
   text-align: center;
@@ -629,27 +629,27 @@ a {
   color:#333333;
   /* border-radius: 16pt; */
   background-color: #EDEFEE;
-  border: 2px solid #495E57;
+  /* border: 2px solid #495E57; */
 }
 .menu-section {
   width: 100%;
   display: flex;
   flex-direction:column;
   border-radius: 16pt;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 .menu-list{
   list-style-type: none;
   margin: 0 0 2vh 0;
-  border-radius: 16px;
+  border-radius: 0 0 16px 16px;
   background-color:#F4CE14;
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
 }
 .menu-item {
   width: 100%;
   display: inline-flex;
   flex-direction: row;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   margin: 2vh 0;
   padding: 1vh 1vw;
   border-radius: 16px;
@@ -660,8 +660,10 @@ a {
 .menu-list li {
   display: inline-flex;
   /* justify-content: space-between; */
-  /* width: 33vh; */
-  border: 2px solid #333333;
+  width: 31vw;
+  /* height: 35vh; */
+  margin: 0 1vw 0 ;
+  /* border: 2px solid #333333; */
 }
 .item {
   display: flex;
@@ -670,23 +672,24 @@ a {
   font-size: 16pt;
   line-height: 1.5;
   width: 25ch;
-  border: 2px solid tan;
+  /* border: 2px solid tan; */
 }
 .item-name {
   /* font-size: 16pt; */
   line-height: 1.5;
   margin: 0 1vw 1vh 0;
-  border: 2px solid blue;
+  border-radius: 16px 0;
+  /* border: 2px solid blue; */
 }
 .item-description {
-  border: 2px solid skyblue;
+  /* border: 2px solid skyblue; */
 }
 .item-price {
-  font-size: 16pt;
+  font-size: 18pt;
   line-height: 1.5;
   font-weight: bold;
   color: #EE9972;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
 }
 /*  */
 /*  */
