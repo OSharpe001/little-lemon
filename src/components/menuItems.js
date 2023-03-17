@@ -1,4 +1,4 @@
-Appetizers = [
+export const Appetizers = [
     {
         name:"Chicken Empanadas",
         description:"Roasted tomato salsa. 3 pieces.",
@@ -30,12 +30,12 @@ Appetizers = [
         price:"$23.00"
     },
     {
-        name:"Onion rings",
+        name:"Onion Rings",
         description:"Vidalia onions coated in seasoned breadcrumbs.",
         price:"$10.00"
     },
     {
-        name:"Mexican wantons (3 Pcs.)",
+        name:"Mexican Wantons (3 Pcs.)",
         description:"Poached chicken with dried chili, garlic, cilantro, jalapeño Served with ancho chili remoulade.",
         price:"$25.00"
     },
@@ -56,7 +56,7 @@ Appetizers = [
     }
 ]
 
-Entrees= [
+export const Entrees= [
     {
         name:"Chicken with Wild Mushroom and Red Wine Sauce",
         description:"Entrees are served with house fries or vegetables of the day.",
@@ -64,7 +64,7 @@ Entrees= [
     },
 ]
 
-Soups = [
+export const Soups = [
     {
         name:"Rustic Split Pea Soup",
         description:"",
@@ -82,7 +82,7 @@ Soups = [
     }
 ]
 
-Off-the-Grill = [
+export const Off_the_Grill = [
     {
         name:"Aged Rib Eye Steak",
         description:"30 day dry aged 12 oz. rib eye.",
@@ -115,7 +115,7 @@ Off-the-Grill = [
     },
 ]
 
-Fish = [
+export const Fish = [
     {
         name:"Open Fire Roasted Bronzini",
         description:"Tomatoes, garlic, basil, olive oil, and lemon.",
@@ -123,7 +123,7 @@ Fish = [
     }
 ]
 
-Side-Orders = [
+export const Side_Orders = [
     {
         name:"Sautéed Spinach",
         description:"",
@@ -151,7 +151,7 @@ Side-Orders = [
     }
 ]
 
-Flame-Brick-Oven = [
+export const Flame_Brick_Oven = [
     {
         name:"Rustic Pizza",
         description:"Short rib, caramelized onion, mushrooms, and pickled vegetables.",
@@ -169,7 +169,7 @@ Flame-Brick-Oven = [
     }
 ]
 
-Salads = [
+export const Salads = [
     {
         name:"Union Bistro Caesar Salad",
         description:"Served with cherry tomatoes, and focaccia croutons.",
@@ -202,7 +202,7 @@ Salads = [
     }
 ]
 
-Pasta= [
+export const Pasta = [
     {
         name:"Mezza Rigotoni Bollanaisesan Marzano and Basi",
         description:"",
@@ -210,7 +210,7 @@ Pasta= [
     }
 ]
 
-Shish-Kebab = [
+export const Shish_Kebab = [
     {
         name:"Beef",
         description:"2 skewers with a side of fries or veggies.",
@@ -228,7 +228,7 @@ Shish-Kebab = [
     }
 ]
 
-Desserts = [
+export const Desserts = [
     {
         name:"Little Lemon Cake",
         description:"",
@@ -246,7 +246,7 @@ Desserts = [
     }
 ]
 
-Beverages = [
+export const Beverages = [
     {
         name:"Little Lemonade",
         description:"",
@@ -279,7 +279,7 @@ Beverages = [
     }
 ]
 
-Liquor = [
+export const Liquor = [
     {
         "WINES BY THE GLASS":{
             REDS:[
@@ -401,7 +401,7 @@ Liquor = [
                 description:"Stoli Vanil Vodka, Fresh Espresso, Baileys Irish Cream.",
                 price:"$12.00"
             },
-        ],WINES BY THE BOTTLE:{
+        ],"WINES BY THE BOTTLE":{
             "CABERNET SAUVIGNON":[
                 {
                     name:"Robert Hall, Paso Robles",
@@ -499,7 +499,7 @@ Liquor = [
                     price:"$92.00"
                 }
             ],
-            PINOT GRIGIO:[
+            "PINOT GRIGIO":[
                 {
                     name:"Clos du Bois, California",
                     description:"",
