@@ -10,7 +10,6 @@ export default function Nav(props) {
     // const navigate = useNavigate();
     // console.log("NAV.JS PROPS:", props)
     return (
-        <>
             <nav className="nav-bar">
                 <Link aria-label="On Click" to="/" className="nav-item">Home</Link>
                 <Link aria-label="On Click" to="/about_us" className="nav-item">About</Link>
@@ -22,6 +21,5 @@ export default function Nav(props) {
                 :<Link aria-label="On Click" to="/sign_in" className="nav-item">Login</Link>
                 }
             </nav>
-        </>
     );
 };

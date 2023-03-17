@@ -279,7 +279,7 @@ export const Beverages = [
     }
 ]
 
-export const Liquor = [
+export const Liquor = 
     {
         "WINES BY THE GLASS":{
             REDS:[
@@ -565,4 +565,3 @@ export const Liquor = [
             }
         ]
     }
-]
