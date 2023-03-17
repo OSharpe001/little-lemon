@@ -14,7 +14,7 @@ export default function SignOut(props) {
 
     useEffect(() => {
         props.setLoggedIn({state:false, userName:""});
-        wait(50000).then(navigate("/"))
+        wait(5000).then(navigate("/"))
         // ,[setLoggedIn]
     });
     // props.setLoggedIn({state:false, userName:""})
