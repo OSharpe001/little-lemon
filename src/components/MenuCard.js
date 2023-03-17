@@ -5,10 +5,10 @@ export default function MenuCard(props) {
   return (
     <section className="menu-item" >
       <div className="item" >
-          <h3 className="name" >{props.name}</h3>
-          <p className="description" >{props.description}</p>
+          <h4 className="item-name" >{props.name}</h4>
+          <p className="item-description" >{props.description}</p>
       </div>
-        <p className="price" >{props.price}</p>
+        <p className="item-price" >{props.price}</p>
     </section>
   )
 }

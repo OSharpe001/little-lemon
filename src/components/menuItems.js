@@ -214,7 +214,7 @@ export const Shish_Kebab = [
     {
         name:"Beef",
         description:"2 skewers with a side of fries or veggies.",
-        price:""
+        price:"$30.00"
     },
     {
         name:"Baby Chicken",
