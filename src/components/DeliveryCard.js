@@ -1,6 +1,7 @@
 
 
 export default function DeliveryCard(props) {
+  console.log("DELIVERYCARD PROPS: ", props)
   return (
     <section className="menu-item" >
         <img
