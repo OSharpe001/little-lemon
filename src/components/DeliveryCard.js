@@ -1,15 +1,43 @@
+import {useReducer} from "react";
 
+const reducer = (state, action) => {
+  if (action.type === "add") return {amount: state.amount + 1};
+  if (state.amount>0 && action.type === "subtract") return {amount: state.amount - 1};
+};
 
 export default function DeliveryCard(props) {
-  console.log("DELIVERYCARD PROPS.IMAGE: ", props.name)
+
+
+  const initialState = {amount: 0};
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  
+  // console.log("DELIVERYCARD PROPS.IMAGE: ", props.name)
+
   return (
     <section className="menu-item" >
+      <div className="image-and-item">
         {props.image}
         <div className="item" >
             <h4 className="item-name" >{props.name}</h4>
             <p className="item-description" >{props.description}</p>
         </div>
-        <p className="item-price" >{props.price}</p>
+      </div>
+        
+        <div className="item-price-amount" >
+          <p className="item-price" >{props.price}</p>
+          <div className="item-amount">
+            <button onClick={() => dispatch({type: "add"})}>
+              +
+            </button>
+
+            <h1>{state.amount}</h1>
+
+            <button onClick={() => state.amount>0?dispatch({type: "subtract"}):null}>
+              -
+            </button>
+          </div>
+        </div>
     </section>
-  )
-}
+  );
+};
