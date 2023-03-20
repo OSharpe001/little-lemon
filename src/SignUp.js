@@ -186,7 +186,7 @@ export default function SignUp(props) {
         id="user-name"
         name="user-name"
         value={props.userName}
-        placeholder="preffered UserName"
+        placeholder="preferred UserName"
         onChange={handleUserNameChange}
         onBlur={handleUserNameChange}
         />
