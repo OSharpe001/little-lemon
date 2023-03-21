@@ -30,7 +30,7 @@ export const Menu = [
                 alt="salad with red onions and olives and your choice of mozzarella or Feta cheese"
             />,
         description:"Salad with red onions and olives and your choice of mozzarella or Feta cheese.",
-        price:"$7.00"
+        price:"$8.00"
     },
     {
         name:"Lemon Chicken Platter",

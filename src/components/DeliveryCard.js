@@ -27,13 +27,13 @@ export default function DeliveryCard(props) {
         <div className="item-price-amount" >
           <p className="item-price" >{props.price}</p>
           <div className="item-amount">
-            <button onClick={() => dispatch({type: "add"})}>
+            <button className="button" onClick={() => state.amount<10?dispatch({type: "add"}):null}>
               +
             </button>
 
             <h1>{state.amount}</h1>
 
-            <button onClick={() => state.amount>0?dispatch({type: "subtract"}):null}>
+            <button className="button" onClick={() => state.amount>0?dispatch({type: "subtract"}):null}>
               -
             </button>
           </div>
