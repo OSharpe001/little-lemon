@@ -20,7 +20,7 @@ export const Menu = [
             alt="clams"
         />,
         description:"Clams.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Greek Salad",
@@ -30,7 +30,7 @@ export const Menu = [
                 alt="salad with red onions and olives and your choice of mozzarella or Feta cheese"
             />,
         description:"Salad with red onions and olives and your choice of mozzarella or Feta cheese.",
-        price:"$8.00"
+        price:8.00
     },
     {
         name:"Lemon Chicken Platter",
@@ -40,7 +40,7 @@ export const Menu = [
                 alt="a plate of chicken chunks with bell peppers, beans with lemon and lime slices"
             />,
         description:"Grilled chicken chunks with bell peppers, beans.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Pasta Salad",
@@ -50,7 +50,7 @@ export const Menu = [
                 alt="pasta salad"
             />,
         description:"Pasta salad.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Salmon",
@@ -60,7 +60,7 @@ export const Menu = [
                 alt="Baked salmon filets"
             />,
         description:"Baked salmon filets.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Seared Fish",
@@ -70,7 +70,7 @@ export const Menu = [
                 alt="fish with a lemon on top searing on a grill with potatoes and tomatoes"
             />,
         description:"fish with a lemon on top searing on a grill with potatoes and tomatoes.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Spicy Pasta",
@@ -80,7 +80,7 @@ export const Menu = [
                 alt="pasta in tomatoe sauce"
             />,
         description:"Our signature spicy pasta in zesty tomatoe sauce.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Falafel",
@@ -90,7 +90,7 @@ export const Menu = [
                 alt="falafel balls and salad in a pita bread"
             />,
         description:"Falafel balls and salad in a pita bread.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Bruchetta",
@@ -100,7 +100,7 @@ export const Menu = [
                 alt="sliced and toasted italian bread topped with mozzarella, tomatoes, basil and olive oil"
             />,
         description:"Sliced and toasted italian bread topped with mozzarella, tomatoes, basil and olive oil.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Fries",
@@ -110,7 +110,7 @@ export const Menu = [
                 alt="french fries"
             />,
         description:"French Fries.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Onion Rings",
@@ -120,7 +120,7 @@ export const Menu = [
                 alt="a plate of onion rings"
             />,
         description:"Onion rings.",
-        price:"$7.00"
+        price:7.00
     },
     {
         name:"Lemon Dessert",
@@ -130,6 +130,6 @@ export const Menu = [
                 alt="slice of lemon cake with lemons in the background"
             />,
         description:"A slice of lemon cake.",
-        price:"$7.00"
+        price:7.00
     },
 ]
