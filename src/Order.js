@@ -6,17 +6,33 @@ export default function Order(props) {
 
     // const [sum,setSum] = useState(0);
     const [orderUp,setOrderUp] = useState([])
-    const sum = (orderUp.map(item=>item[2]));
+    const sum = orderUp.map(item=>item[2]).reduce((total,number)=> {return total+number},0);
     const tax = sum *.0875
     const deliveryFee =sum===0?0:props.userName?5:10;
     const total = sum+tax+deliveryFee
 
     const setOrder = (newOrder) => {
         setOrderUp([...orderUp, newOrder])
+            orderUp.forEach((item, index)=>{
+                if (item[0]===newOrder[0]) {
+                    console.log("HERE: ", orderUp, item, index)
+                    let newList= [...orderUp]
+                    newList[index]=newOrder
+                    console.log("LATEST NEWLIST :", newList)
+                    setOrderUp([...newList])
+                }
+            })
+        // setOrderUp([...orderUp, newOrder])
+        // orderUp.length>0?orderUp.forEach((item, index)=>{item[0]===newOrder[0]?console.log("HERE: ", orderUp, item, index):console.log("NOT HERE: ", orderUp, item, index)}):null
+        // console.log("ORDER.JS'S SETORDER'S NEWORDER VALUE: ", newOrder);
+        // console.log("ORDER.JS'S SETORDER'S ORDERUP VALUE: ", orderUp);
+        // console.log(orderUp===[])
+        // setOrderUp([...orderUp, newOrder])
     }
+    const orderRundown = orderUp.map(item => item[1]>0?<p>Item:{item[0]}-- Amount:{item[1]}-- Cost:{item[2]}</p>:null)
 
-    console.log("SUM'S VALUE: ", sum)
-    console.log("ORDER.JS'S ORDERUP VALUE: ", orderUp)
+    //  console.log("ORDER.JS'S ORDERUP VALUE: ", orderUp)
+    // console.log("SUM'S VALUE: ", sum)
     // console.log("ORDER.JS MENU ITEMS", Menu.map(item => item.description))
     return (
             <section className="order">
@@ -38,13 +54,13 @@ export default function Order(props) {
                     <section className="price-summary">
                         <h2>Order Sumary:</h2>
                         <hr className="total-seperation" />
-                        {orderUp.map(item => <p>Item:{item[0]}-- Amount:{item[1]}-- Cost:{item[2]}</p>)}
+                        {orderRundown}
                         <hr className="total-seperation" />
-                        <p>Sub-Total: {sum}</p>
-                        <p>Tax: {tax}</p>
-                        <p>Delivery Fee: {deliveryFee}</p>
+                        <p>Sub-Total: {sum.toFixed(2)}</p>
+                        <p>Tax: {tax.toFixed(2)}</p>
+                        <p>Delivery Fee: {deliveryFee.toFixed(2)}</p>
                         <hr className="total-seperation" />
-                        <h2>Total: {total}</h2>
+                        <h2>Total: {total.toFixed(2)}</h2>
                     </section>
                 </div>
             </section>
