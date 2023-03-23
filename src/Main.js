@@ -70,7 +70,8 @@ export default function Main() {
     const [payZipCode, setPayZipCode] = useState("");
     const [payZipCodeError, setPayZipCodeError] = useState("");
 
-    const [orderUp,setOrderUp] = useState([])
+    const [orderUp, setOrderUp] = useState([])
+    const [total, setTotal] = useState(0)
 
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year,month, day].join("-");
@@ -95,7 +96,7 @@ export default function Main() {
     const submitReservationForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(...data, formData)
+            setData(formData)
             navigate("/confirmed_booking")
         };
     };
@@ -103,28 +104,40 @@ export default function Main() {
     const submitSignUpForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(...data, formData)
+            setData(formData)
             // console.log(formData)
             navigate("/")
         };
     };
 
-    const submitOrderUp = (formData,userName) => {
-        // console.log("SUBMITORDERUP'S USERNAME VALUE: ", userName)
+    const submitOrderUp = (formData, userName, total) => {
+        // console.log("SUBMITORDERUP'S USERNAME VALUE: ", userName);
+
+        // console.log("SUBMITORDERUP'S DATA VALUE: ", data);
+        // console.log("SUBMITORDERUP'S FORMDATA VALUE: ", formData);
+        // console.log("MAIN.JS SUBMITORDERUP'S TOTAL VALUE: ", total);
         const result=submitAPI(formData);
         if (result && !userName) {
             // console.log(formData)
-            navigate("/delivery_address")
+            setTotal(total);
+        // console.log("SUBMITORDERUP'S DATA VALUE: ", data);
+            setData(formData);
+            navigate("/delivery_address");
         } else if (result && userName) {
-            navigate("/confirmed_delivery")
+            setTotal(total);
+        // console.log("SUBMITORDERUP'S DATA VALUE: ", data);
+            setData(formData);
+            navigate("/confirmed_delivery");
         }
     };
+    // console.log("MAINJS' DATA VALUE: ", data)
+    // console.log("MAINJS' GLOBAL TOTAL VALUE: ", total);
 
-    const submitOrderForm = (formData) => {
+    const submitOrderAddressForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(data, formData)
-            // console.log(formData)
+            setData(formData)
+            // console.log("MAINJS' SUBMITORDERADDRESSFORM'S FORMDATA: ", formData)
             navigate("/confirmed_delivery")
         };
     };
@@ -132,7 +145,7 @@ export default function Main() {
     const submitSignInForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(data, formData)
+            setData(formData)
             // console.log(formData)
             navigate("/")
         };
@@ -392,7 +405,7 @@ export default function Main() {
     }
 
     // console.log("MAIN.JS' LOGGEDIN STATE AND USERNAME VALUE: ", loggedIn.state, loggedIn.userName)
-    console.log("MAIN.JS' DATA VALUE: ", data)
+    // console.log("MAIN.JS' DATA VALUE: ", data)
 
     return (
         <>
@@ -416,6 +429,7 @@ export default function Main() {
                 <Route path="/order" element={<Order
                                                 userName={loggedIn.userName}
                                                 setOrder={setOrder}
+                                                setOrderUp={setOrderUp}
                                                 orderUp={orderUp}
                                                 submitForm={submitOrderUp}
                                                 />}/>
@@ -434,13 +448,16 @@ export default function Main() {
                 <Route path="/confirmed_delivery" element={<ConfirmedDelivery
                                                                         data={data}
                                                                         userName={loggedIn.userName}
+                                                                        total={total}
                                                                         orderUp={orderUp}/>}/>
                 <Route path="/delivery_address" element={<OrderAddress
                                                                         userName={loggedIn.userName}
+                                                                        setOrderUp={setOrderUp}
+                                                                        total={total}
                                                                         info={CustomerInfoProps}
                                                                         payment={CustomerPaymentProps}
                                                                         delivery={CustomerDeliveryProps}
-                                                                        submitForm={submitOrderForm}/>}/>
+                                                                        submitForm={submitOrderAddressForm}/>}/>
                 <Route path="/terms" element={<Terms />}/>
                 <Route path="/sign_up" element={<SignUp
                                                     info={CustomerInfoProps}

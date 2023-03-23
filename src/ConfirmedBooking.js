@@ -6,17 +6,18 @@ TODO:
 
 export default function ConfirmedBooking(props) {
 
-  const confirmed = props.data;
-  const [year, month, day] = confirmed.date.split('-');
+  console.log("CONFIRMEDBOOKINGS.JS PROPS: ", props)
+  const confirmedReservationCustomer = props.data;
+  const [year, month, day] = confirmedReservationCustomer.date.split('-');
   
   const date = [month, day, year].join('/');
-  const name = confirmed["first-name"]+" "+confirmed["last-name"];
-  const email = confirmed.email;
-  const phone = confirmed.phone;
-  const seating= confirmed.seating;
-  const time = confirmed.time;
-  const guests = confirmed.guests;
-  const occasion = confirmed.occasion;
+  const name = confirmedReservationCustomer["first-name"]+" "+confirmedReservationCustomer["last-name"];
+  const email = confirmedReservationCustomer.email;
+  const phone = confirmedReservationCustomer.phone;
+  const seating= confirmedReservationCustomer.seating;
+  const time = confirmedReservationCustomer.time;
+  const guests = confirmedReservationCustomer.guests;
+  const occasion = confirmedReservationCustomer.occasion;
 
   // console.log("PROPS IN CONFIRMEDBOOKING: ", props)
 

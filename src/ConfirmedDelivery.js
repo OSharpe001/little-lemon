@@ -2,18 +2,22 @@
 
 export default function ConfirmedDelivery(props) {
 
-    const confirmed = props.data;
+    const confirmedCustomer = props.data;
+    const confirmedOrder = props.orderUp;
     // const [year, month, day] = confirmed.date.split('-');
   
     // const date = [month, day, year].join('/');
-    const name = confirmed["first-name"]+" "+confirmed["last-name"];
-    const email = confirmed.email;
-    const phone = confirmed.phone;
-    const seating= confirmed.seating;
-    const time = confirmed.time;
-    const guests = confirmed.guests;
-    const occasion = confirmed.occasion;
+    const name = confirmedCustomer["first-name"]+" "+confirmedCustomer["last-name"];
+    const email = confirmedCustomer.email;
+    // const phone = confirmedCustomer.phone;
+    const deliveryAddress = confirmedCustomer["delivery-address"];
+    const deliveryCity = confirmedCustomer["delivery-city"];
+    const deliveryState = confirmedCustomer["delivery-state"];
 
+    // const seating= confirmedCustomer.seating;
+    // const time = confirmedCustomer.time;
+    // const guests = confirmedCustomer.guests;
+    // const occasion = confirmedCustomer.occasion;
     console.log("CONFIRMEDDELIVERY PROPS: ", props);
 
     return (
@@ -24,19 +28,41 @@ export default function ConfirmedDelivery(props) {
                 <h1>Congrats!</h1>
                 <p>Your order is being prepared, now!</p>
                 <section>
-                    <p>Name:<span className="confirmed-res-info">{name}</span></p>
-                    <p>Phone:<span className="confirmed-res-info">{phone}</span></p>
+                    {props.userName?
+                        <>
+                            <p>Your order of:</p>
+                            {confirmedOrder.map((item) => <p key={item[0]}><span className="confirmed-res-info">{item[1]}- {item[0]}</span></p>)}
+                            <p>will be delivered to the address on file.</p>
+                        </>
+                        :
+                        <>
+                            <p><span className="confirmed-res-info">{name}</span></p>
+                            <p>Your order of:</p>
+                            {confirmedOrder.map((item) => <p key={item[0]}><span className="confirmed-res-info">{item[1]}- {item[0]}</span></p>)}
+                            <p>
+                                will be delivered to: 
+                                <br/>
+                                <span className="confirmed-res-info">
+                                    {deliveryAddress}
+                                </span>
+                                <br/>
+                                <span className="confirmed-res-info">
+                                    {deliveryCity}, {deliveryState}
+                                </span>
+                            </p>
+                            <p>Your total is: <span className="confirmed-res-info">${props.total}</span></p>
+                        </>
+                        
+                    }
+                    {/* <p>Name:<span className="confirmed-res-info">{name}</span></p> */}
+                    {/* <p>Phone:<span className="confirmed-res-info">{phone}</span></p> */}
                     {/* <p>Date:<span className="confirmed-res-info">{date}</span></p> */}
-                    <p>Time:<span className="confirmed-res-info">{time}</span></p>
-                    <p>Seating:<span className="confirmed-res-info">{seating}</span></p>
-                    <p>Number of Guests:<span className="confirmed-res-info">{guests} Guests</span></p>
-                    <p>Occasion:<span className="confirmed-res-info">{occasion}</span></p>
+                    {/* <p>Time:<span className="confirmed-res-info">{time}</span></p> */}
+                    {/* <p>Seating:<span className="confirmed-res-info">{seating}</span></p> */}
+                    {/* <p>Number of Guests:<span className="confirmed-res-info">{guests} Guests</span></p> */}
+                    {/* <p>Occasion:<span className="confirmed-res-info">{occasion}</span></p> */}
                 </section>
-                <p>We've sent an email to <span className="confirmed-res-info">{email} </span>with your confirmation</p>
-                <p>If we are experiencing any difficulties fullfilling your
-                    requests, we will email and/or text you a notice 24 hours (or
-                    nearest applicable time) before your reservation date-time.
-                </p>
+                {email?<p>We've sent an email to <span className="confirmed-res-info">{email} </span>with your order confirmation.</p>:null}
             </section>
         </>
     )

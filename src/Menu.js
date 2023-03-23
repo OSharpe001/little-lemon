@@ -23,6 +23,7 @@ export default function Menu() {
     return (
         <section className="menu">
             <section className="menu-section">
+                <h1>~~In-House Menu~~</h1>
                 <h2>Appetizers</h2>
                 <ul className="menu-list">
                     {Appetizers.map(item =>

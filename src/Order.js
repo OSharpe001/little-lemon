@@ -25,7 +25,12 @@ export default function Order(props) {
     const orderRundown = props.orderUp.map(item => item[1]>0?<p key={item[0]}>Item:{item[0]}-- Amount:{item[1]}-- Cost:{item[2]}</p>:null)
 
     const handleOrderSubmit= () => {
-        props.submitForm(props.orderUp, props.userName)
+        if (!props.userName) {
+            props.submitForm(props.orderUp, props.userName, total.toFixed(2));
+        } else {
+            props.submitForm(props.orderUp, props.userName, total.toFixed(2));
+            props.setOrderUp([]);
+        }
     }
 
     console.log("ORDER.JS' PROPS: ", props)

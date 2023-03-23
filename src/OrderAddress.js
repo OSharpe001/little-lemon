@@ -12,11 +12,13 @@ export default function OrderAddress(props) {
   // const [userNameError, setUserNameError] = useState("");
   const [deliveryTerms, setDeliveryTerms] = useState(false);
 
+  console.log("ORDERADDRESS.JS' PROPS: ", props)
 
   const clearForm = () => {
     setDeliveryTerms(false);
     setSameAsBilling(false);
 
+    // props.setOrderUp([]);
     props.info.setFirstName("");
     props.info.setLastName("");
     props.info.setEmail("");
@@ -197,7 +199,7 @@ export default function OrderAddress(props) {
         disabled={disabled}
         className="button"
         type="submit"
-        value="Delivery Address"
+        value="Submit Order"
         />
     </form>
   )
