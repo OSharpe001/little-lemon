@@ -7,6 +7,8 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import SignOut from "./SignOut";
 import ConfirmedBooking from "./ConfirmedBooking";
+import ConfirmedDelivery from "./ConfirmedDelivery";
+import OrderAddress from "./OrderAddress";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Terms from "./Terms";
@@ -68,6 +70,8 @@ export default function Main() {
     const [payZipCode, setPayZipCode] = useState("");
     const [payZipCodeError, setPayZipCodeError] = useState("");
 
+    const [orderUp,setOrderUp] = useState([])
+
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year,month, day].join("-");
     const todaysTimes = fetchAPI(new Date(today));
@@ -91,7 +95,7 @@ export default function Main() {
     const submitReservationForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(formData)
+            setData(...data, formData)
             navigate("/confirmed_booking")
         };
     };
@@ -99,16 +103,36 @@ export default function Main() {
     const submitSignUpForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(formData)
+            setData(...data, formData)
             // console.log(formData)
             navigate("/")
+        };
+    };
+
+    const submitOrderUp = (formData,userName) => {
+        // console.log("SUBMITORDERUP'S USERNAME VALUE: ", userName)
+        const result=submitAPI(formData);
+        if (result && !userName) {
+            // console.log(formData)
+            navigate("/delivery_address")
+        } else if (result && userName) {
+            navigate("/confirmed_delivery")
+        }
+    };
+
+    const submitOrderForm = (formData) => {
+        const result=submitAPI(formData);
+        if (result) {
+            setData(data, formData)
+            // console.log(formData)
+            navigate("/confirmed_delivery")
         };
     };
 
     const submitSignInForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(formData)
+            setData(data, formData)
             // console.log(formData)
             navigate("/")
         };
@@ -354,7 +378,21 @@ export default function Main() {
         setZipCodeError:setZipCodeError
     };
 
+    const setOrder = (newOrder) => {
+        setOrderUp([...orderUp, newOrder])
+            orderUp.forEach((item, index)=>{
+                if (item[0]===newOrder[0]) {
+                    // console.log("HERE: ", orderUp, item, index)
+                    let newList= [...orderUp]
+                    newList[index]=newOrder
+                    // console.log("LATEST NEWLIST :", newList)
+                    setOrderUp([...newList])
+                }
+            })
+    }
+
     // console.log("MAIN.JS' LOGGEDIN STATE AND USERNAME VALUE: ", loggedIn.state, loggedIn.userName)
+    console.log("MAIN.JS' DATA VALUE: ", data)
 
     return (
         <>
@@ -375,8 +413,11 @@ export default function Main() {
                                                     />}/>
                 <Route path="/about_us" element={<AboutUs />}/>
                 <Route path="/menu" element={<Menu />}/>
-                <Route path="/order" element={<Order 
+                <Route path="/order" element={<Order
                                                 userName={loggedIn.userName}
+                                                setOrder={setOrder}
+                                                orderUp={orderUp}
+                                                submitForm={submitOrderUp}
                                                 />}/>
                 <Route path="/sign_in" element={<SignIn
                                                     submitForm={submitSignInForm}
@@ -390,6 +431,16 @@ export default function Main() {
                 <Route path="/confirmed_booking" element={<ConfirmedBooking
                                                                         data={data}
                                                                         userName={loggedIn.userName}/>}/>
+                <Route path="/confirmed_delivery" element={<ConfirmedDelivery
+                                                                        data={data}
+                                                                        userName={loggedIn.userName}
+                                                                        orderUp={orderUp}/>}/>
+                <Route path="/delivery_address" element={<OrderAddress
+                                                                        userName={loggedIn.userName}
+                                                                        info={CustomerInfoProps}
+                                                                        payment={CustomerPaymentProps}
+                                                                        delivery={CustomerDeliveryProps}
+                                                                        submitForm={submitOrderForm}/>}/>
                 <Route path="/terms" element={<Terms />}/>
                 <Route path="/sign_up" element={<SignUp
                                                     info={CustomerInfoProps}

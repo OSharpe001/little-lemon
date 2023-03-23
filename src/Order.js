@@ -1,39 +1,38 @@
 import DeliveryCard from "./components/DeliveryCard";
 import { Menu } from "./components/deliveryItems";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Order(props) {
 
-    // const [sum,setSum] = useState(0);
-    const [orderUp,setOrderUp] = useState([])
-    const sum = orderUp.map(item=>item[2]).reduce((total,number)=> {return total+number},0);
+    // const [orderUp,setOrderUp] = useState([]);
+    const sum = props.orderUp.map(item=>item[2]).reduce((total,number)=> {return total+number},0);
     const tax = sum *.0875
     const deliveryFee =sum===0?0:props.userName?5:10;
     const total = sum+tax+deliveryFee
 
-    const setOrder = (newOrder) => {
-        setOrderUp([...orderUp, newOrder])
-            orderUp.forEach((item, index)=>{
-                if (item[0]===newOrder[0]) {
-                    console.log("HERE: ", orderUp, item, index)
-                    let newList= [...orderUp]
-                    newList[index]=newOrder
-                    console.log("LATEST NEWLIST :", newList)
-                    setOrderUp([...newList])
-                }
-            })
-        // setOrderUp([...orderUp, newOrder])
-        // orderUp.length>0?orderUp.forEach((item, index)=>{item[0]===newOrder[0]?console.log("HERE: ", orderUp, item, index):console.log("NOT HERE: ", orderUp, item, index)}):null
-        // console.log("ORDER.JS'S SETORDER'S NEWORDER VALUE: ", newOrder);
-        // console.log("ORDER.JS'S SETORDER'S ORDERUP VALUE: ", orderUp);
-        // console.log(orderUp===[])
-        // setOrderUp([...orderUp, newOrder])
-    }
-    const orderRundown = orderUp.map(item => item[1]>0?<p>Item:{item[0]}-- Amount:{item[1]}-- Cost:{item[2]}</p>:null)
+    // const setOrder = (newOrder) => {
+    //     setOrderUp([...orderUp, newOrder])
+    //         orderUp.forEach((item, index)=>{
+    //             if (item[0]===newOrder[0]) {
+    //                 // console.log("HERE: ", orderUp, item, index)
+    //                 let newList= [...orderUp]
+    //                 newList[index]=newOrder
+    //                 // console.log("LATEST NEWLIST :", newList)
+    //                 setOrderUp([...newList])
+    //             }
+    //         })
+    // }
+    const orderRundown = props.orderUp.map(item => item[1]>0?<p key={item[0]}>Item:{item[0]}-- Amount:{item[1]}-- Cost:{item[2]}</p>:null)
 
+    const handleOrderSubmit= () => {
+        props.submitForm(props.orderUp, props.userName)
+    }
+
+    console.log("ORDER.JS' PROPS: ", props)
     //  console.log("ORDER.JS'S ORDERUP VALUE: ", orderUp)
     // console.log("SUM'S VALUE: ", sum)
     // console.log("ORDER.JS MENU ITEMS", Menu.map(item => item.description))
+
     return (
             <section className="order">
                 <h1>Delivery Menu</h1>
@@ -46,7 +45,7 @@ export default function Order(props) {
                                     name={item.name}
                                     description={item.description}
                                     price={item.price}
-                                    setOrder={setOrder}
+                                    setOrder={props.setOrder}
                                 />
                             </li>
                         )}
@@ -63,6 +62,12 @@ export default function Order(props) {
                         <h2>Total: {total.toFixed(2)}</h2>
                     </section>
                 </div>
+                    <button
+                        className="button"
+                        aria-label="On Click"
+                        onClick={handleOrderSubmit}
+                        >{!props.userName?"Delivery Address":"Confirm Order"}
+                    </button>
             </section>
     );
 };

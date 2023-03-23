@@ -731,10 +731,10 @@ a {
 }
 .menu-item img {
   border-radius: 16px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 .order .menu-list li {
-  width: 75%;
+  width: 100%;
   margin: 0;
   border: 2px solid red;
 }
