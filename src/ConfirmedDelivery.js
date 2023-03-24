@@ -3,7 +3,7 @@
 export default function ConfirmedDelivery(props) {
 
     const confirmedCustomer = props.data;
-    const confirmedOrder = props.orderUp;
+    const confirmedOrder = props.data.order;
     // const [year, month, day] = confirmed.date.split('-');
   
     // const date = [month, day, year].join('/');
@@ -18,7 +18,7 @@ export default function ConfirmedDelivery(props) {
     // const time = confirmedCustomer.time;
     // const guests = confirmedCustomer.guests;
     // const occasion = confirmedCustomer.occasion;
-    console.log("CONFIRMEDDELIVERY PROPS: ", props);
+    // console.log("CONFIRMEDDELIVERY PROPS: ", props);
 
     return (
         <>
@@ -50,7 +50,7 @@ export default function ConfirmedDelivery(props) {
                                     {deliveryCity}, {deliveryState}
                                 </span>
                             </p>
-                            <p>Your total is: <span className="confirmed-res-info">${props.total}</span></p>
+                            <p>Your total is: <span className="confirmed-res-info">${props.data.price}</span></p>
                         </>
                         
                     }

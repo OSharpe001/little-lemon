@@ -426,13 +426,6 @@ export default function Main() {
                                                     />}/>
                 <Route path="/about_us" element={<AboutUs />}/>
                 <Route path="/menu" element={<Menu />}/>
-                <Route path="/order" element={<Order
-                                                userName={loggedIn.userName}
-                                                setOrder={setOrder}
-                                                setOrderUp={setOrderUp}
-                                                orderUp={orderUp}
-                                                submitForm={submitOrderUp}
-                                                />}/>
                 <Route path="/sign_in" element={<SignIn
                                                     submitForm={submitSignInForm}
                                                     userName={userName}
@@ -445,13 +438,20 @@ export default function Main() {
                 <Route path="/confirmed_booking" element={<ConfirmedBooking
                                                                         data={data}
                                                                         userName={loggedIn.userName}/>}/>
+                <Route path="/order" element={<Order
+                                                userName={loggedIn.userName}
+                                                setOrder={setOrder}
+                                                setOrderUp={setOrderUp}
+                                                orderUp={orderUp}
+                                                submitForm={submitOrderUp}
+                                                submitMemberForm={submitOrderAddressForm}
+                                                />}/>
                 <Route path="/confirmed_delivery" element={<ConfirmedDelivery
                                                                         data={data}
-                                                                        userName={loggedIn.userName}
-                                                                        total={total}
-                                                                        orderUp={orderUp}/>}/>
+                                                                        userName={loggedIn.userName}/>}/>
                 <Route path="/delivery_address" element={<OrderAddress
                                                                         userName={loggedIn.userName}
+                                                                        orderUp={orderUp}
                                                                         setOrderUp={setOrderUp}
                                                                         total={total}
                                                                         info={CustomerInfoProps}

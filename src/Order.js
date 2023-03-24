@@ -28,12 +28,12 @@ export default function Order(props) {
         if (!props.userName) {
             props.submitForm(props.orderUp, props.userName, total.toFixed(2));
         } else {
-            props.submitForm(props.orderUp, props.userName, total.toFixed(2));
+            props.submitMemberForm({"order":props.orderUp, /*props.userName,*/ "price":total.toFixed(2)});
             props.setOrderUp([]);
         }
     }
 
-    console.log("ORDER.JS' PROPS: ", props)
+    // console.log("ORDER.JS' PROPS: ", props)
     //  console.log("ORDER.JS'S ORDERUP VALUE: ", orderUp)
     // console.log("SUM'S VALUE: ", sum)
     // console.log("ORDER.JS MENU ITEMS", Menu.map(item => item.description))

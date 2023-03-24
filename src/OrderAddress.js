@@ -18,7 +18,7 @@ export default function OrderAddress(props) {
     setDeliveryTerms(false);
     setSameAsBilling(false);
 
-    // props.setOrderUp([]);
+    props.setOrderUp([]);
     props.info.setFirstName("");
     props.info.setLastName("");
     props.info.setEmail("");
@@ -114,6 +114,8 @@ export default function OrderAddress(props) {
         alert("Do you agree to our terms of service?");
     } else if (sameAsBilling) {
         props.submitForm({
+            "order":props.orderUp,
+            "price":props.total,
             "first-name":props.info.firstName,
             "last-name":props.info.lastName,
             "email":props.info.email,
@@ -133,6 +135,8 @@ export default function OrderAddress(props) {
         clearForm();
     } else {
         props.submitForm({
+            "order":props.orderUp,
+            "price":props.total,
             "first-name":props.info.firstName,
             "last-name":props.info.lastName,
             "email":props.info.email,
