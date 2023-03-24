@@ -31,7 +31,7 @@ export default function ConfirmedDelivery(props) {
                     {props.userName?
                         <>
                             <p>Your order of:</p>
-                            {confirmedOrder.map((item) => <p key={item[0]}><span className="confirmed-res-info">{item[1]}- {item[0]}</span></p>)}
+                            {confirmedOrder.map((item) =>item[1]>0? <p key={item[0]}><span className="confirmed-res-info">{item[1]}- {item[0]}</span></p>:null)}
                             <p>will be delivered to the address on file.</p>
                         </>
                         :
