@@ -253,7 +253,7 @@ input:focus:invalid {
   margin: 0 0 3vh -16%;
   padding: 95px auto;
   grid-column: 3;
-  max-width: 20%;
+  max-width: 30ch;
   color:#EDEFEE;
   font-weight: bold;
   /* border: 2px solid yellow; */
@@ -576,7 +576,7 @@ a {
   border-radius: 16px;
   background-color: #EDEFEE;
   color: #333333;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .menu  {
@@ -711,7 +711,7 @@ a {
   /* margin-right: 0;
   padding-right: 0; */
   width: 50vw;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 .menu-item img {
   height:20vh;
@@ -721,13 +721,13 @@ a {
   display: flex;
   flex-direction: row;
   width: 100%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 .order .menu-item {
   width: 125%;
   /* margin-right: 0; */
   /* padding-right: 0; */
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
 }
 .menu-item img {
   border-radius: 16px;
@@ -736,20 +736,20 @@ a {
 .order .menu-list li {
   width: 100%;
   margin: 0;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 .order .item {
-  border: 2px solid white;
+  /* border: 2px solid white; */
   width: 15vw;
   padding-left: 1vw;
 }
 .order .item-price {
-  border: 2px solid white;
+  /* border: 2px solid white; */
   text-align: right;
 }
 .item-amount {
   display: inline-flex;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   /* font-size: 16px; */
   justify-content: space-around;
 }
@@ -768,7 +768,7 @@ a {
 .item-amount h1 {
   align-self: center;
   margin: 0 1vw;
-  border: 2px solid white;
+  /* border: 2px solid white; */
 }
 .image-and-item {
   display: inline-flex;
@@ -777,10 +777,30 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid lightblue;
+  /* border: 2px solid lightblue; */
 }
 .total-seperation {
   border: 2px solid #333333;
+}
+/***/
+.price-summary {
+  width: 16%;
+  height: 100%;
+  z-index: 10;
+  position: fixed;
+  right:17vw;
+  top:27vh;
+  height: 83px;
+  font-size: 16px;
+  font-weight: bold;
+  /* align-content:center; */
+  /* position: sticky; */
+  /* align-self:center; */
+  /* align-items:center;
+  justify-content:center;
+  justify-self:center;
+  justify-items:center; */
+  /* border: 2px solid red; */
 }
 /*  */
 /*  */
@@ -866,7 +886,7 @@ a {
 /* NEED TO MAKE THE INPUT BOX/CIRCLES LARGER */
 #terms, #indoor, #outdoor, #same-as-billing {
   margin: 2vh -11vw 1vh 6vw;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 /*  */
 
