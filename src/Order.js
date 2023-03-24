@@ -9,6 +9,7 @@ export default function Order(props) {
     const tax = sum *.0875
     const deliveryFee =sum===0?0:props.userName?5:10;
     const total = sum+tax+deliveryFee
+    const disabled=(sum===0)
 
     // const setOrder = (newOrder) => {
     //     setOrderUp([...orderUp, newOrder])
@@ -65,14 +66,18 @@ export default function Order(props) {
                         <p>Delivery Fee: {deliveryFee.toFixed(2)}</p>
                         <hr className="total-seperation" />
                         <h2>Total: {total.toFixed(2)}</h2>
+                        <br/>
+                        <button
+                            disabled={disabled}
+                            style={disabled?{border: "1px solid #999999", backgroundColor: "#cccccc", color: "#666666", cursor: "not-allowed"}:null}
+                            className="button"
+                            aria-label="On Click"
+                            onClick={handleOrderSubmit}
+                            >
+                                {!props.userName?"Delivery Address":"Confirm Order"}
+                        </button>
                     </section>
                 </div>
-                    <button
-                        className="button"
-                        aria-label="On Click"
-                        onClick={handleOrderSubmit}
-                        >{!props.userName?"Delivery Address":"Confirm Order"}
-                    </button>
             </section>
     );
 };
