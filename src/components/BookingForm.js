@@ -36,8 +36,8 @@ export default function BookingForm(props) {
         setReservationTerms(false);
     };
 
-    const disabled = !!(guestsError) || !!(occasionError) || !!(requestsError) || !!(props.info.phoneError) || !!(props.info.emailError) || !!(props.info.firstNameError) || !!(props.info.lastNameError);
-    const gotRequiredInfo = (!!props.info.firstName && !!props.info.lastName && !!props.info.email && !!props.info.phone & !disabled);
+    const disabled = !props.userName?(!!(guestsError) || !!(occasionError) || !!(requestsError) || !!(props.info.phoneError) || !!(props.info.emailError) || !!(props.info.firstNameError) || !!(props.info.lastNameError)):!!(occasionError);
+    const gotRequiredInfo = !props.userName?(!!props.info.firstName && !!props.info.lastName && !!props.info.email && !!props.info.phone & !disabled):!disabled;
 
     const setSubmissionErrors = () => {
         if (occasion === "") {
