@@ -36,7 +36,7 @@ export default function Main() {
 
     const [userName, setUserName] = useState("");
     const [userNameError, setUserNameError] = useState("");
-    
+
     const [firstName, setFirstName] = useState("");
     const [firstNameError, setFirstNameError] = useState("");
     const [lastName, setLastName] = useState("");
@@ -105,39 +105,26 @@ export default function Main() {
         const result=submitAPI(formData);
         if (result) {
             setData(formData)
-            // console.log(formData)
             navigate("/")
         };
     };
 
     const submitOrderUp = (formData, userName, total) => {
-        // console.log("SUBMITORDERUP'S USERNAME VALUE: ", userName);
-
-        // console.log("SUBMITORDERUP'S DATA VALUE: ", data);
-        // console.log("SUBMITORDERUP'S FORMDATA VALUE: ", formData);
-        // console.log("MAIN.JS SUBMITORDERUP'S TOTAL VALUE: ", total);
         const result=submitAPI(formData);
         if (result && !userName) {
-            // console.log(formData)
             setTotal(total);
-        // console.log("SUBMITORDERUP'S DATA VALUE: ", data);
             setData(formData);
             navigate("/delivery_address");
         } else if (result && userName) {
             setTotal(total);
-        // console.log("SUBMITORDERUP'S DATA VALUE: ", data);
             setData(formData);
             navigate("/confirmed_delivery");
         }
     };
-    // console.log("MAINJS' DATA VALUE: ", data)
-    // console.log("MAINJS' GLOBAL TOTAL VALUE: ", total);
-
     const submitOrderAddressForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
             setData(formData)
-            // console.log("MAINJS' SUBMITORDERADDRESSFORM'S FORMDATA: ", formData)
             navigate("/confirmed_delivery")
         };
     };
@@ -146,7 +133,6 @@ export default function Main() {
         const result=submitAPI(formData);
         if (result) {
             setData(formData)
-            // console.log(formData)
             navigate("/")
         };
     };
@@ -277,7 +263,6 @@ export default function Main() {
             return;
         }
     };
-    // console.log("MAIN.JS' STATE VALUE: ", state)
 
     const handlePayZipCodeChange = (e) => {
         setPayZipCode(e.target.value);
@@ -356,7 +341,6 @@ export default function Main() {
             return;
         }
     };
-    // console.log("MAIN.JS' STATE VALUE: ", state)
 
     const handleZipCodeChange = (e) => {
         setZipCode(e.target.value);
@@ -395,17 +379,12 @@ export default function Main() {
         setOrderUp([...orderUp, newOrder])
             orderUp.forEach((item, index)=>{
                 if (item[0]===newOrder[0]) {
-                    // console.log("HERE: ", orderUp, item, index)
                     let newList= [...orderUp]
                     newList[index]=newOrder
-                    // console.log("LATEST NEWLIST :", newList)
                     setOrderUp([...newList])
                 }
             })
     }
-
-    // console.log("MAIN.JS' LOGGEDIN STATE AND USERNAME VALUE: ", loggedIn.state, loggedIn.userName)
-    // console.log("MAIN.JS' DATA VALUE: ", data)
 
     return (
         <>

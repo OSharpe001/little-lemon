@@ -279,12 +279,12 @@ export const Beverages = [
     }
 ]
 
-export const Liquor = 
+export const Liquor =
     {
         "WINES BY THE GLASS":{
             REDS:[
                 {
-                    name:"Cabernet Sauvignon, Robert Hall, Artisan Collection, Paso Robles",
+                    name:"Cabernet Sauvignon, Robert Hall, Artisan Collection, Paso Robles",
                     description:"Intense dark, ruby red color with hints of cedar and spice along with cocoa aromas and plush ripe fruit, dark chocolate, and anise, full-bodied.",
                     price:"$11.00"
                 },
@@ -305,11 +305,11 @@ export const Liquor =
                 },
                 {
                     name:"Malbec, Trivento Reserve, Argentina",
-                    description:"Deep, red and violet in color, with powerful aromas of ripe red fruit, strawberries and cherries, with hints of coffee and chocolate from the oak, good body and tannins with a long finish.",
+                    description:"Deep, red and violet in color, with powerful aromas of ripe red fruit, strawberries and cherries, with hints of coffee and chocolate from the oak, good body and tannins with a long finish.",
                     price:"$9.00"
                 },
                 {
-                    name:"Pinot Noir, Austerity, Monterey    ",
+                    name:"Pinot Noir, Austerity, Monterey",
                     description:"Elegant and opulent pinot noir, with aromas of black cherry and violets with tasting notes of pomegranate, tea, white pepper, balanced with oak, long finish.",
                     price:"$10.00"
                 },
@@ -383,7 +383,7 @@ export const Liquor =
             },
             {
                 name:"Gin Blossom",
-                description:"Hendrick’s Gin, Elderflower Liqueur, Pineapple Juice, Fresh Lime Juice, Club.",
+                description:"Hendrick's Gin, Elderflower Liqueur, Pineapple Juice, Fresh Lime Juice, Club.",
                 price:"$14.00"
             },
             {
@@ -397,7 +397,7 @@ export const Liquor =
                 price:"$13.00"
             },
             {
-                name:"Espresso Martini ",
+                name:"Espresso Martini",
                 description:"Stoli Vanil Vodka, Fresh Espresso, Baileys Irish Cream.",
                 price:"$12.00"
             },
@@ -424,7 +424,7 @@ export const Liquor =
                     price:"$110.00"
                 },
                 {
-                    name:"Stag’s Leap “Artemis”, Napa Valley",
+                    name:"Stag's Leap “Artemis”, Napa Valley",
                     description:"",
                     price:"$138.00"
                 },
@@ -477,7 +477,7 @@ export const Liquor =
                     price:"$30.00"
                 },
                 {
-                    name:"Don Miguel Gascon Reserve ",
+                    name:"Don Miguel Gascon Reserve",
                     description:"",
                     price:"$50.00"
                 }
@@ -560,7 +560,7 @@ export const Liquor =
             },
             {
                 name:"On Tap",
-                description:"Samuel Adams Seasonal - Montauk Brewery Wave Chaser - Hofbrau - Blue Moon",
+                description:"Samuel Adams Seasonal - Montauk Brewery Wave Chaser - Hofbrau - Blue Moon",
                 price:"$8.00"
             }
         ]

@@ -18,8 +18,6 @@ import {
     } from "./components/menuItems";
 
 export default function Menu() {
-    // console.log("MENU.JS' LIQUOR VALUES: ", Liquor.BEERS);
-    // Appetizers.map((item)=>console.log(item.name,item.price));
     return (
         <section className="menu">
             <section className="menu-section">

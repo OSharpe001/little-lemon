@@ -1,6 +1,5 @@
 /*
 TODO:
-
 1- FIX MOBILE SCREEN LAYOUT FOR NEW ADDITIONS
 2- FIX THE CSS FOR TEXT, ESPECIALLY THE ERROR MESSAGES
 */
@@ -9,9 +8,7 @@ import CustomerInfoForm from "./CustomerInfoForm"
 import React, { useState } from "react";
 
 export default function BookingForm(props) {
-    
-    // console.log("BOOKING FORM PROPS: ", props.userName)
-    
+
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year, month, day].join("-");
     const timeSelection = props.availableTimes();

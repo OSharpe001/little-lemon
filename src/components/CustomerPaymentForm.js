@@ -27,7 +27,7 @@ export default function CustomerPaymentForm(props) {
         onBlur={props.payment.handleCardExpirationChange}
         />
         {props.payment.cardExpirationError?<p className="error-message">{props.payment.cardExpirationError}</p>:null}
-        
+
         <label htmlFor="card-cvv">CVV <sup>*</sup></label>
         <input
         type="number"
@@ -39,7 +39,7 @@ export default function CustomerPaymentForm(props) {
         onBlur={props.payment.handleCardCVVChange}
         />
         {props.payment.cardCVVError?<p className="error-message">{props.payment.cardCVVError}</p>:null}
-        
+
         <CustomerDeliveryForm delivery={props.payment}/>
     </section>
   )

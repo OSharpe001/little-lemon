@@ -11,8 +11,6 @@ export default function DeliveryCard(props) {
   const initialState = {amount: 0};
   const [state, dispatch] = useReducer(reducer, initialState);
   const cost = props.price*state.amount
-  // console.log("DELIVERYCARD'S COST VALUE: ", props.name, cost)
-  // console.log("DELIVERYCARD PROPS.IMAGE: ", props.name)
 
   const changeAmount = (e) => {
     if (e.target.value==="+") {
@@ -23,7 +21,6 @@ export default function DeliveryCard(props) {
       props.setOrder([props.name, state.amount-1, cost-props.price])
 
     }
-    // props.setOrder([props.name, state.amount, cost])
   }
 
   return (
@@ -35,17 +32,17 @@ export default function DeliveryCard(props) {
             <p className="item-description" >{props.description}</p>
         </div>
       </div>
-        
+
         <div className="item-price-amount" >
           <p className="item-price" >${(props.price).toFixed(2)}</p>
           <div className="item-amount">
-            <button className="button" value="+" onClick={state.amount<10?changeAmount:null/*() => state.amount<10?dispatch({type: "add"}):null*/}>
+            <button className="button" value="+" onClick={state.amount<10?changeAmount:null}>
               +
             </button>
 
             <h1>{state.amount}</h1>
 
-            <button className="button" value="-" onClick={state.amount>0?changeAmount:null/*() => state.amount>0?dispatch({type: "subtract"}):null*/}>
+            <button className="button" value="-" onClick={state.amount>0?changeAmount:null}>
               -
             </button>
           </div>

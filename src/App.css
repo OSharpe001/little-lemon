@@ -1,15 +1,3 @@
-/* A NICE BACKGROUND IMAGE (FROM THE WEB) AND HOW TO APPLY IT:
-
-.res-content-wrapper {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.42),
-      rgba(0, 0, 0, 0.73)
-    ),
-    url("https://a.cdn-hotels.com/gdcs/production141/d778/6b200721-9661-4680-aca2-d6e33ce46cf0.jpg");
-  width: 100%;
-  background-size: cover;
-} */
 * {
   margin: 0;
   padding: 0;
@@ -146,13 +134,11 @@ h4, h5, h6 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* border: 2px solid red; */
 
 }
 
 .form h2 {
   text-decoration: underline;
-  /* border: 2px solid red; */
 }
 
 .form label {
@@ -172,7 +158,6 @@ h4, h5, h6 {
   text-align: center;
   justify-content: center;
   border-radius:16px;
-  /* border: solid 2px red; */
 }
 
 input:focus:invalid {
@@ -198,7 +183,6 @@ input:focus:invalid {
   font-size: 16pt;
   line-height: 1.5;
   width: 41vw;
-  /* border: 2px solid red; */
 }
 
 .reservation-terms {
@@ -227,7 +211,6 @@ input:focus:invalid {
   grid-area: sign-up;
   grid-column: 3 / 11;
   font-size: 16pt;
-  /* line-height: 1.5; */
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -245,7 +228,6 @@ input:focus:invalid {
   text-align: center;
   justify-content: space-between;
   align-content: center;
-  /* border: 2px solid red; */
 }
 
 .hero .greeting {
@@ -256,7 +238,6 @@ input:focus:invalid {
   max-width: 30ch;
   color:#EDEFEE;
   font-weight: bold;
-  /* border: 2px solid yellow; */
 }
 
 .greeting article {
@@ -576,20 +557,16 @@ a {
   border-radius: 16px;
   background-color: #EDEFEE;
   color: #333333;
-  /* border: 2px solid green; */
 }
 
 .menu  {
   grid-area: menu;
   grid-column: 3 / 11;
   display: flex;
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
   align-items: center;
   width: 100%;
-  /* padding: 20px 0; */
   border-radius: 16px;
-  background-color: white /*#EDEFEE*/;
+  background-color: white;
   color: #333333;
 }
 
@@ -598,19 +575,15 @@ a {
   text-decoration: underline;
   margin: 3vh 0 2vh;
   color:#495E57;
-  /* border-radius: 16pt; */
-  background-color: white/*#EDEFEE*/;
-  /* border: 2px solid #495E57; */
+  background-color: white;
 }
 
 .menu h2 {
   text-align: center;
   text-decoration: underline;
-  /* margin: 0 0 0; */
   color:#EDEFEE;
   border-radius: 16px 16px 0 0;
   background-color: #495E57;
-  /* border: 2px solid white; */
 }
 
 .menu h3 {
@@ -620,9 +593,7 @@ a {
   line-height: 1.5;
   margin: 3vh 0 0;
   color:#333333;
-  /* border-radius: 16pt; */
   background-color: #EDEFEE;
-  /* border: 2px solid #495E57; */
 }
 
 .menu h4 {
@@ -632,9 +603,7 @@ a {
   line-height: 1.5;
   margin: 0 0 3vh 0;
   color:#333333;
-  /* border-radius: 16pt; */
   background-color: #EDEFEE;
-  /* border: 2px solid #495E57; */
 }
 
 .menu-section {
@@ -642,7 +611,6 @@ a {
   display: flex;
   flex-direction:column;
   border-radius: 16pt;
-  /* border: 2px solid blue; */
 }
 
 .menu-list{
@@ -650,7 +618,6 @@ a {
   margin: 0 0 2vh 0;
   border-radius: 0 0 16px 16px;
   background-color: #F4CE14;
-  /* border: 2px solid purple; */
 }
 
 .menu-item {
@@ -668,11 +635,8 @@ a {
 
 .menu-list li {
   display: inline-flex;
-  /* justify-content: space-between; */
   width: 31vw;
-  /* height: 35vh; */
   margin: 0 1vw 0 ;
-  /* border: 2px solid #333333; */
 }
 
 .item {
@@ -682,107 +646,94 @@ a {
   font-size: 16pt;
   line-height: 1.5;
   width: 25ch;
-  /* border: 2px solid tan; */
 }
 
 .item-name {
-  /* font-size: 16pt; */
   line-height: 1.5;
   margin: 0 1vw 1vh 0;
   border-radius: 16px 0;
-  /* border: 2px solid blue; */
 }
-
-/* .item-description {
-  border: 2px solid skyblue;
-} */
 
 .item-price {
   font-size: 18pt;
   line-height: 1.5;
   font-weight: bold;
   color: #EE9972;
-  /* border: 2px solid yellow; */
 }
 
-/*  */
-/*  */
 .order ul {
-  /* margin-right: 0;
-  padding-right: 0; */
   width: 50vw;
-  /* border: 2px solid green; */
 }
+
 .menu-item img {
   height:20vh;
   width:20vw;
 }
+
 .order .menu-list {
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* border: 2px solid red; */
 }
+
 .order .menu-item {
   width: 125%;
-  /* margin-right: 0; */
-  /* padding-right: 0; */
-  /* border: 5px solid blue; */
 }
+
 .menu-item img {
   border-radius: 16px;
-  /* border: 2px solid red; */
 }
+
 .order .menu-list li {
   width: 100%;
   margin: 0;
-  /* border: 2px solid red; */
 }
+
 .order .item {
-  /* border: 2px solid white; */
   width: 15vw;
   padding-left: 1vw;
 }
+
 .order .item-price {
-  /* border: 2px solid white; */
   text-align: right;
 }
+
 .item-amount {
   display: inline-flex;
-  /* border: 2px solid white; */
-  /* font-size: 16px; */
   justify-content: space-around;
 }
+
 .item-amount button {
   font-size: 20px;
   color: #EDEFEE;
   background-color: #495E57;
-  /* color: #333333;
-  background-color: #F4CE14; */
   border-radius: 16px;
 }
+
 .item-amount button:hover {
   color: #333333;
   background-color: #F4CE14;
 }
+
 .item-amount h1 {
   align-self: center;
   margin: 0 1vw;
-  /* border: 2px solid white; */
 }
+
 .image-and-item {
   display: inline-flex;
 }
+
 .item-price-amount {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border: 2px solid lightblue; */
 }
+
 .total-seperation {
   border: 2px solid #333333;
 }
-/***/
+
 .price-summary {
   width: 16vw;
   height: 100%;
@@ -793,17 +744,8 @@ a {
   height: 83px;
   font-size: 16px;
   font-weight: bold;
-  /* align-content:center; */
-  /* position: sticky; */
-  /* align-self:center; */
-  /* align-items:center;
-  justify-content:center;
-  justify-self:center;
-  justify-items:center; */
-  /* border: 2px solid red; */
 }
-/*  */
-/*  */
+
 .about-us {
   grid-area: about-us;
   grid-column: 3 / 11;
@@ -834,7 +776,6 @@ a {
   margin: 3vh 0;
   color: #FFF;
   text-shadow: 2px 2px #495E57;
-  /* text-align: center; */
 }
 
 .about-us article {
@@ -856,39 +797,26 @@ a {
 .seating {
   padding: 7vh 0;
   text-decoration: none;
-  /* border: 2px solid green; */
   display: flex;
   justify-content: space-evenly;
   padding-right: 6vw;
-  /* border: 2px solid red; */
 }
 
 .seating input {
   margin: 0 -11vw 0 2vw;
   padding: 20px;
-  /* font-size: 40pt; */
-  /* border: 5px solid red; */
 }
 
 .seating label {
   margin: 0;
   text-decoration: none;
   font-size: 21pt;
-  /* border: 2px solid blue; */
 }
 
-/* .terms, .same-as-billing {
-  margin-left: -5vw;
-  border: 2px solid blue;
-} */
-
-/*  */
 /* NEED TO MAKE THE INPUT BOX/CIRCLES LARGER */
 #terms, #indoor, #outdoor, #same-as-billing {
   margin: 2vh -11vw 1vh 6vw;
-  /* border: 2px solid red; */
 }
-/*  */
 
 .terms-link {
   color: blue;
@@ -915,7 +843,6 @@ sup {
   background-repeat: no-repeat;
   color:#EDEFEE;
   text-shadow: 2px 2px 4px #333333;
-  /* border: 5px solid red; */
 }
 
 .outdoor {
@@ -941,20 +868,8 @@ sup {
   border-radius: 16px 16px;
   background-color: #F4CE14;
   color: #495E57;
-  /* border: 2px solid red; */
 }
-/* .button:hover {
-  background: brown;
-  color: #EDEFEE;
-} */
 
-/* button:disabled,
-button[disabled] {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-  cursor: not-allowed;
-} */
 
 @media (max-width: 900px) {
 
@@ -1075,6 +990,7 @@ button[disabled] {
       text-align: center;
       margin: -30vh 0 0 -40vw;
   }
+
   .pic2 {
       min-width: 60vw;
       position: relative;

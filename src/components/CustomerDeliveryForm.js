@@ -2,7 +2,6 @@
 
 export default function CustomerDeliveryForm(props) {
 
-  // console.log("CUSTOMERDELIVERYFORM'S STATE VALUE: ", props.delivery.state)
   return (
     <section className="form">
 
@@ -17,7 +16,7 @@ export default function CustomerDeliveryForm(props) {
         onBlur={props.delivery.handleAddressChange}
         />
         {props.delivery.addressError?<p className="error-message">{props.delivery.addressError}</p>:null}
-        
+
         <label htmlFor="city">City <sup>*</sup></label>
         <input
         type="text"
@@ -29,7 +28,7 @@ export default function CustomerDeliveryForm(props) {
         onBlur={props.delivery.handleCityChange}
         />
         {props.delivery.cityError?<p className="error-message">{props.delivery.cityError}</p>:null}
-        
+
         <label htmlFor="state">State <sup>*</sup></label>
         <select
         id="state"
@@ -44,9 +43,6 @@ export default function CustomerDeliveryForm(props) {
           <option value="" >Other. . .</option>
         </select>
         {props.delivery.stateError?<p className="error-message">{props.delivery.stateError}</p>:null}
-               
-
-
 
         <label htmlFor="zip-code">Zip/Postal Code <sup>*</sup></label>
         <input
@@ -59,7 +55,7 @@ export default function CustomerDeliveryForm(props) {
         onBlur={props.delivery.handleZipCodeChange}
         />
         {props.delivery.zipCodeError?<p className="error-message">{props.delivery.zipCodeError}</p>:null}
-        
+
     </section>
   )
 }

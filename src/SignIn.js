@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function SignIn(props) {
 
-    // const [userName, setUserName] = useState("");
-    // const [userNameError, setUserNameError] = useState("");
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
 

@@ -4,7 +4,7 @@ import Nav from  "./Nav"
 
 
 export default function Header(props) {
-    // console.log("HEADER.JS PROPS: ", props)
+
     return (
         <>
             <header className="head">

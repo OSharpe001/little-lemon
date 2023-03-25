@@ -77,9 +77,9 @@ export const Menu = [
         image:<img
                 className="item-image"
                 src={spicy_pasta}
-                alt="pasta in tomatoe sauce"
+                alt="pasta in tomato sauce"
             />,
-        description:"Our signature spicy pasta in zesty tomatoe sauce.",
+        description:"Our signature spicy pasta in zesty tomato sauce.",
         price:8.00
     },
     {

@@ -1,7 +1,7 @@
 
 
 export default function MenuCard(props) {
-    // console.log("MENUCARD PROPS: ", props)
+
   return (
     <section className="menu-item" >
       <div className="item" >

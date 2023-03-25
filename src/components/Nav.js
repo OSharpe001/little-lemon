@@ -4,11 +4,9 @@
  */
 
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 
 export default function Nav(props) {
-    // const navigate = useNavigate();
-    // console.log("NAV.JS PROPS:", props)
+
     return (
             <nav className="nav-bar">
                 <Link aria-label="On Click" to="/" className="nav-item">Home</Link>

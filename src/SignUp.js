@@ -6,8 +6,6 @@ import { useState } from "react";
 export default function SignUp(props) {
 
     const [sameAsBilling, setSameAsBilling] = useState(false);
-    // const [userName, setUserName] = useState("");
-    // const [userNameError, setUserNameError] = useState("");
     const [signUpTerms, setSignUpTerms] = useState(false);
 
     const clearForm = () => {
@@ -51,7 +49,6 @@ export default function SignUp(props) {
         };
     };
 
-    // console.log("SIGNUP PROPS: ", props)
     const personalFormDisabled = !!(props.userNameError) || !!(props.info.firstNameError) || !!(props.info.lastNameError) || !!(props.info.emailError) || !!(props.info.phoneError);
     const paymentFormDisabled = !!(props.payment.cardNumberError) || !!(props.payment.cardExpirationError) || !!(props.payment.cardCVVError) || !!(props.payment.addressError) || !!(props.payment.cityError) || !!(props.payment.stateError) || !!(props.payment.zipCodeError);
     const deliveryFormDisabled = (!!(props.delivery.addressError) || !!(props.delivery.cityError) || !!(props.delivery.stateError) || !!(props.delivery.zipCodeError)) && !sameAsBilling;
@@ -60,7 +57,7 @@ export default function SignUp(props) {
     const gotRequiredPersonalInfo = !!props.info.firstName && !!props.info.lastName && !!props.info.email && !!props.info.phone;
     const gotRequiredPaymentInfo = !!props.payment.cardNumber && !!props.payment.cardExpiration && !!props.payment.cardCVV && !!props.payment.address && !!props.payment.city && !!props.payment.state && !!props.payment.zipCode;
     const gotRequiredDeliveryInfo = (!!props.delivery.address && !!props.delivery.city && !!props.delivery.state && !!props.delivery.zipCode) || sameAsBilling;
-    
+
     const gotRequiredInfo = (gotRequiredPersonalInfo && gotRequiredPaymentInfo && gotRequiredDeliveryInfo) && !disabled;
 
     const setSubmissionErrors = () => {
@@ -101,7 +98,7 @@ export default function SignUp(props) {
         if (props.payment.zipCode === ""){
             props.payment.setPayZipCodeError("All fields are required.");
         };
-        
+
         if (props.delivery.address === "" && !sameAsBilling){
             props.delivery.setAddressError("All fields are required.");
         };
@@ -172,7 +169,6 @@ export default function SignUp(props) {
         setSignUpTerms(!signUpTerms);
     }
 
-    // console.log("SAMEASBILLING VALUE: ", sameAsBilling)
   return (
     <form
     className="sign-up form"
@@ -207,9 +203,8 @@ export default function SignUp(props) {
             />
             <label htmlFor="same-as-billing"> Same As Billing?</label>
         </div>
-
         {sameAsBilling?null:<CustomerDeliveryForm delivery={props.delivery}/>}
-        
+
         <div className="terms">
             <input
             type="checkbox"

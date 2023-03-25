@@ -1,7 +1,7 @@
 
 
 export default function CustomerInfoForm(props) {
-    // console.log("CUSTOMER INFO FORM PROPS: ", props.info)
+
   return (
     <section className="form">
 
@@ -54,5 +54,5 @@ export default function CustomerInfoForm(props) {
         {props.info.phoneError?<p className="error-message">{props.info.phoneError}</p>:null}
 
     </section>
-  )
-}
+  );
+};

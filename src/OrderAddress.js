@@ -8,8 +8,6 @@ import { useState } from "react";
 export default function OrderAddress(props) {
 
   const [sameAsBilling, setSameAsBilling] = useState(false);
-  // const [userName, setUserName] = useState("");
-  // const [userNameError, setUserNameError] = useState("");
   const [deliveryTerms, setDeliveryTerms] = useState(false);
 
   console.log("ORDERADDRESS.JS' PROPS: ", props)
@@ -51,11 +49,10 @@ export default function OrderAddress(props) {
   const gotRequiredPersonalInfo = !!props.info.firstName && !!props.info.lastName && !!props.info.email && !!props.info.phone;
   const gotRequiredPaymentInfo = !!props.payment.cardNumber && !!props.payment.cardExpiration && !!props.payment.cardCVV && !!props.payment.address && !!props.payment.city && !!props.payment.state && !!props.payment.zipCode;
   const gotRequiredDeliveryInfo = (!!props.delivery.address && !!props.delivery.city && !!props.delivery.state && !!props.delivery.zipCode) || sameAsBilling;
-    
+
   const gotRequiredInfo = (gotRequiredPersonalInfo && gotRequiredPaymentInfo && gotRequiredDeliveryInfo) && !disabled;
 
   const setSubmissionErrors = () => {
-        
     if (props.info.firstName === ""){
         props.info.setFirstNameError("All fields are required.");
     };
@@ -184,9 +181,8 @@ export default function OrderAddress(props) {
             />
             <label htmlFor="same-as-billing"> Same As Billing?</label>
         </div>
-
         {sameAsBilling?null:<CustomerDeliveryForm delivery={props.delivery}/>}
-        
+
         <div className="terms">
             <input
             type="checkbox"
