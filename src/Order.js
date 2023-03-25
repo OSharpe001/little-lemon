@@ -7,7 +7,7 @@ export default function Order(props) {
     // const [orderUp,setOrderUp] = useState([]);
     const sum = props.orderUp.map(item=>item[2]).reduce((total,number)=> {return total+number},0);
     const tax = sum *.0875
-    const deliveryFee =sum===0?0:props.userName?5:10;
+    const deliveryFee =sum===0?0:props.userName?5+((Math.round(sum/100))*10):10+((Math.round(sum/100))*10);
     const total = sum+tax+deliveryFee
     const disabled=(sum===0)
 
