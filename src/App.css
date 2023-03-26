@@ -6,6 +6,7 @@
 .container {
   display: grid;
   grid-template-areas: "head"
+                       "nav-list"
                        "welcome-banner"
                        "hero"
                        "booking-page"
@@ -870,24 +871,44 @@ sup {
   color: #495E57;
 }
 
+.mobile {
+  display: none;
+}
+
 
 @media (max-width: 900px) {
 
   header {
-      display: block;
+      /* display: block; */
       text-align: center;
   }
 
-  .nav-bar  {
-      width: 100%;
-      border: solid 2px #495E57;
+  .nav-list  {
+      grid-area: nav-list;
+      grid-column: 9 / 11;
+      grid-row: 2;
+      /* width: 100%; */
+      text-align: left;
       display: flex;
-      overflow: hidden;
-      overflow-x: scroll;
+      flex-direction: column;
+      border: solid 2px #495E57;
+      /* overflow: hidden;
+      overflow-x: scroll; */
   }
 
-  .nav-bar .nav-item {
-    margin: auto 3vw;
+  .nav-list .nav-item {
+    font-size: 16pt;
+    margin: 2vh 0;
+  }
+/**/
+  .nav-icon {
+    width: 6vw;
+    display:list-item;
+    /* flex-direction: column; */
+  }
+/**/
+  .desktop {
+    display: none;
   }
 
   .logo {
