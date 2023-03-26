@@ -6,7 +6,6 @@
 .container {
   display: grid;
   grid-template-areas: "head"
-                       "nav-list"
                        "welcome-banner"
                        "hero"
                        "booking-page"
@@ -647,6 +646,7 @@ a {
   font-size: 16pt;
   line-height: 1.5;
   width: 25ch;
+  border: 2px solid red;
 }
 
 .item-name {
@@ -737,14 +737,16 @@ a {
 
 .price-summary {
   width: 16vw;
-  height: 100%;
   z-index: 10;
   position: fixed;
   right:17vw;
-  top:27vh;
-  height: 83px;
+  top:20vh;
   font-size: 16px;
   font-weight: bold;
+  background-color:#F4CE14;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  /* border: 2px solid red; */
 }
 
 .about-us {
@@ -884,13 +886,17 @@ sup {
   }
 
   .nav-list  {
-      grid-area: nav-list;
-      grid-column: 9 / 11;
-      grid-row: 2;
-      /* width: 100%; */
+      max-width: 22.5vw;
+      min-width: 120px;
+      z-index: 11;
+      position: absolute;
+      right:2vw;
+      top:11.5vh;
       text-align: left;
       display: flex;
       flex-direction: column;
+      border-radius:16px;
+      background-color:#EDEFEE;
       border: solid 2px #495E57;
       /* overflow: hidden;
       overflow-x: scroll; */
@@ -902,8 +908,9 @@ sup {
   }
 /**/
   .nav-icon {
-    width: 6vw;
-    display:list-item;
+    max-width: 12vw;
+    min-width: 50px;
+    display: flex;
     /* flex-direction: column; */
   }
 /**/
@@ -923,12 +930,15 @@ sup {
   .hero {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      /* margin-bottom: -5vh; */
   }
 
-  .greeting {
-      margin:0 auto 0;
+  .hero .greeting {
+      margin:0;
       text-align: center;
       max-width:100%;
+      /* border: 2px solid red; */
   }
 
   .greeting article {
@@ -940,7 +950,7 @@ sup {
 
   .hero img {
       min-width: 66vw;
-      margin: 5vh 0 -4vh 15vw;
+      margin: 5vh 0 /*-4vh 15vw*/;
       position:relative;
   }
 
@@ -1035,5 +1045,31 @@ sup {
   footer > nav > p {
     margin-top: 3vh;
     font-size: 16pt;
+  }
+
+  .about-us {
+    background-size:cover;
+    background-position: 45%;
+  }
+
+  .menu-item {
+    /* display: flex; */
+    /* flex-direction: column; */
+    border: 2px solid red;
+    /* width: 90%; */
+  }
+
+  .order {
+    display: flex;
+    flex-direction: column;
+  }
+  .price-summary {
+    /* position:sticky; */
+    /* position:static; */
+    /* position:relative; */
+    /* position:fixed; */
+    /* position:absolute; */
+    /* height: 10%; */
+    border: 2px solid red;
   }
 }
