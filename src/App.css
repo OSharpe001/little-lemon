@@ -771,7 +771,6 @@ a {
 .about-us h1 {
   margin: 1vh 0;
   color: #FFF;
-
   text-shadow: 2px 2px #495E57;
 }
 
@@ -852,12 +851,12 @@ sup {
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.1)
+    rgba(0, 0, 0, 0.2)
   ), url("./assets/images/outdoor_seating.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   color:#333333;
-  text-shadow: 3px 3px #FFF;
+  text-shadow: 2px 2px #FFF;
 }
 
 .welcome-banner {
@@ -1089,7 +1088,25 @@ sup {
   .form h2 {
     font-size: 150%;
   }
-
+  .seating {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 15px 0;
+  }
+  #terms {
+    margin:0 -5px;
+    /* padding: 0; */
+  }
+  .terms, .same-as-billing .in-door .out-door{
+    display: flex;
+    /* flex-direction: row; */
+    /* justify-content: space-around; */
+    border: 2px solid red;
+  }
+  .label .same-as-billing {
+    border: 2px solid green;
+  }
   .price-summary {
     /* position:sticky; */
     /* position:static; */

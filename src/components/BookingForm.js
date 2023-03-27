@@ -140,12 +140,13 @@ export default function BookingForm(props) {
                     </>
                     )
                     :null
-                };
+                }
 
                 <h2>Reserve a Table</h2>
 
                 <div className="seating">
                     <label
+                    className="in-door"
                     htmlFor="indoor">
                         <input
                         type="radio"
@@ -159,6 +160,7 @@ export default function BookingForm(props) {
                     </label>
 
                     <label
+                    className="out-door"
                     htmlFor="outdoor">
                         <input
                         type="radio"
@@ -218,10 +220,10 @@ export default function BookingForm(props) {
                 </select>
                 {occasionError?<p className="error-message">{occasionError}</p>:null}
 
-                <label htmlFor="requests">Any Comments or Requests?</label>
+                <label htmlFor="requests">Comments/Requests?</label>
                 <textarea
                 rows={5}
-                placeholder="Additional Comments"
+                placeholder="Additional Comments or Requests"
                 id="requests"
                 name="requests"
                 value={requests}
@@ -236,7 +238,7 @@ export default function BookingForm(props) {
                     name="terms"
                     onChange={handleTermsChange}
                     />
-                        <label htmlFor="terms">Agree to our <a aria-label="On Click" className="terms-link" href="/terms">Terms of Service</a> <sup>*</sup>
+                        <label htmlFor="terms">Agree to our <a style={props.seating==="Indoor"?{color: "red"}:null} aria-label="On Click" className="terms-link" href="/terms">Terms of Service</a> <sup>*</sup>
                         </label>
                 </div>
 
