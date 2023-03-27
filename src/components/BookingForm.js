@@ -135,14 +135,14 @@ export default function BookingForm(props) {
             >
                 {!props.userName?(
                     <>
-                    <h2>Let's Get Your Info, First</h2>
+                    <h2>Personal Info</h2>
                     <CustomerInfoForm info={props.info}/>
                     </>
                     )
                     :null
                 };
 
-                <h2>Let's Reserve Your Table Today</h2>
+                <h2>Reserve a Table</h2>
 
                 <div className="seating">
                     <label

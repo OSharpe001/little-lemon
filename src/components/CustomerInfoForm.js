@@ -3,7 +3,7 @@
 export default function CustomerInfoForm(props) {
 
   return (
-    <section className="form">
+    <section className="form customer-info">
 
         <label htmlFor="first-name">First Name <sup>*</sup></label>
         <input

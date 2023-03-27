@@ -911,6 +911,7 @@ sup {
     max-width: 12vw;
     min-width: 50px;
     display: flex;
+    border-radius: 16px;
     /* flex-direction: column; */
   }
 /**/
@@ -1069,14 +1070,26 @@ sup {
     width: 60vw;
     /* border: 2px solid red; */
   }
+
   .menu .item-description {
     width: 60vw;
     /* border: 2px solid blue; */
   }
+
   .order {
     display: flex;
     flex-direction: column;
   }
+
+  .customer-info input, .customer-payment input, .customer-delivery input, .user-name, .sign-in input, .sign-in .button {
+    max-width: 70%;
+    align-self: center;
+  }
+
+  .form h2 {
+    font-size: 150%;
+  }
+
   .price-summary {
     /* position:sticky; */
     /* position:static; */

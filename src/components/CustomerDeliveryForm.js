@@ -3,7 +3,7 @@
 export default function CustomerDeliveryForm(props) {
 
   return (
-    <section className="form">
+    <section className="form customer-delivery">
 
         <label htmlFor="address">Address <sup>*</sup></label>
         <input

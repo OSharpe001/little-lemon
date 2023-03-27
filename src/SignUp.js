@@ -175,14 +175,15 @@ export default function SignUp(props) {
     onSubmit={handleSubmit}
     >
         <h2>Personal Information</h2>
-
+        
         <label htmlFor="user-name">Username <sup>*</sup></label>
         <input
+        className="user-name"
         type="text"
         id="user-name"
         name="user-name"
         value={props.userName}
-        placeholder="preferred UserName"
+        placeholder="Preferred Name"
         onChange={handleUserNameChange}
         onBlur={handleUserNameChange}
         />

@@ -2,7 +2,7 @@ import CustomerDeliveryForm from "./CustomerDeliveryForm"
 
 export default function CustomerPaymentForm(props) {
   return (
-    <section className="form">
+    <section className="form customer-payment">
 
         <label htmlFor="card-number">Credit/Debit Card Number <sup>*</sup></label>
         <input
