@@ -14,8 +14,6 @@ export default function ConfirmedDelivery(props) {
 
     return (
         <>
-            <div>ConfirmedDelivery</div>
-
             <section className="confirmed-booking">
                 <h1>Congrats!</h1>
                 <p>Your order is being prepared, now!</p>

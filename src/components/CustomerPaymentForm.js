@@ -9,7 +9,7 @@ export default function CustomerPaymentForm(props) {
         type="tel"
         id="card-number"
         name="card-number"
-        placeholder="1234 1234 1234 1234"
+        placeholder="1111 2222 1111 2222"
         value={props.payment.cardNumber}
         onChange={props.payment.handleCardNumberChange}
         onBlur={props.payment.handleCardNumberChange}

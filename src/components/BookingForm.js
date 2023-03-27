@@ -145,10 +145,7 @@ export default function BookingForm(props) {
                 <h2>Reserve a Table</h2>
 
                 <div className="seating">
-                    <label
-                    className="in-door"
-                    htmlFor="indoor">
-                        <input
+                <input
                         type="radio"
                         id="indoor"
                         checked={props.seating==="Indoor"}
@@ -156,13 +153,20 @@ export default function BookingForm(props) {
                         value="Indoor"
                         onChange={handleSeatingChange}
                         />
-                    Indoor Seating
+                    <label
+                    htmlFor="indoor">
+                        {/* <input
+                        type="radio"
+                        id="indoor"
+                        checked={props.seating==="Indoor"}
+                        name="seating"
+                        value="Indoor"
+                        onChange={handleSeatingChange}
+                        /> */}
+                    Indoors
                     </label>
 
-                    <label
-                    className="out-door"
-                    htmlFor="outdoor">
-                        <input
+                    <input
                         type="radio"
                         id="outdoor"
                         checked={props.seating==="Outdoor"}
@@ -170,7 +174,17 @@ export default function BookingForm(props) {
                         value="Outdoor"
                         onChange={handleSeatingChange}
                         />
-                    Outdoor Seating
+                    <label
+                    htmlFor="outdoor">
+                        {/* <input
+                        type="radio"
+                        id="outdoor"
+                        checked={props.seating==="Outdoor"}
+                        name="seating"
+                        value="Outdoor"
+                        onChange={handleSeatingChange}
+                        /> */}
+                    Outdoors
                     </label>
                 </div>
 
@@ -220,7 +234,7 @@ export default function BookingForm(props) {
                 </select>
                 {occasionError?<p className="error-message">{occasionError}</p>:null}
 
-                <label htmlFor="requests">Comments/Requests?</label>
+                <label htmlFor="requests">Comments/Requests</label>
                 <textarea
                 rows={5}
                 placeholder="Additional Comments or Requests"
@@ -247,7 +261,7 @@ export default function BookingForm(props) {
                 disabled={disabled}
                 className="button"
                 type="submit"
-                value="Make Your Reservation!"
+                value="Set Reservation!"
                 aria-label="On Click"
                 />
             </form>

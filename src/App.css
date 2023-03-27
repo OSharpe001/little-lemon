@@ -646,7 +646,6 @@ a {
   font-size: 16pt;
   line-height: 1.5;
   width: 25ch;
-  /* border: 2px solid red; */
 }
 
 .item-name {
@@ -746,7 +745,6 @@ a {
   background-color:#F4CE14;
   margin-bottom: 20px;
   border-radius: 16px;
-  /* border: 2px solid red; */
 }
 
 .about-us {
@@ -905,7 +903,7 @@ sup {
     font-size: 16pt;
     margin: 2vh 0;
   }
-/**/
+
   .nav-icon {
     max-width: 12vw;
     min-width: 50px;
@@ -913,7 +911,7 @@ sup {
     border-radius: 16px;
     /* flex-direction: column; */
   }
-/**/
+
   .desktop {
     display: none;
   }
@@ -931,21 +929,21 @@ sup {
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* margin-bottom: -5vh; */
   }
 
   .hero .greeting {
       margin:0;
       text-align: center;
       max-width:100%;
-      /* border: 2px solid red; */
   }
 
   .greeting article {
       width: 66vw;
-      margin: 0 0 2vh 2vw;
+      margin: 0 auto;
+      margin-bottom:2vh;
       font-size: 16pt;
       text-align: center;
+      /* padding: 0; */
   }
 
   .hero img {
@@ -1055,24 +1053,19 @@ sup {
   .menu li{
     flex-direction: column;
     width: 96%;
-    /* border: 2px solid blue; */
   }
+
   .menu .menu-item {
-    /* display: flex; */
     flex-direction: column;
-    /* border: 2px solid red; */
     width: 96%;
   }
 
   .menu .item-name {
-    /* width:fit-content; */
     width: 60vw;
-    /* border: 2px solid red; */
   }
 
   .menu .item-description {
     width: 60vw;
-    /* border: 2px solid blue; */
   }
 
   .order {
@@ -1088,24 +1081,67 @@ sup {
   .form h2 {
     font-size: 150%;
   }
+
+  .terms, .same-as-billing {
+    display: flex;
+    width: 70%;
+    height: 15vh;
+    margin: 10px 0;
+    justify-content: space-between;
+  }
+
+  .terms {
+    width: 40vw;
+    margin: 10px 0;
+  }
+
+  #terms {
+    width:fit-content;
+    margin: 2vh 0 0;
+    padding: 0;
+  }
+
+  .terms label {
+    align-self: center;
+    max-width: 90%;
+    margin: 0 0 0 -60vw;
+  }
+
+  .same-as-billing {
+    height:max-content;
+    margin-top: 15px;
+  }
+
+  .same-as-billing  label {
+    align-self: center;
+    margin: 0 0 0 -50vw;
+    min-width: 80%;
+  }
+
+  #same-as-billing {
+    margin-left: -5vw;
+  }
+
+  /***/
   .seating {
+    width: 90%;
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin: 15px 0;
+    margin: 10px 0;
+    /* border: 2px solid blue; */
   }
-  #terms {
-    margin:0 -5px;
+  #indoor, #outdoor {
+    margin: 0 0 -10vh 9vw;
     /* padding: 0; */
+    /* width: 2px */
+    /* border: 2px solid red; */
   }
-  .terms, .same-as-billing .in-door .out-door{
-    display: flex;
-    /* flex-direction: row; */
-    /* justify-content: space-around; */
-    border: 2px solid red;
-  }
-  .label .same-as-billing {
-    border: 2px solid green;
+  .seating label {
+    padding: 5vh 0;
+    margin: 2vh 0;
+    /* width: 100%; */
+    /* border: 2px solid #F4CE14; */
   }
   .price-summary {
     /* position:sticky; */
@@ -1116,4 +1152,5 @@ sup {
     /* height: 10%; */
     border: 2px solid red;
   }
+  /***/
 }

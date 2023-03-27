@@ -70,7 +70,7 @@ export default function SignIn(props) {
                 className="form"
                 >
 
-                <h2>Sign In or Sign Up</h2>
+                <h2>Sign In</h2>
                     <label htmlFor="username">Username: </label>
                     <input
                     name="username"
@@ -107,6 +107,8 @@ export default function SignIn(props) {
                         <p>If You're Not Already A Member</p>
 
                         <Link aria-label="On Click" className="button" to="/sign_up">Sign Up</Link>
+
+                        <p>for exclusive benefits!</p>
                     </div>
                 </form>
             </section>
