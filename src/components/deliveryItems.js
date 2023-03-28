@@ -33,7 +33,7 @@ export const Menu = [
         price:8.00
     },
     {
-        name:"Little Lemon Chicken Platter",
+        name:"Little Lemon Chicken",
         image:<img
                 className="item-image"
                 src={lemon_chicken_platter}
