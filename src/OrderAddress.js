@@ -10,8 +10,6 @@ export default function OrderAddress(props) {
   const [sameAsBilling, setSameAsBilling] = useState(false);
   const [deliveryTerms, setDeliveryTerms] = useState(false);
 
-  console.log("ORDERADDRESS.JS' PROPS: ", props)
-
   const clearForm = () => {
     setDeliveryTerms(false);
     setSameAsBilling(false);
@@ -157,8 +155,6 @@ export default function OrderAddress(props) {
   const handleTermsChange = (e) => {
     setDeliveryTerms(!deliveryTerms);
   }
-
-  console.log("ORDERADDRESS' PROPS: ", props)
 
   return (
     <form className="sign-up form"

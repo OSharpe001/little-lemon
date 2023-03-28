@@ -371,7 +371,7 @@ section {
   justify-content: center;
 }
 
-.profile p{
+.profile p {
   justify-content: center;
   margin-left: 20px;
 }
@@ -745,6 +745,7 @@ a {
     border-radius: 16px;
   }
 }
+
 .about-us {
   grid-area: about-us;
   grid-column: 3 / 11;
@@ -811,7 +812,6 @@ a {
   font-size: 21pt;
 }
 
-/* NEED TO MAKE THE INPUT BOX/CIRCLES LARGER */
 #terms, #indoor, #outdoor, #same-as-billing {
   margin: 2vh -11vw 1vh 6vw;
 }
@@ -879,7 +879,7 @@ sup {
       text-align: center;
   }
 
-  .nav-list  {
+  .nav-list {
       max-width: 22.5vw;
       min-width: 120px;
       z-index: 11;
@@ -968,7 +968,7 @@ sup {
       border-radius: 16px 16px 0 0;
   }
 
-  .specials a{
+  .specials a {
       margin: 0;
       padding: 0;
       font-size: 18pt;

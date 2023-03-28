@@ -30,7 +30,7 @@ export default function ConfirmedDelivery(props) {
                             <p>Your order of:</p>
                             {confirmedOrder.map((item) => <p key={item[0]}><span className="confirmed-res-info">{item[1]}- {item[0]}</span></p>)}
                             <p>
-                                will be delivered to: 
+                                will be delivered to:
                                 <br/>
                                 <span className="confirmed-res-info">
                                     {deliveryAddress}

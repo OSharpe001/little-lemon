@@ -1,10 +1,5 @@
-/**
- * TODO:
- * 1- CREATE A BURGER MENU FUNCTION FOR MOBILE SCREENS
- */
 import hamburger from "../assets/images/hamburger.png";
 import close from "../assets/images/close.png";
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
 

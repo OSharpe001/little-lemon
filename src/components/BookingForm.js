@@ -1,9 +1,3 @@
-/*
-TODO:
-1- FIX MOBILE SCREEN LAYOUT FOR NEW ADDITIONS
-2- FIX THE CSS FOR TEXT, ESPECIALLY THE ERROR MESSAGES
-*/
-
 import CustomerInfoForm from "./CustomerInfoForm"
 import React, { useState } from "react";
 
@@ -153,18 +147,7 @@ export default function BookingForm(props) {
                         value="Indoor"
                         onChange={handleSeatingChange}
                         />
-                    <label
-                    htmlFor="indoor">
-                        {/* <input
-                        type="radio"
-                        id="indoor"
-                        checked={props.seating==="Indoor"}
-                        name="seating"
-                        value="Indoor"
-                        onChange={handleSeatingChange}
-                        /> */}
-                    Indoors
-                    </label>
+                    <label htmlFor="indoor">Indoors</label>
 
                     <input
                         type="radio"
@@ -174,18 +157,7 @@ export default function BookingForm(props) {
                         value="Outdoor"
                         onChange={handleSeatingChange}
                         />
-                    <label
-                    htmlFor="outdoor">
-                        {/* <input
-                        type="radio"
-                        id="outdoor"
-                        checked={props.seating==="Outdoor"}
-                        name="seating"
-                        value="Outdoor"
-                        onChange={handleSeatingChange}
-                        /> */}
-                    Outdoors
-                    </label>
+                    <label htmlFor="outdoor">Outdoors</label>
                 </div>
 
                 <label htmlFor="res-date">Choose Date <sup>*</sup></label>

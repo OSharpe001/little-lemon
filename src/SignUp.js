@@ -175,7 +175,7 @@ export default function SignUp(props) {
     onSubmit={handleSubmit}
     >
         <h2>Personal Information</h2>
-        
+
         <label htmlFor="user-name">Username <sup>*</sup></label>
         <input
         className="user-name"
