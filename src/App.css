@@ -1203,4 +1203,8 @@ sup {
     background-color:#F4CE14;
     border-radius: 16px;
   }
+
+  .welcome-banner {
+    font-size: 16px;
+  }
 }
