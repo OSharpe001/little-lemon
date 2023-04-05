@@ -93,6 +93,7 @@ export default function Main() {
     const [availableTimes, dispatch]= useReducer(updateTimes, initializeTimes);
 
     const navigate = useNavigate();
+    
     const submitReservationForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
