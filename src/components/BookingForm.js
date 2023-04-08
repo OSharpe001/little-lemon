@@ -73,7 +73,7 @@ export default function BookingForm(props) {
                 "requests":requests
             });
             clearForm();
-        }
+        };
     };
 
     const handleSeatingChange = (e) => {
