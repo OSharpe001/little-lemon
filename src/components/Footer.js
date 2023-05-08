@@ -1,3 +1,8 @@
+// TODO:
+//
+// 1- CHANGE THE PORTFOLIO LINK TO POINT TO MY PORTFOLIO'S PAGE ONCE I GET A HOST FOR ALL MY PROJECTS
+
+
 import footer_logo from "../assets/images/footer_logo.png";
 import { Link } from "react-router-dom";
 
@@ -26,6 +31,7 @@ export default function Footer() {
                     <p className="contact-info">(555) 555-5555</p>
                     <p className="contact-info">little@lemon.com</p>
                     <p className="contact-info">123 Lemon Road<br/> NYC, New York 98765</p>
+                    <Link aria-label="On Click" to="/about_us" className="nav-item portfolio-link">O. Sharpe's Portfolio</Link>
                 </nav>
                 <nav className="footer-nav">
                     <p>Social Media Links</p>

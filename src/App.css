@@ -872,6 +872,12 @@ sup {
   display: none;
 }
 
+.portfolio-link {
+  background-color: #F4CE14;
+  color: #495E57;
+  border-radius: 20px;
+}
+
 
 @media (max-width: 900px) {
 
