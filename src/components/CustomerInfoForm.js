@@ -43,7 +43,7 @@ export default function CustomerInfoForm(props) {
 
         <label htmlFor="phone">Phone Number <sup>*</sup></label>
         <input
-        type="tel"
+        type="text"
         id="phone"
         name="phone"
         placeholder="(123) 456-7890"

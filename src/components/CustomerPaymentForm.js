@@ -6,7 +6,7 @@ export default function CustomerPaymentForm(props) {
 
         <label htmlFor="card-number">Credit/Debit Card Number <sup>*</sup></label>
         <input
-        type="tel"
+        type="text"
         id="card-number"
         name="card-number"
         placeholder="1111 2222 1111 2222"
@@ -30,7 +30,7 @@ export default function CustomerPaymentForm(props) {
 
         <label htmlFor="card-cvv">CVV <sup>*</sup></label>
         <input
-        type="number"
+        type="text"
         id="card-cvv"
         name="card-cvv"
         placeholder="123"
