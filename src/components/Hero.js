@@ -8,7 +8,7 @@ export default function Hero() {
                 <h1>Little Lemon</h1>
                 <p>New York City</p>
                 <article>
-                    We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
+                    We are a (imaginary) family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                 </article>
                 <Link aria-label="On Click" to="/booking" className="button">Reserve a Table</Link>
             </div>

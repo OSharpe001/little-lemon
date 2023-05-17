@@ -10,7 +10,7 @@ export default function About() {
                     <h2>Little Lemon</h2>
                     <p>New York City</p>
                     <article>
-                        Little Lemon is a charming neighborhood bistro that serves
+                        Little Lemon is a charming (imaginary) neighborhood bistro that serves
                         simple food and classic cocktails in a lively but casual
                         environment. The restaurant features a locally-sourced menu
                         with daily specials.
