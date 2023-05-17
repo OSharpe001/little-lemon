@@ -1,5 +1,3 @@
-
-
 export default function ConfirmedBooking(props) {
 
   const confirmedReservationCustomer = props.data;

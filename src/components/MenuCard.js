@@ -1,5 +1,3 @@
-
-
 export default function MenuCard(props) {
 
   return (
@@ -10,5 +8,5 @@ export default function MenuCard(props) {
       </div>
         <p className="item-price" >{props.price}</p>
     </section>
-  )
-}
+  );
+};

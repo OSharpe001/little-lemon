@@ -1,5 +1,3 @@
-
-
 export default function CustomerDeliveryForm(props) {
 
   return (
@@ -57,5 +55,5 @@ export default function CustomerDeliveryForm(props) {
         {props.delivery.zipCodeError?<p className="error-message">{props.delivery.zipCodeError}</p>:null}
 
     </section>
-  )
-}
+  );
+};

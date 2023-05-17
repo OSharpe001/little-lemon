@@ -1,5 +1,3 @@
-
-
 export default function AboutUs() {
     return (
         <>
@@ -34,5 +32,5 @@ export default function AboutUs() {
                 </article>
             </section>
         </>
-    )
-}
+    );
+};

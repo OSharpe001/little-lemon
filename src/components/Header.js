@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png"
 import Nav from  "./Nav"
 
-
 export default function Header(props) {
 
     return (

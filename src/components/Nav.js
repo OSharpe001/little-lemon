@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function Nav(props) {
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
-
     const toggleMobileNav = () => setMobileNavOpen(!mobileNavOpen)
 
     return (

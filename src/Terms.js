@@ -1,5 +1,3 @@
-
-
 export default function Terms() {
   return (
     <section className="reservation-terms">

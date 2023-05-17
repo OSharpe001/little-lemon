@@ -1,5 +1,3 @@
-
-
 import MenuCard from "./components/MenuCard";
 import {
     Appetizers,

@@ -3,8 +3,6 @@ import bruchetta from "../assets/images/bruchetta.png";
 import lemon_dessert from "../assets/images/lemon_dessert.jpg";
 import moped_icon from "../assets/images/moped_icon_option.png";
 
-
-
 export default function Specials() {
     return (
         <>
@@ -74,5 +72,5 @@ export default function Specials() {
                 </article>
             </section>
         </>
-    )
-}
+    );
+};

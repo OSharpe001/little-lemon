@@ -1,9 +1,7 @@
 import CustomerInfoForm from "./components/CustomerInfoForm";
 import CustomerPaymentForm from "./components/CustomerPaymentForm";
 import CustomerDeliveryForm from "./components/CustomerDeliveryForm";
-
 import { useState } from "react";
-
 
 export default function OrderAddress(props) {
 
@@ -154,7 +152,7 @@ export default function OrderAddress(props) {
 
   const handleTermsChange = (e) => {
     setDeliveryTerms(!deliveryTerms);
-  }
+  };
 
   return (
     <form className="sign-up form"
@@ -198,5 +196,5 @@ export default function OrderAddress(props) {
         value="Submit Order"
         />
     </form>
-  )
-}
+  );
+};

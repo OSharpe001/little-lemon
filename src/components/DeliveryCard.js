@@ -7,7 +7,6 @@ const reducer = (state, action) => {
 
 export default function DeliveryCard(props) {
 
-
   const initialState = {amount: 0};
   const [state, dispatch] = useReducer(reducer, initialState);
   const cost = props.price*state.amount

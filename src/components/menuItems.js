@@ -564,4 +564,4 @@ export const Liquor =
                 price:"$8.00"
             }
         ]
-    }
+    };

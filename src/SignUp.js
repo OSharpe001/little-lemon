@@ -167,7 +167,7 @@ export default function SignUp(props) {
 
     const handleTermsChange = (e) => {
         setSignUpTerms(!signUpTerms);
-    }
+    };
 
   return (
     <form

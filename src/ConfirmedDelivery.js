@@ -1,5 +1,3 @@
-
-
 export default function ConfirmedDelivery(props) {
 
     const confirmedCustomer = props.data;
@@ -47,5 +45,5 @@ export default function ConfirmedDelivery(props) {
                 {email?<p>We've sent an email to <span className="confirmed-res-info">{email} </span>with your order confirmation.</p>:null}
             </section>
         </>
-    )
-}
+    );
+};
