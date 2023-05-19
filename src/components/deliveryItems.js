@@ -123,7 +123,7 @@ export const Menu = [
         price:6.00
     },
     {
-        name:"Little Lemon Cake",
+        name:"Little Lemon Dessert",
         image:<img
                 className="item-image"
                 src={lemon_dessert}
