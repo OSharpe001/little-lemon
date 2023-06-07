@@ -438,7 +438,7 @@ footer {
 .footer-logo {
   height: 40vh;
   min-height: 200px;
-  max-height:250px;
+  max-height: 250px;
   width: 9vw;
 }
 
@@ -473,7 +473,7 @@ nav li, .nav-bar, .footer-nav {
   display: inline-flex;
   font-family: Markazi Text, KARLA REGULAR;
   font-weight: bold;
-  font-size:larger;
+  font-size: larger;
   text-decoration: none;
 }
 
@@ -505,9 +505,9 @@ a {
 }
 
 .confirmed-booking span {
-  text-decoration:none;
+  text-decoration: none;
   margin: 1vh 0;
-  color:#EDEFEE;
+  color: #EDEFEE;
   background-color: #495E57;
 }
 
@@ -560,14 +560,14 @@ a {
   text-align: center;
   text-decoration: underline;
   margin: 3vh 0 2vh;
-  color:#495E57;
+  color: #495E57;
   background-color: white;
 }
 
 .menu h2 {
   text-align: center;
   text-decoration: underline;
-  color:#EDEFEE;
+  color: #EDEFEE;
   border-radius: 16px 16px 0 0;
   background-color: #495E57;
 }
@@ -578,7 +578,7 @@ a {
   font-size: 18pt;
   line-height: 1.5;
   margin: 3vh 0 0;
-  color:#333333;
+  color: #333333;
   background-color: #EDEFEE;
 }
 
@@ -588,14 +588,14 @@ a {
   font-size: 16pt;
   line-height: 1.5;
   margin: 0 0 3vh 0;
-  color:#333333;
+  color: #333333;
   background-color: #EDEFEE;
 }
 
 .menu-section {
   width: 100%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   border-radius: 16pt;
 }
 
@@ -736,11 +736,11 @@ a {
     width: 16vw;
     z-index: 10;
     position: fixed;
-    right:17vw;
-    top:20vh;
+    right: 17vw;
+    top: 20vh;
     font-size: 16px;
     font-weight: bold;
-    background-color:#F4CE14;
+    background-color: #F4CE14;
     margin-bottom: 20px;
     border-radius: 16px;
   }
@@ -762,7 +762,7 @@ a {
     rgba(0, 0, 0, 0.22),
     rgba(0, 0, 0, 0.53)
   ), url("./assets/images/chef.jpg");
-  background-size:cover;
+  background-size: cover;
 }
 
 .about-us h1 {
@@ -822,7 +822,7 @@ a {
 }
 
 .button:hover {
-  background:#495E57;
+  background: #495E57;
   color: #EDEFEE;
 }
 
@@ -837,9 +837,9 @@ sup {
 
 .indoor {
   background-image: url("./assets/images/indoor_seating2.png");
-  background-size:cover;
+  background-size: cover;
   background-repeat: no-repeat;
-  color:#EDEFEE;
+  color: #EDEFEE;
   text-shadow: 2px 2px 4px #333333;
 }
 
@@ -851,7 +851,7 @@ sup {
   ), url("./assets/images/outdoor_seating.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  color:#333333;
+  color: #333333;
   text-shadow: 2px 2px #FFF;
 }
 
@@ -861,7 +861,7 @@ sup {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 0;
+  padding: 0;
   height: 6vh;
   border-radius: 16px 16px;
   background-color: #F4CE14;
@@ -890,13 +890,13 @@ sup {
       min-width: 120px;
       z-index: 11;
       position: absolute;
-      right:2vw;
-      top:11.5vh;
+      right: 2vw;
+      top: 11.5vh;
       text-align: left;
       display: flex;
       flex-direction: column;
-      border-radius:16px;
-      background-color:#EDEFEE;
+      border-radius: 16px;
+      background-color: #EDEFEE;
       border: solid 2px #495E57;
   }
 
@@ -922,7 +922,7 @@ sup {
 
   footer nav .nav-item, footer nav li {
       font-size: 16pt;
-      background-color:#EDEFEE;
+      background-color: #EDEFEE;
   }
 
   .hero {
@@ -932,15 +932,15 @@ sup {
   }
 
   .hero .greeting {
-      margin:0;
+      margin: 0;
       text-align: center;
-      max-width:100%;
+      max-width: 100%;
   }
 
   .greeting article {
       width: 66vw;
       margin: 0 auto;
-      margin-bottom:2vh;
+      margin-bottom: 2vh;
       font-size: 16pt;
       text-align: center;
   }
@@ -948,7 +948,7 @@ sup {
   .hero img {
       min-width: 66vw;
       margin: 5vh 0;
-      position:relative;
+      position: relative;
   }
 
   .declare1 {
@@ -1032,7 +1032,7 @@ sup {
 
   .footer-logo {
       width: 100px;
-      height:auto;
+      height: auto;
   }
 
   nav li {
@@ -1045,7 +1045,7 @@ sup {
   }
 
   .about-us {
-    background-size:cover;
+    background-size: cover;
     background-position: 45%;
   }
 
@@ -1090,7 +1090,7 @@ sup {
   }
 
   #terms {
-    width:fit-content;
+    width: fit-content;
     margin: 2vh 0 0;
     padding: 0;
   }
@@ -1102,7 +1102,7 @@ sup {
   }
 
   .same-as-billing {
-    height:max-content;
+    height: max-content;
     margin-top: 15px;
   }
 
@@ -1187,7 +1187,7 @@ sup {
 
   .item-amount h1 {
     align-self: center;
-    width:fit-content;
+    width: fit-content;
     height: fit-content;
     margin: 0 1vw;
   }
@@ -1206,7 +1206,7 @@ sup {
     width: 100%;
     font-size: 16px;
     font-weight: bold;
-    background-color:#F4CE14;
+    background-color: #F4CE14;
     border-radius: 16px;
   }
 

@@ -3,13 +3,13 @@ import { Menu } from "./components/deliveryItems";
 
 export default function Order(props) {
 
-    const sum = props.orderUp.map(item=>item[2]).reduce((total,number)=> {return total+number},0);
-    const tax = sum *.0875
-    const deliveryFee =sum===0?0:props.userName?5+((Math.round(sum/100))*10):10+((Math.round(sum/100))*10);
-    const total = sum+tax+deliveryFee
-    const disabled=(sum===0)
+    const sum = props.orderUp.map(item => item[2]).reduce((total, number) => {return total+number}, 0);
+    const tax = sum*.0875;
+    const deliveryFee = sum === 0?0:props.userName?5+((Math.round(sum/100))*10):10+((Math.round(sum/100))*10);
+    const total = sum+tax+deliveryFee;
+    const disabled = (sum === 0);
 
-    const orderRundown = props.orderUp.map(item => item[1]>0?<p key={item[0]}>Item:{item[0]}-- Amount:{item[1]}-- Cost:{item[2]}</p>:null)
+    const orderRundown = props.orderUp.map(item => item[1]>0?<p key={item[0]}>Item:{item[0]}-- Amount:{item[1]}-- Cost:{item[2]}</p>:null);
 
     const handleOrderSubmit= () => {
         if (!props.userName) {
@@ -17,8 +17,8 @@ export default function Order(props) {
         } else {
             props.submitMemberForm({"order":props.orderUp, "price":total.toFixed(2)});
             props.setOrderUp([]);
-        }
-    }
+        };
+    };
 
     return (
             <section className="order">

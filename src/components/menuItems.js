@@ -54,7 +54,7 @@ export const Appetizers = [
         description:"Served with spicy tomato and crispy lettuce.",
         price:"$16.00"
     }
-]
+];
 
 export const Entrees= [
     {
@@ -62,7 +62,7 @@ export const Entrees= [
         description:"Entrees are served with house fries or vegetables of the day.",
         price:"$33.00"
     },
-]
+];
 
 export const Soups = [
     {
@@ -80,7 +80,7 @@ export const Soups = [
         description:"",
         price:"$15.00"
     }
-]
+];
 
 export const Off_the_Grill = [
     {
@@ -113,7 +113,7 @@ export const Off_the_Grill = [
         description:"32 oz.",
         price:"$110.00"
     },
-]
+];
 
 export const Fish = [
     {
@@ -121,7 +121,7 @@ export const Fish = [
         description:"Tomatoes, garlic, basil, olive oil, and lemon.",
         price:"$42.00"
     }
-]
+];
 
 export const Side_Orders = [
     {
@@ -149,7 +149,7 @@ export const Side_Orders = [
         description:"",
         price:"$11.00"
     }
-]
+];
 
 export const Flame_Brick_Oven = [
     {
@@ -167,7 +167,7 @@ export const Flame_Brick_Oven = [
         description:"Short rib, caramelized onion, mushrooms, and pickled vegetables.",
         price:"$27.00"
     }
-]
+];
 
 export const Salads = [
     {
@@ -200,7 +200,7 @@ export const Salads = [
         description:"",
         price:"$16.00"
     }
-]
+];
 
 export const Pasta = [
     {
@@ -208,7 +208,7 @@ export const Pasta = [
         description:"",
         price:"$21.00"
     }
-]
+];
 
 export const Shish_Kebab = [
     {
@@ -226,7 +226,7 @@ export const Shish_Kebab = [
         description:"2 skewers with a side of fries or veggies.",
         price:"$33.00"
     }
-]
+];
 
 export const Desserts = [
     {
@@ -244,7 +244,7 @@ export const Desserts = [
         description:"",
         price:"$14.00"
     }
-]
+];
 
 export const Beverages = [
     {
@@ -277,7 +277,7 @@ export const Beverages = [
         description:"",
         price:"$2.99"
     }
-]
+];
 
 export const Liquor =
     {

@@ -132,4 +132,4 @@ export const Menu = [
         description:"A slice of our signature lemon cake.",
         price:7.00
     },
-]
+];

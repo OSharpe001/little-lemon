@@ -1,4 +1,4 @@
-import CustomerDeliveryForm from "./CustomerDeliveryForm"
+import CustomerDeliveryForm from "./CustomerDeliveryForm";
 
 export default function CustomerPaymentForm(props) {
   return (
@@ -42,5 +42,5 @@ export default function CustomerPaymentForm(props) {
 
         <CustomerDeliveryForm delivery={props.payment}/>
     </section>
-  )
-}
+  );
+};

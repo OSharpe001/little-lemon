@@ -70,13 +70,13 @@ export default function Main() {
     const [payZipCode, setPayZipCode] = useState("");
     const [payZipCodeError, setPayZipCodeError] = useState("");
 
-    const [orderUp, setOrderUp] = useState([])
-    const [total, setTotal] = useState(0)
+    const [orderUp, setOrderUp] = useState([]);
+    const [total, setTotal] = useState(0);
 
     const [month, day, year] = (new Date()).toLocaleDateString('en-NY').split('/').map((number)=> number<10? "0"+number:number);
     const today = [year,month, day].join("-");
     const todaysTimes = fetchAPI(new Date(today));
-    const [data, setData] = useState({})
+    const [data, setData] = useState({});
     const initializeTimes= () => todaysTimes;
 
     const updateTimes = (availableTimes, action) => {
@@ -97,16 +97,16 @@ export default function Main() {
     const submitReservationForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(formData)
-            navigate("/confirmed_booking")
+            setData(formData);
+            navigate("/confirmed_booking");
         };
     };
 
     const submitSignUpForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(formData)
-            navigate("/")
+            setData(formData);
+            navigate("/");
         };
     };
 
@@ -120,21 +120,21 @@ export default function Main() {
             setTotal(total);
             setData(formData);
             navigate("/confirmed_delivery");
-        }
+        };
     };
     const submitOrderAddressForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(formData)
-            navigate("/confirmed_delivery")
+            setData(formData);
+            navigate("/confirmed_delivery");
         };
     };
 
     const submitSignInForm = (formData) => {
         const result=submitAPI(formData);
         if (result) {
-            setData(formData)
-            navigate("/")
+            setData(formData);
+            navigate("/");
         };
     };
 
@@ -262,7 +262,7 @@ export default function Main() {
         } else {
             setPayStateError("I'm sorry. We currently only service NYC.");
             return;
-        }
+        };
     };
 
     const handlePayZipCodeChange = (e) => {
@@ -340,7 +340,7 @@ export default function Main() {
         } else {
             setStateError("I'm sorry. We currently only service NYC.");
             return;
-        }
+        };
     };
 
     const handleZipCodeChange = (e) => {
@@ -377,14 +377,14 @@ export default function Main() {
     };
 
     const setOrder = (newOrder) => {
-        setOrderUp([...orderUp, newOrder])
-            orderUp.forEach((item, index)=>{
-                if (item[0]===newOrder[0]) {
-                    let newList= [...orderUp]
-                    newList[index]=newOrder
-                    setOrderUp([...newList])
-                }
-            })
+        setOrderUp([...orderUp, newOrder]);
+        orderUp.forEach((item, index)=>{
+            if (item[0]===newOrder[0]) {
+                let newList = [...orderUp];
+                newList[index] = newOrder;
+                setOrderUp([...newList]);
+            };
+        });
     };
 
     return (

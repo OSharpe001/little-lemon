@@ -34,7 +34,6 @@ export default function OrderAddress(props) {
     props.delivery.setStateError("");
     props.delivery.setZipCode("");
     props.delivery.setZipCodeError("");
-
   };
 
   const personalFormDisabled = !!(props.info.firstNameError) || !!(props.info.lastNameError) || !!(props.info.emailError) || !!(props.info.phoneError);
@@ -102,7 +101,7 @@ export default function OrderAddress(props) {
     e.preventDefault();
     if (!gotRequiredInfo) {
         setSubmissionErrors();
-        return
+        return;
     }else if (deliveryTerms === false){
         alert("Do you agree to our terms of service?");
     } else if (sameAsBilling) {
@@ -147,7 +146,7 @@ export default function OrderAddress(props) {
             "delivery-zip-code":props.delivery.zipCode
         });
         clearForm();
-    }
+    };
   };
 
   const handleTermsChange = (e) => {

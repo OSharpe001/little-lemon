@@ -9,18 +9,18 @@ export default function DeliveryCard(props) {
 
   const initialState = {amount: 0};
   const [state, dispatch] = useReducer(reducer, initialState);
-  const cost = props.price*state.amount
+  const cost = props.price*state.amount;
 
   const changeAmount = (e) => {
     if (e.target.value==="+") {
-      dispatch({type: "add"})
-      props.setOrder([props.name, state.amount+1, cost+props.price])
+      dispatch({type: "add"});
+      props.setOrder([props.name, state.amount+1, cost+props.price]);
     } else if (e.target.value==="-") {
-      dispatch({type: "subtract"})
-      props.setOrder([props.name, state.amount-1, cost-props.price])
+      dispatch({type: "subtract"});
+      props.setOrder([props.name, state.amount-1, cost-props.price]);
 
-    }
-  }
+    };
+  };
 
   return (
     <section className="menu-item" >

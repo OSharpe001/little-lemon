@@ -1,4 +1,4 @@
-import CustomerInfoForm from "./CustomerInfoForm"
+import CustomerInfoForm from "./CustomerInfoForm";
 import React, { useState } from "react";
 
 export default function BookingForm(props) {
@@ -78,7 +78,7 @@ export default function BookingForm(props) {
 
     const handleSeatingChange = (e) => {
         props.setSeating(e.target.value);
-    }
+    };
 
     const handleGuestsChange = (e) => {
         setGuests(e.target.value);
@@ -93,14 +93,15 @@ export default function BookingForm(props) {
     };
 
     const handleDateChange= (e) => {
-        if (e.target.value<today) { return (
-            null
-        )} else { return (
-        setResDate(e.target.value),
-        props.dispatch({type: "select", payload: e.target.value}))}
+        if (e.target.value<today) {
+            return null
+        } else { return (
+            setResDate(e.target.value),
+            props.dispatch({type: "select", payload: e.target.value}))
+        };
     };
     const handleTimeChange = (e) => {
-        setResTime(e.target.value)
+        setResTime(e.target.value);
     };
 
     const handleOccasionChange = (e)=> {
@@ -120,7 +121,7 @@ export default function BookingForm(props) {
 
     const handleTermsChange = (e) => {
         setReservationTerms(!reservationTerms);
-    }
+    };
 
     return (
         <form

@@ -34,7 +34,6 @@ export default function SignUp(props) {
         props.delivery.setStateError("");
         props.delivery.setZipCode("");
         props.delivery.setZipCodeError("");
-
     };
 
     const handleUserNameChange = (e) => {
@@ -62,8 +61,8 @@ export default function SignUp(props) {
 
     const setSubmissionErrors = () => {
         if (props.userName==="") {
-            props.setUserNameError("All fields are required.")
-        }
+            props.setUserNameError("All fields are required.");
+        };
         if (props.info.firstName === ""){
             props.info.setFirstNameError("All fields are required.");
         };
@@ -117,7 +116,7 @@ export default function SignUp(props) {
         e.preventDefault();
         if (!gotRequiredInfo) {
             setSubmissionErrors();
-            return
+            return;
         }else if (signUpTerms === false){
             alert("Do you agree to our terms of service?");
         } else if (sameAsBilling) {
@@ -139,7 +138,7 @@ export default function SignUp(props) {
                 "delivery-state":props.payment.state,
                 "delivery-zip-code":props.payment.zipCode
             });
-            props.setLoggedIn({userName:props.userName, state:true})
+            props.setLoggedIn({userName:props.userName, state:true});
             clearForm();
         } else {
             props.submitForm({
@@ -160,9 +159,9 @@ export default function SignUp(props) {
                 "delivery-state":props.delivery.state,
                 "delivery-zip-code":props.delivery.zipCode
             });
-            props.setLoggedIn({userName:props.userName, state:true})
+            props.setLoggedIn({userName:props.userName, state:true});
             clearForm();
-        }
+        };
     };
 
     const handleTermsChange = (e) => {

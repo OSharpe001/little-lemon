@@ -63,55 +63,53 @@ export default function SignIn(props) {
     };
 
     return (
-        <>
-            <section className="sign-in">
-                <form
-                onSubmit={handleSubmit}
-                className="form"
-                >
+        <section className="sign-in">
+            <form
+            onSubmit={handleSubmit}
+            className="form"
+            >
 
-                <h2>Sign In</h2>
-                    <label htmlFor="username">Username: </label>
+            <h2>Sign In</h2>
+                <label htmlFor="username">Username: </label>
+                <input
+                name="username"
+                id="username"
+                value={props.userName}
+                type="text"
+                placeholder="Username"
+                onChange= {handleUserNameChange}
+                />
+                {props.userNameError?<p className="error-message">{props.userNameError}</p>:null}
+
+                <label htmlFor="password">Password: </label>
+
+                <input
+                name="password"
+                id="password"
+                value={password}
+                type="password"
+                onChange= {handlePasswordChange}
+                />
+                {passwordError?<p className="error-message">{passwordError}</p>:null}
+
+                <div className="sign-up-or-in">
                     <input
-                    name="username"
-                    id="username"
-                    value={props.userName}
-                    type="text"
-                    placeholder="Username"
-                    onChange= {handleUserNameChange}
+                    disabled={disabled}
+                    style={disabled?{border: "1px solid #999999", backgroundColor: "#cccccc", color: "#666666", cursor: "not-allowed"}:null}
+                    aria-label="On Click"
+                    className="button"
+                    type="submit"
+                    value="Sign In"
                     />
-                    {props.userNameError?<p className="error-message">{props.userNameError}</p>:null}
 
-                    <label htmlFor="password">Password: </label>
+                    <p style={{textDecoration: "underline", padding: "10px 0"}}>or</p>
+                    <p>If You're Not Already A Member</p>
 
-                    <input
-                    name="password"
-                    id="password"
-                    value={password}
-                    type="password"
-                    onChange= {handlePasswordChange}
-                    />
-                    {passwordError?<p className="error-message">{passwordError}</p>:null}
+                    <Link aria-label="On Click" className="button" to="/sign_up">Sign Up</Link>
 
-                    <div className="sign-up-or-in">
-                        <input
-                        disabled={disabled}
-                        style={disabled?{border: "1px solid #999999", backgroundColor: "#cccccc", color: "#666666", cursor: "not-allowed"}:null}
-                        aria-label="On Click"
-                        className="button"
-                        type="submit"
-                        value="Sign In"
-                        />
-
-                        <p style={{textDecoration: "underline", padding: "10px 0"}}>or</p>
-                        <p>If You're Not Already A Member</p>
-
-                        <Link aria-label="On Click" className="button" to="/sign_up">Sign Up</Link>
-
-                        <p>for exclusive benefits!</p>
-                    </div>
-                </form>
-            </section>
-        </>
+                    <p>for exclusive benefits!</p>
+                </div>
+            </form>
+        </section>
     );
 };
