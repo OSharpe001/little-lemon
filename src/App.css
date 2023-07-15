@@ -247,8 +247,9 @@ input:focus:invalid {
 }
 
 section {
-  width: 65%;
+  /* width: 65%; */
   justify-content: space-evenly;
+  /* border: 2px solid red; */
 }
 
 .declare1 {
@@ -385,18 +386,14 @@ section {
   grid-column: 3 / 11;
   display: inline-flex;
   justify-content: space-between;
-}
-
-.about-pics img {
-  width: 18%;
-  height: 43%;
-  min-height: 300px;
-  border-radius: 16px;
+  /* border: 2px solid green; */
 }
 
 .description {
   text-align: left;
-  max-width: 75%;
+  /* max-width: 75%; */
+  width: 45%;
+  /* border: 2px solid red; */
 }
 
 .description p {
@@ -415,6 +412,27 @@ section {
   margin-bottom: 40%;
 }
 
+.about-pics {
+  width: 35%;
+  /* border: 2px solid blue; */
+}
+.about-pics img {
+  width: 18%;
+  height: 43%;
+  min-height: 300px;
+  border-radius: 16px;
+}
+
+/* .pic1 {
+  position: relative;
+  margin: -4% 0 0 5%;
+  right: 4px;
+}
+
+.pic2 {
+  position: relative;
+  margin: 0 0 0 -11%;
+} */
 .pic1 {
   position: absolute;
   margin: -4% 0 0 5%;
