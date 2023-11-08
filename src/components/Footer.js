@@ -25,7 +25,7 @@ export default function Footer() {
                 <p className="contact-info">(555) 555-5555</p>
                 <p className="contact-info">little@lemon.com</p>
                 <p className="contact-info">123 Lemon Road<br/> NYC, New York 98765</p>
-                <Link aria-label="On Click" to="https://osharpesportfolio.vercel.app" className="nav-item portfolio-link">O. Sharpe's Portfolio</Link>
+                <Link aria-label="On Click" to="https://osharpesportfolio.netlify.app" className="nav-item portfolio-link">O. Sharpe's Portfolio</Link>
             </nav>
             <nav className="footer-nav">
                 <p>Social Media Links</p>
