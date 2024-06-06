@@ -18,7 +18,7 @@
                        "reservation-terms"
                        "sign-up"
                        "declare1"
-                       "specials"
+                       /* "specials" */
                        "declare2"
                        "testimonials"
                        "about"
@@ -283,8 +283,8 @@ section {
 }
 
 .specials {
-  grid-area: specials;
-  grid-column: 3 / 11;
+  /* grid-area: specials; */
+  /* grid-column: 3 / 11; */
   grid-row: 5;
   display: inline-flex;
   justify-content: space-between;
