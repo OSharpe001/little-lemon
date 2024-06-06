@@ -1,10 +1,10 @@
 import About from "./components/About";
 import Hero from "./components/Hero";
 // import Specials from "./components/Specials";
-import greek_salad from "../assets/images/greek_salad.jpg";
-import bruchetta from "../assets/images/bruchetta.png";
-import lemon_dessert from "../assets/images/lemon_dessert.jpg";
-import moped_icon from "../assets/images/moped_icon_option.png";
+import greek_salad from "./assets/images/greek_salad.jpg";
+import bruchetta from "./assets/images/bruchetta.png";
+import lemon_dessert from "./assets/images/lemon_dessert.jpg";
+import moped_icon from "./assets/images/moped_icon_option.png";
 import Testimonials from "./components/Testimonials";
 import { Link } from "react-router-dom";
 
