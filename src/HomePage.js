@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Homepage() {
     return (
         <>
-            <Hero />
+            {/* <Hero /> */}
             <section className="declare1">
                 <h2>This week's specials!</h2>
                 <Link aria-label="On Click" to="/order" className="button">Online Menu</Link>
